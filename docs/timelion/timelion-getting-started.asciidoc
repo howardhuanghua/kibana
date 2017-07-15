@@ -1,5 +1,4 @@
 [[timelion-getting-started]]
-== Getting Started
 == 基础入门
 
 准备好体验 Timelion 了吗？以下教程将为你揭开神秘面纱：
