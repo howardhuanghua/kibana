@@ -19,7 +19,7 @@ image::images/tutorial-visualize-wizard-step-2.png[]
 
 image::images/tutorial-visualize-pie-1.png[]
 
-您可以使用 Elasticsearch {es-ref}search-aggregations.html[桶聚合] 指定图表中显示哪些信息。桶聚合简单的把符合您搜索条件的文档分成不同类别，又叫做 _buckets_ 。比如：包含每个账户的余额数据。通过使用桶聚合，您可以建立多个账户余额区间并找到每个区间内包含多少账户。
+您可以使用 Elasticsearch {es-ref}search-aggregations.html[桶聚合] 指定图表中显示哪些信息。桶聚合简单的把符合您搜索条件的文档分成不同类别，又叫做 _buckets_ 。例如：包含每个账户的余额数据。通过使用桶聚合，您可以建立多个账户余额区间并找到每个区间内包含多少账户。
 
 定义每个区间桶：
 
@@ -28,6 +28,7 @@ image::images/tutorial-visualize-pie-1.png[]
 . 从 *Field* 列表中选择 *balance* 字段。
 . 点击四次 *Add Range* 把区间总数增加到6个。 
 . 定义以下区间：
++
 [source,text]
 0             999
 1000         2999
@@ -54,27 +55,27 @@ image::images/tutorial-visualize-pie-2.png[]
 
 image::images/tutorial-visualize-pie-3.png[]
 
-点击 *Save* 然后输入名称 _Pie Example_ 来保存这个图表以供以后使用。
+点击 *Save* 然后输入名称 _Pie Example_ 来保存这个图表供以后使用。
 
-下一步，我们来看一下莎士比亚数据集中的数据。让我们找出每部剧中的台词数，然后通过柱状图来显示这些信息：
+下一步，我们来看一下莎士比亚数据集中的数据。让我们找出每部剧中的台词数，然后通过柱状图来显示这些数据：
 
 . 点击 *New* 然后选择 *Vertical bar chart* 。
 . 选择 `shakes*` 索引模式。因为目前并没有定义任何桶，您将会看到唯一的一个柱形，它代表着匹配默认通配请求的所有文档数。
 +
 image::images/tutorial-visualize-bar-1.png[]
 
-. 为了在y轴上显示每部剧里面的台词数，您需要通过 {es-ref}search-aggregations.html[指标聚合] 配置y轴。指标聚合以搜索结果中提取出来的值为基础计算出相应的指标。为了得到每部剧中的台词数，选择 *Unique Count* 聚合然后从字段列表中选择 *speaker* 。您也可以给这个轴加上标签， _Speaking Parts_ 。
+. 为了在y轴上显示每部剧里面的台词数，您需要通过 {es-ref}search-aggregations.html[指标聚合] 配置y轴。指标聚合以搜索结果中提取出来的值为基础计算出相应的指标。为了得到每部剧中的台词数，选择 *Unique Count* 聚合然后从字段列表中选择 *speaker* 。您也可以给这个轴加上标签，例如 _Speaking Parts_ 。
 
-. 为了在x轴上显示不同的剧目，选择X轴桶种类，然后在聚合列表中选择 *Terms* ，并且从字段列表中选择 *play_name* 。选择 *Ascending* 使得剧目名称按照字母顺序排列。您也可以给这个轴加上标签， _Play Name_ 。
+. 为了在x轴上显示不同的剧目，选择X轴桶种类，然后在聚合列表中选择 *Terms* ，并从字段列表中选择 *play_name* 。选择 *Ascending* 使得剧目名称按照字母顺序排列。您也可以给这个轴加上标签，例如 _Play Name_ 。
 
 
 . 点击 *Apply changes* image:images/apply-changes-button.png[] 来显示结果。
 
 image::images/tutorial-visualize-bar-2.png[]
 
-注意每部剧名显示为整个短语，而不是以单词的形式分开。因为我们在教程开始的时候做了映射的缘故，把 *play_name* 字段标记为 'not analyzed' 。
+注意每部剧名显示为整个短语，而不是以单词的形式分开。是因为我们在教程开始的时候做了映射的缘故，把 *play_name* 字段标记为 'not analyzed' 。
 
-鼠标悬停在每个柱形上可以以提示信息的形式显示每部剧中的台词数。为了关闭提示信息并配置其它选项，选择可视化编辑器的 *Options* 选项。
+鼠标悬停在每个柱形图上可以以提示信息的形式显示每部剧中的台词数。为了关闭提示信息并配置其它选项，选择可视化编辑器的 *Options* 选项。
 
 现在，您已经拥有一个莎士比亚戏剧的最小演员表，您也许会想通过显示某部剧里面的最大台词数来了解哪部剧对一个演员要求最高。
 
@@ -89,7 +90,7 @@ image::images/tutorial-visualize-bar-3.png[]
 
 请注意 *Number of speaking parts* Y轴从0开始，但是柱形从18才开始有差别。为了让这种差别更明显，我们让Y轴从最接近最小值的数据开始，打开选项然后选择 *Scale Y-Axis to data bounds* 。
 
-保存这个图表命名为 _Bar Example_ 。
+保存这个图表并命名为 _Bar Example_ 。
 
 下一步，我们使用地图来可视化日志样本数据集中的地理标识信息。
 
@@ -113,7 +114,7 @@ image::images/tutorial-visualize-map-1.png[]
 
 image::images/tutorial-visualize-map-2.png[]
 
-您可以通过点击和拖动来浏览地图，通过 image:images/viz-zoom.png[] 按钮放大缩小，或者点击 *Fit Data Bounds* image:images/viz-fit-bounds.png[] 缩放到最低水平来显示所有部位。您也可以通过点击 *Latitude/Longitude Filter* image:images/viz-lat-long-filter.png[] 并在地图上画框来包含或去除某个矩形区域。已被应用的过滤器显示在查询栏下方。悬停在过滤器上方可以显示切换、固定、反转和删除该过滤器的控制选项。
+您可以通过点击和拖动来浏览地图，通过 image:images/viz-zoom.png[] 按钮放大缩小，或者点击 *Fit Data Bounds* image:images/viz-fit-bounds.png[] 缩放到最低水平来显示所有部位。您也可以通过点击 *Latitude/Longitude Filter* image:images/viz-lat-long-filter.png[] 并在地图上画框来包含或去除某个矩形区域。已被应用的过滤器显示在查询栏下方。鼠标悬停在过滤器上方可以显示切换、固定、反转和删除该过滤器的控制选项。
 
 image::images/tutorial-visualize-map-3.png[]
 
@@ -126,9 +127,9 @@ image::images/tutorial-visualize-map-3.png[]
 . 在输入框中输入如下内容：
 +
 [source,markdown]
-# 这是一个作为教程的仪表盘！
-Markdown 插件使用 **markdown** 语法。
-> Markdown 中的 Blockquotes 使用 > 符号。
+# This is a tutorial dashboard!
+The Markdown widget uses **markdown** syntax.
+> Blockquotes in Markdown use the > character.
 
 . 点击 *Apply changes* image:images/apply-changes-button.png[] 在预览框中显示该 Markdown 。
 +
