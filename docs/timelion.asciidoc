@@ -3,25 +3,22 @@
 
 [partintro]
 --
-Timelion is a time series data visualizer that enables you to combine totally
-independent data sources within a single visualization. It's driven by a simple
-expression language you use to retrieve time series data, perform calculations
-to tease out the answers to complex questions, and visualize the results.
+Timelion 是一个基于时间序列的数据可视化工具，它可以将多种独立的数据源合并呈现到一张视图上。用户可以利用一些简单的表达式语言提取所需数据，并进行一些计算将复杂的问题简化并呈现结果。
 
-For example, Timelion enables you to easily get the answers to questions like:
+例如，Timelion 可以非常轻松的解决这些问题：
 
-* How many pages does each unique user view over time?
-* What's the difference in traffic volume between this Friday and last Friday?
-* What percent of Japan's population came to my site today?
-* What's the 10-day moving average of the S&P 500?
-* What's the cumulative sum of all search requests received in the last 2 years?
+* 过去某段时间页面的 UV 量是多少？
+* 本周五和上周五的流量有多少差异？
+* 本站今天来自日本的访客占多少百分比？
+* 标普500指数过去10天的移动平均值是多少？
+* 过去两年所有的查询请求总量有多少？
 {nbsp}
 
-You might also be interested in these tutorial videos:
+您还可能对以下视频教程感兴趣：
 
-* https://www.elastic.co/elasticon/conf/2017/sf/timelion-magic-math-and-everything-in-the-middle[Timelion: Magic, Math, and Everything in the Middle]
-* https://www.elastic.co/videos/timelion-plugin-for-kibana-enables-times-series-paris-meetup[Timelion Plugin for Kibana Enables Time Series]
-* https://www.elastic.co/videos/using-kibana-and-timelion-to-analyze-earthquake-data[Using Kibana and Timelion to Analyze Earthquake Data]
+* https://www.elastic.co/elasticon/conf/2017/sf/timelion-magic-math-and-everything-in-the-middle[Timelion: 魔法、数学，一切尽在其中]
+* https://www.elastic.co/videos/timelion-plugin-for-kibana-enables-times-series-paris-meetup[Timelion 插件为 Kibana 提供了时间序列分析工具]
+* https://www.elastic.co/videos/using-kibana-and-timelion-to-analyze-earthquake-data[利用 Kibana 和 Timelion 分析地震数据]
 --
 
 include::timelion/timelion-getting-started.asciidoc[]

@@ -1,9 +1,9 @@
 [[timelion-conditional]]
-=== Using conditional logic and tracking trends
+=== 使用条件逻辑和趋势追踪
 
-In this section you will learn how to modify time series data with conditional logic and create a trend with a moving average. This is helpful to easily detect outliers and patterns over time.
+这一节您将学会如何使用条件逻辑修改时间序列数据和创建移动平均趋势。这样可以非常方便的发现随着时间推移的异常数据。
 
-For the purposes of this tutorial, you will continue to use https://www.elastic.co/downloads/beats/metricbeat[Metricbeat data] to add another visualization that monitors memory consumption. To start, use the following expression to chart the maximum value of  `system.memory.actual.used.bytes`.
+为了便于本节内容的学习，我们可以基于 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat 数据] 利用可视化控件监控内存消耗情况。可以使用如下表达式在图表中呈现 `system.memory.actual.used.bytes` 的最大值。 
 
 [source,text]
 ----------------------------------
@@ -13,21 +13,21 @@ For the purposes of this tutorial, you will continue to use https://www.elastic.
 image::images/timelion-conditional01.png[]
 {nbsp}
 
-Let’s create two thresholds to keep an eye on the amount of used memory. For the purposes of this tutorial, your warning threshold will be 12.5GB and your severe threshold will be 15GB. When the maximum amount of used memory exceeds either of these thresholds, the series will be colored accordingly.
+我们为内存使用总量创建两个阈值。例如您的告警阈值是12.5GB，严重告警阈值是15GB。当内存使用总量超过其中任何一个，序列图将会在阈值点后用不同的颜色展示。
 
-NOTE: If the threshold values are too high or low for your machine, please adjust accordingly.
+NOTE: 如果上述阈值相对您的机器过高或过低，可以自行调节。
 
-To configure these two threshold values, you can utilize Timelion's conditional logic. In this tutorial you will use `if()` to compare each point to a number, adjust the styling if the condition evaluates to `true` and use the default styling if the condition evaluates to `false`. Timelion offers the following six operator values for comparison.
+你可以使用 Timelion 的条件逻辑配置这两个阈值。可以使用 `if()` 去比较每个点的值和某个数值的大小，如果数值超过阈值则使用不同的样式，如果未超过阈值，则使用默认样式。Timelion 提供以下六种比较操作：
 
 [horizontal]
-`eq`:: equal
-`ne`:: not equal
-`lt`:: less than
-`lte`:: less than or equal to
-`gt`:: greater than
-`gte`:: greater than or equal to
+`eq`:: 等于
+`ne`:: 不等于
+`lt`:: 小于
+`lte`:: 小于等于
+`gt`:: 大于
+`gte`:: 大于等于
  
-Since there are two thresholds, it makes sense to style them differently. Use the `gt` operator to color the warning threshold yellow with `.color('#FFCC11')` and the severe threshold red with `.color('red')`. Enter the following expression into the Timelion query bar to apply the conditional logic and threshold styling:
+因为有两个阈值，我们需要配置两种不同的样式。使用 `gt` 操作符和 `.color('#FFCC11')` 函数将高于告警阈值的标记为黄色，用 `.color('red')` 函数将严重告警标记为红色。在 Timelion 查询框里面输入以下表达式来配置条件逻辑和阈值类型：
 
 [source,text]
 ----------------------------------
@@ -37,9 +37,9 @@ Since there are two thresholds, it makes sense to style them differently. Use th
 image::images/timelion-conditional02.png[]
 {nbsp}
 
-For additional information on Timelions conditional capabilities, check out the blog post https://www.elastic.co/blog/timeseries-if-then-else-with-timelion[I have but one .condition()].
+参考 https://www.elastic.co/blog/timeseries-if-then-else-with-timelion[I have but one .condition()] 博文查看更多关于 Timelion 的用法。
 
-Now that you have thresholds defined to easily identify outliers, let’s create a new series to determine what the trend really is. Timelion's `mvavg()` function allows you to calculate the moving average over a given window. This is especially helpful for noisey time series. For this tutorial, you will use `.mvavg(10)` to create a moving average with a window of 10 data points. Use the following expression to create a moving average of the maximum memory usage:
+现在我们有阈值控制可以轻松的识别错误数据，接下我们创建一个新的时序图来呈现真正的趋势。Timelion 的 `mvavg()` 方法可以方便的计算给定时间窗口的移动平均值。这对于分析有很多噪音数据的时序图非常有帮助。这里，你可以使用 `.mvavg(10)` 创建有10个数据点的移动平均窗口。使用如下表达式创建最大内存使用量的移动平均趋势。
 
 [source,text]
 ----------------------------------
@@ -49,7 +49,7 @@ Now that you have thresholds defined to easily identify outliers, let’s create
 image::images/timelion-conditional03.png[]
 {nbsp}
 
-Now that you have thresholds and a moving average, let's format the visualization so it is a bit easier to consume. As with the last section, use the `.color()`, `.line()`, `.title()` and `.legend()` functions to update your visualization accordingly:
+现在我们有了阈值控制和移动平均，我们来利用上一节描述过的 `.color()`, `.line()`, `.title()` 和 `.legend()` 方法来丰富我们的图表以便于更好的查看：
 
 [source,text]
 ----------------------------------
@@ -59,4 +59,4 @@ Now that you have thresholds and a moving average, let's format the visualizatio
 image::images/timelion-conditional04.png[]
 {nbsp}
 
-Save your Timelion sheet and continue on to the next section to add these new visualizations to your dashboard.
+保存你的 Timelion 工作表，继续学习下一章节将这些工作表添加到你的仪表盘上。
