@@ -1,13 +1,13 @@
 [[timelion-getting-started]]
 == 基础入门
 
-准备好体验 Timelion 了吗？以下教程将为你揭开神秘面纱：
+准备好体验 Timelion 了吗？以下教程将为您揭开其神秘面纱：
 
 * <<timelion-create, 利用多个表达式创建时间序列图表>>
 * <<timelion-customize, 自定义可视化类型和格式选项>>
 * <<timelion-math, 使用数学函数处理数据>>
 * <<timelion-conditional, 跟踪趋势并用条件逻辑提取异常值>>
-* <<timelion-save, 添加 Timelion 可视化部件到仪表盘>>
+* <<timelion-save, 添加 Timelion 可视化控件到仪表盘>>
 * <<timelion-inline-help, 查看内嵌的帮助文档>>
 
 
