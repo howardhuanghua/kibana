@@ -1,9 +1,9 @@
 [[timelion-conditional]]
 === 使用条件逻辑和趋势追踪
 
-这一节你将学会如何使用条件逻辑修改时间序列的数据和创建移动平均趋势。这样可以非常方便的发现随着时间推移的异常数据。
+这一节您将学会如何使用条件逻辑修改时间序列数据和创建移动平均趋势。这样可以非常方便的发现随着时间推移的异常数据。
 
-为了实现本节的目的，我们可以依赖 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat 数据] 可视化的监控内存消耗情况。可以使用如下表达式在图表中展现 `system.memory.actual.used.bytes` 的最大值。 
+为了便于本节内容的学习，我们可以基于 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat 数据] 利用可视化控件监控内存消耗情况。可以使用如下表达式在图表中呈现 `system.memory.actual.used.bytes` 的最大值。 
 
 [source,text]
 ----------------------------------
@@ -13,9 +13,9 @@
 image::images/timelion-conditional01.png[]
 {nbsp}
 
-我们为内存使用总量创建两个阈值。例如你的告警阈值是12.5GB，严重告警阈值是15GB。当内存使用总量超过其中任何一个，序列图将会在阈值点后用不同的颜色展示。
+我们为内存使用总量创建两个阈值。例如您的告警阈值是12.5GB，严重告警阈值是15GB。当内存使用总量超过其中任何一个，序列图将会在阈值点后用不同的颜色展示。
 
-NOTE: If the threshold values are too high or low for your machine, please adjust accordingly.
+NOTE: 如果上述阈值相对您的机器过高或过低，可以自行调节。
 
 你可以使用 Timelion 的条件逻辑配置这两个阈值。可以使用 `if()` 去比较每个点的值和某个数值的大小，如果数值超过阈值则使用不同的样式，如果未超过阈值，则使用默认样式。Timelion 提供以下六种比较操作：
 
@@ -39,7 +39,7 @@ image::images/timelion-conditional02.png[]
 
 参考 https://www.elastic.co/blog/timeseries-if-then-else-with-timelion[I have but one .condition()] 博文查看更多关于 Timelion 的用法。
 
-现在我们有阈值控制可以轻松的识别错误数据，接下我们创建一个新的时序图来呈现真正的趋势。Timelion 的 `mvavg()` 方法可以方便的计算给定时间窗口的移动平均值。这个对于分析有很多噪音数据的时序图非常有帮助。这里，你可以使用 `.mvavg(10)` 创建有10个数据点的移动平均窗口。使用如下表达式创建最大内存使用量的移动平均趋势。
+现在我们有阈值控制可以轻松的识别错误数据，接下我们创建一个新的时序图来呈现真正的趋势。Timelion 的 `mvavg()` 方法可以方便的计算给定时间窗口的移动平均值。这对于分析有很多噪音数据的时序图非常有帮助。这里，你可以使用 `.mvavg(10)` 创建有10个数据点的移动平均窗口。使用如下表达式创建最大内存使用量的移动平均趋势。
 
 [source,text]
 ----------------------------------
@@ -59,4 +59,4 @@ image::images/timelion-conditional03.png[]
 image::images/timelion-conditional04.png[]
 {nbsp}
 
-保存你的 Timelion 工作表，继续学习下一章节来将这些工作表添加到你的仪表盘上。
+保存你的 Timelion 工作表，继续学习下一章节将这些工作表添加到你的仪表盘上。
