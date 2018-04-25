@@ -8,7 +8,7 @@
 image::images/timelion-math01.png[]
 {nbsp}
 
-为了便于追踪网络上下行传输量，您的第一个表达式将会计算 `system.network.in.bytes` 下行数据的最大值。在 Timelion 查询框输入如下表达式：
+为了便于追踪网络上下行流量，您的第一个表达式将会计算 `system.network.in.bytes` 下行数据的最大值。在 Timelion 查询框输入如下表达式：
 
 [source,text]
 ----------------------------------
@@ -18,7 +18,7 @@ image::images/timelion-math01.png[]
 image::images/timelion-math02.png[]
 {nbsp}
 
-监控网络传输量对于评估网络速率来说是非常有价值的。`derivative()` 函数就可以用来做这种随着时间而变化的数据。我们可以简单的将该函数添加至表达式的末尾。使用如下表达式来更新您的控件：
+监控网络流量对于评估网络速率来说是非常有价值的。`derivative()` 函数就可以用来做这种随着时间而变化的数据。我们可以简单的将该函数添加至表达式的末尾。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
@@ -48,7 +48,7 @@ image::images/timelion-math04.png[]
 image::images/timelion-math05.png[]
 {nbsp}
 
-我们可以利用前面章节学过的样式定制函数 `.title()`, `.label()`, `.color()`, `.lines()` and `.legend()` 将我们的控件变的更美观。使用如下表达式来更新您的控件：
+我们可以利用前面章节学过的样式定制函数 `.title()`, `.label()`, `.color()`, `.lines()` 和 `.legend()` 将我们的控件变的更美观。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
