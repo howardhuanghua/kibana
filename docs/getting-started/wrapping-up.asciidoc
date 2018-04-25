@@ -1,14 +1,9 @@
 [[wrapping-up]]
-== Wrapping Up
+== 总结
 
-Now that you have a handle on the basics, you're ready to start exploring
-your own data with Kibana.
+现在您已经掌握了基本技能，可以开始使用 Kibana 探索您自己的数据了。
 
-* See <<discover, Discover>> for more information about searching and filtering
-your data.
-* See <<visualize, Visualize>> for information about all of the visualization
-types Kibana has to offer.
-* See <<management, Management>> for information about configuring Kibana
-and managing your saved objects. 
-* See <<console-kibana, Console>> for information about the interactive 
-console UI you can use to submit REST requests to Elasticsearch.
+* 点击 <<discover, Discover>> 查看更多关于搜索和过滤数据的信息。
+* 点击 <<visualize, Visualize>> 查看所有 Kibana 提供的可视化控件种类。
+* 点击 <<management, Management>> 查看如何配置 Kibana 和管理已保存的对象。
+* 点击 <<console-kibana, Console>> 查看如何使用交互控制台向 Elasticsearch 提交 REST 请求。
