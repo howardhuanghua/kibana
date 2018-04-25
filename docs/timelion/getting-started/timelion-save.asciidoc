@@ -20,4 +20,4 @@ image::images/timelion-save01.png[]
 image::images/timelion-save02.png[]
 {nbsp}
 
-注意：您也可以在可视化控件列表 Timeseries 中用 Timelion 表达式直接创建时间序列控件。
+TIP: 您也可以在可视化控件列表 Timeseries 中用 Timelion 表达式直接创建时间序列控件。
