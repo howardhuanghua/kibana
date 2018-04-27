@@ -1,10 +1,8 @@
 [[history]]
-== History
+== 历史记录
 
-Console maintains a list of the last 500 requests that were successfully executed by Elasticsearch. The history
-is available by clicking the clock icon on the top right side of the window. The icons opens the history panel
-where you can see the old requests. You can also select a request here and it will be added to the editor at
-the current cursor position.
+控制台会保留500条最新的被 Elasticsearch 成功执行的请求。历史记录可以通过点击窗口右上角的时钟图标来获得。这个图标会打开历史记录面板在那里您可以看到旧的请求。您也可以在这里选择一个请求，它将被添加到编辑器中当前光标所在的位置。
 
-.History Panel
-image::images/history.png["History Panel"]
+.历史记录面板
+image::images/history.png["历史记录面板"]
+

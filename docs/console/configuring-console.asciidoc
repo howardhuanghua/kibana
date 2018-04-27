@@ -1,6 +1,6 @@
 [[configuring-console]]
-== Configuring Console
+== 配置控制台
 
-You can add the following options in the `config/kibana.yml` file:
+您可以在 `config/kibana.yml` 文件中添加以下配置：
+`console.enabled`:: *Default: true* 设置为 false 后可以禁用控制台。切换这个配置服务器会在下次重启前重新生成资源，这样会导致页面渲染前可能有些延迟。
 
-`console.enabled`:: *Default: true* Set to false to disable Console. Toggling this will cause the server to regenerate assets on the next startup, which may cause a delay before pages start being served.

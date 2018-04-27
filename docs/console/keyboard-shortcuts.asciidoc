@@ -1,21 +1,23 @@
 [[keyboard-shortcuts]]
-== Keyboard shortcuts
+== 键盘快捷键
 
-Console comes with a set of nifty keyboard shortcuts making working with it even more efficient. Here is an overview:
+控制台配备了一套漂亮的键盘快捷键，使其工作效率更高。下面是一段概述：
 
-[float]
-=== General editing
-
-Ctrl/Cmd + I:: Auto indent current request.
-Ctrl + Space:: Open Auto complete (even if not typing).
-Ctrl/Cmd + Enter:: Submit request.
-Ctrl/Cmd + Up/Down:: Jump to the previous/next request start or end.
-Ctrl/Cmd + Alt + L:: Collapse/expand current scope.
-Ctrl/Cmd + Option + 0:: Collapse all scopes but the current one. Expand by adding a shift.
 
 [float]
-=== When auto-complete is visible
+=== 一般编辑
 
-Down arrow:: Switch focus to auto-complete menu. Use arrows to further select a term.
-Enter/Tab::  Select the currently selected or the top most term in auto-complete menu.
-Esc:: Close auto-complete menu.
+Ctrl/Cmd + I:: 当前请求自动缩进。
+Ctrl + Space:: 打开自动补全 （即使没有打字也可以）。
+Ctrl/Cmd + Enter:: 提交请求。
+Ctrl/Cmd + Up/Down:: 跳转到上一个/下一个请求的开始或结束。
+Ctrl/Cmd + Alt + L:: 折叠或打开当前代码块。
+Ctrl/Cmd + Option + 0:: 折叠除当前代码块之外的所有代码块，通过添加 shift 打开除当前代码块之外的所有代码块。
+
+[float]
+=== 自动补全可见时
+
+Down arrow:: 光标切换到自动补全菜单，使用方向键选择下一个选项。
+Enter/Tab:: 在自动补全菜单中选择当前或最上面的选项。
+Esc:: 关闭自动补全菜单。
+
