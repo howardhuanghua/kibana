@@ -1,15 +1,16 @@
-The `Duration` field formatter can display the numeric value of a field in the following increments:
+`持续时间` 字段格式化器可以以如下增量显示字段的数值：
 
-* Picoseconds
-* Nanoseconds
-* Microseconds
-* Milliseconds
-* Seconds
-* Minutes
-* Hours
-* Days
-* Weeks
-* Months
-* Years
+* Picoseconds 皮秒
+* Nanoseconds 纳秒
+* Microseconds 微秒
+* Milliseconds 毫秒
+* Seconds 秒
+* Minutes 分钟
+* Hours 小时
+* Days 天
+* Weeks 星期
+* Months 月
+* Years 年
 
-You can specify these increments with up to 20 decimal places for both input and output formats.
+对于输入和输出，您都可以指定最多20位数字的增量。
+

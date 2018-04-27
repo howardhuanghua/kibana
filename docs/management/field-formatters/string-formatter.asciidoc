@@ -1,11 +1,10 @@
-The `String` field formatter can apply the following transformations to the field's contents:
+`字符串` 字段格式化器可以对字段内容做如下转换：
 
-* Convert to lowercase
-* Convert to uppercase
-* Convert to title case
-* Apply the short dots transformation, which replaces the content before a `.` character with the first character of
-that content, as in the following example:
+* 转换为小写
+* 转换为大写
+* 转化为标题 （单词的第一个字母大写）
+* 应用短点转换，对于 `.` 字符之前的内容，它将用其第一个字符替换整个字符串。如下所示：
 
 [horizontal]
-*Original*:: *Becomes*
+*原始字符串*:: *转换后*
 `com.organizations.project.ClassName`:: `c.o.p.ClassName`
