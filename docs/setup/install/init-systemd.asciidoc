@@ -1,11 +1,9 @@
-==== SysV `init` vs `systemd`
+==== SysV `init` 和 `systemd` 对比
 
-Kibana is not started automatically after installation. How to start
-and stop Kibana depends on whether your system uses SysV `init` or
-`systemd` (used by newer distributions).  You can tell which is being used by
-running this command:
+Kibana 安装后不会自动启动。如何启动和停止 Kibana，依赖与您的操作系统。使用 SysV `init` 还是 `systemd` （新的发行版使用），可以通过以下命令来显示使用的是哪种：
 
 [source,sh]
 --------------------------------------------
 ps -p 1
 --------------------------------------------
+

@@ -1,9 +1,9 @@
 [[release-notes]]
-= Release Notes
+= 版本说明
 
 [partintro]
 --
-This section summarizes the changes in each release.
+本节总结了以下版本包含的主要内容。
 
 * <<release-notes-6.0.0-alpha2>>
 * <<release-notes-6.0.0-alpha1>>

@@ -1,33 +1,29 @@
 [[tribe]]
-== Using Kibana with Tribe nodes
+== 使用 Kibana Tribe 节点
 
-Kibana can be configured to connect to a {ref}/current/modules-tribe.html[tribe node] for data retrieval.  Because tribe nodes can't create indices, Kibana additionally
-requires a separate connection to a node to maintain state.  When configured, searches and visualizations will retrieve data using
-the tribe node and administrative actions (such as saving a dashboard) will be sent to non-tribe node.
+Kibana 可以配置连接 Tribe 节点用于数据检索。因为 tribe 节点不能创建索引，Kibana 额外需要一个独立的连接来维护节点状态。当配置好后，搜索和可视化控件会使用 tribe 节点检索数据，管理操作（如保存仪表盘）会发送给非 tribe 节点。
 
 [float]
 [[tribe-configuration]]
-=== Configuring Kibana for tribe nodes
+=== 配置 Kibana Tribe 节点
 
-Tribe nodes take all of the same configuration options used when configuring elasticsearch in `kibana.yml`.  Tribe options
-are prefixed with `elasticsearch.tribe` and at a minimum requires a url:
+当 `kibana.yml` 中配置了 elasticsearch 时，Tribe 节点使用相同的配置。Tribe 配置的前缀是 `elasticsearch.tribe` ，至少需要配置一个 url：
 [source,text]
 ----
 elasticsearch.url: "<your_administration_node>"
 elasticsearch.tribe.url: "<your_tribe_node>"
 ----
 
-When configured to use a tribe node, actions that modify Kibana's state will be sent to the node at `elasticsearch.url`.  Searches and visualizations
-will retrieve data from the node at `elasticsearch.tribe.url`.  It's acceptable to use a node for `elasticsearch.url` that is part of one of the clusters that
-a tribe node is pointing to.
+当配置了 tribe 节点时，改变 Kibana 状态的操作会发给 `elasticsearch.url` 配置的地址。搜索和可视化控件会从 `elasticsearch.tribe.url` 节点检索数据。 `elasticsearch.url` 配置的节点可以是 tribe 节点所连接集群中的其中一个。
 
-The full list of configurations can be found at <<settings>>.
+整个配置列表请见 <<settings>> 。
 
 [float]
 [[tribe-limitations]]
-=== Limitations
+=== 局限性
 
-Due to the ambiguity of which cluster is being used, certain features are disabled in Kibana:
+由于被使用集群的模糊性，Kibana 一些特性不可用：
 
-* Console
-* Managing users and roles with the x-pack plugin
+* 控制台
+* x-pack 插件的用户和角色管理
+
