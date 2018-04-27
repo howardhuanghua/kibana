@@ -1,54 +1,54 @@
 [[breaking-changes-6.0]]
-== Breaking changes in 6.0
+== 6.0 版本中的重要更新
 
-This section discusses the changes that you need to be aware of when migrating
-your application to Kibana 6.0.
-
-
-[float]
-=== Removed option to use unsupported scripting languages
-*Details:* Kibana 5.x allowed users to create scripted fields using any scripting language enabled in Elasticsearch.
-Kibana 6.0 will only support Painless and Lucene expression based scripts.
-
-
-*Impact:* You will need to migrate your groovy, python, javascript, etc. scripted fields to Painless or Lucene expressions.
+本节讨论当您的应用需要迁移到 kibana 6.0 时需要注意的一些改变。
 
 
 [float]
-=== Changed response format of status API
-*Details:* In an effort to align with our style guidelines and provide a digestible response,
-the status API has changed:
+=== 不能再继续使用不支持的脚本语言
+*说明：* Kibana 5.x 允许用户使用 Elasticsearch 支持的任何脚本语言创建脚本化的字段。
+而 Kibana 6.0 将只支持基于 Painless 和 Lucene 表达式的脚本。
 
-* Properties are now snake cased and several have been renamed
-* Metrics now provide the latest available data instead of samples over time
 
-*Impact:* You will need to update anything using the status API and expecting the previous response format.
+*影响：* 您需要迁移您用 groovy、python、javascript 等脚本创建的字段，将其修改为 Painless 或者 Lucene 的表达式。
 
 
 [float]
-=== Timelion requires comma to separate queries
-*Details:* Kibana 5.x allowed users to use spaces as a query separator in timelion `.es(400) .es(500)`.
-This is no longer the case. Now, only commas are a valid query separator: e.g. `.es(400), .es(500)`
+=== 修改了状态 API 的响应格式
+*说明：* 为了使风格具有一致性，并提供易于理解的响应，
+状态 API 做了如下修改：
 
-*Impact:* You will need to migrate your stored timelion queries to the new syntax.
+* 属性的名称现在已经使用了 snake case 命名法（名称如果是复合词或者包含短语，各个单词之间用下划线分割，不能有空格），部分属性名称已经做了修改。
+* 指标现在提供最新的可用数据，而不是随着时间变化的采样。
 
-
-[float]
-=== Requires 64 bit operating system
-*Details:* Kibana 6.0.0 and onward only support 64 bit operating systems.
-
-*Impact:* You will need to install Kibana 6.x on a 64 bit operating system. No extra data migration steps are necessary when moving from 32 bit to 64 bit.
+*影响：* 您需要更新使用了状态 API 的地方。
 
 
 [float]
-=== NODE_ENV no longer has an impact on Kibana
-*Details:* Setting the NODE_ENV environment variable can break Kibana processes in unexpected ways, which is especially unfortunate since it is a common environment variable to have configured on a system, and you wouldn't expect it to break anything in Kibana. Kibana will now effectively ignore NODE_ENV entirely.
+=== Timelion 中需要使用逗号来分割多个查询
+*说明：* Kibana 5.x 的 timelion 中，用户可以使用空格作为查询的分隔符，例如： `.es(400) .es(500)` ，
+现在只有逗号才能作为有效的查询分隔符。例如： `.es(400), .es(500)` 。
 
-*Impact:* If you're developing a custom plugin that depends on NODE_ENV, you will need to update it to use a different, custom environment variable.
+*影响：* 您需要使用新的语法重写 timelion 中存储的查询。
 
 
 [float]
-=== Kibana 4.x configuration names using `_` instead of `.` have been removed
-*Details:* In Kibana 4.2, we renamed all configuration names in kibana.yml to use `.` as a separator instead of `_`, though the legacy configurations would still continue to work. In 5.0, we started logging deprecation notices whenever the legacy configurations were encountered. In 6.0 onward, legacy configuration names that use an underscore instead of a dot will no longer work.
+=== 需要64位操作系统
+*说明：* Kibana 6.0.0 及以后版本只支持64位的操作系统。
 
-*Impact:* Any usages of underscore separated configuration names in kibana.yml need to be updated to their modern equivalents. See <<settings,Configuring Kibana>> for accepted configurations.
+*影响：* 您需要在64位的操作系统上安装 Kibana 6.x 。 不过，当从32位操作系统向64位操作系统迁移时，不需要额外的数据迁移步骤。
+
+
+[float]
+=== NODE_ENV 环境变量不再影响 Kibana
+*说明：* 设置 NODE_ENV 环境变量有可能会以意想不到的方式中断 Kibana 进程，不幸的是，它往往是系统中的常见设置，您不会希望它导致 Kibana 出现任何异常。 所以，现在 kibana 将会完全忽略 NODE_ENV 环境变量的设置。
+
+*影响：* 如果您正在开发一个依赖于 NODE_ENV 环境变量的定制化插件，您需要将其更新为依赖另外一个不同名称的的环境变量。
+
+
+[float]
+=== 使用 `_` 而不是 `.` 作为分隔符的 Kibana 4.x 式的配置名命名规则已经不再被支持
+*说明：* 在 Kibana 4.2 中，我们使用 `.` 字符作为分隔符替换 `_` 字符，重命名了配置文件 kibana.yml 中的所有配置名称，传统方式的配置依然是可以正常工作的。在 5.0 版本中，当遇到传统配置时我们开始记录过期申明。 在 6.0 及其以后版本中，这些使用下划线而不是 `.` 字符的旧配置名称将不再起作用。
+
+*影响：* kibana.yml 配置中任何使用下划线字符分割配置名称的地方，都需要更新为当前版本支持的用法。具体用法请参考 <<settings,Configuring Kibana>> 章节。
+

@@ -1,13 +1,9 @@
 [[discover]]
-= Discover
+= 数据探索
 
 [partintro]
 --
-You can interactively explore your data from the Discover page. You have access to every document in every index that
-matches the selected index pattern. You can submit search queries, filter the search results, and view document data.
-You can also see the number of documents that match the search query and get field value statistics. If a time field is
-configured for the selected index pattern, the distribution of documents over time is displayed in a histogram at the
-top of the page.
+您可以在数据探索（Discover）页面探索您的数据。您可以访问匹配所选索引模式的所有索引中的每个文档。您可以提交查询请求、过滤查询结果、查看文档数据。您也可以查看匹配查询条件的文档数量以及获取相关字段的统计数据。如果索引模式中配置了时间字段，您还可以在这个页面的顶部看到基于时间分布的文档数量柱状图。
 
 image::images/Discover-Start-Annotated.png[Discover]
 --
