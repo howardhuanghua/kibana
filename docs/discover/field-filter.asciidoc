@@ -39,7 +39,7 @@ image:images/filter-enable.png[] 启动过滤器 :: 禁用过滤器不会删除�
 image:images/filter-pin.png[] 固定过滤器 :: 当把上下文切换为 Kibana 时，被固定的过滤器仍然有效。例如，在 Discover 中固定一个过滤器，若切换至 Visualize，该过滤器仍然存在。请注意，过滤器是基于某个特定的索引字段——如果搜索的索引不包含固定过滤器中的字段，将不会生效。
 image:images/filter-toggle.png[] 切换筛选器 :: 在积极过滤器和消极过滤器之间转换。
 image:images/filter-delete.png[] 移除过滤器:: 移除过滤器。
-image:images/filter-custom.png[] 编辑过滤器 :: <<filter-edit, 编辑过滤器>> 定义。可用于手动更新过滤查询和为过滤器指定标签。
+image:images/filter-custom.png[] 编辑过滤器 :: <<filter-edit, 编辑过滤器>>定义。可用于手动更新过滤查询和为过滤器指定标签。
 
 对所有已应用的过滤器进行一次过滤，点击 *Actions* 并选择过滤指令。
 

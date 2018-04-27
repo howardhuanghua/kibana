@@ -3,7 +3,7 @@
 
 在 Windows 中安装 Kibana 使用 `.zip` 包。
 
-最新稳定版 Kibana 可以从 link:/downloads/kibana[Kibana 下载] 页获得。其他版本可以在 link:/downloads/past-releases[已发布版本] 中查看。
+最新稳定版 Kibana 可以从 link:/downloads/kibana[Kibana 下载]页获得。其他版本可以在 link:/downloads/past-releases[已发布版本]中查看。
 
 [[install-windows]]
 ==== 下载安装 `.zip` 包

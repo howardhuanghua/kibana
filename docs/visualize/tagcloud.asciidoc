@@ -19,12 +19,12 @@ _桶_ 聚合决定了需要从数据集中抽取哪些信息。
 
 点击 *Advanced* 链接可以显示该指标或桶聚合的更多自定义选项：
 
-*JSON Input*:: 这是一个文本字段，支持增加特定的JSON格式属性合并到聚合定义中，见下述例子：
+*JSON Input*:: 这是一个文本字段，支持增加特定的 JSON 格式属性合并到聚合定义中，见下述例子：
 
 [source,shell]
 { \"script\" : \"doc[\'grade\'].value * 1.2\" }
 
-注意：在Elasticsearch 1.4.3及以后的版本中，这个功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting] 。
+注意：在 Elasticsearch 1.4.3及以后的版本中，这个功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting] 。
 
 选择 *Options* 标签来改变下列图形的方向：
 

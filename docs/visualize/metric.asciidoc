@@ -7,7 +7,7 @@ include::y-axis-aggs.asciidoc[]
 
 点击 *高级* 链接来显示更多自定义选项：
 
-*JSON Input*:: 一个文本属性，可以增加指定的JSON格式属性来与聚合定义合并，示例如下：
+*JSON Input*:: 一个文本属性，可以增加指定的 JSON 格式属性来与聚合定义合并，示例如下：
 
 [source,shell]
 { "script" : "doc['grade'].value * 1.2" }

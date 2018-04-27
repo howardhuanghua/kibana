@@ -33,7 +33,7 @@ _桶_ 聚合用于决定从数据集抽取何种信息。
 
 *Significant Terms*:: 显示试验 {es-ref}search-aggregations-bucket-significantterms-aggregation.html[_significant terms_] 聚合的结果。*Size* 参数的值定义了该聚合返回的实体数量。
 
-一旦指定了一个bucket类型的聚合，就可以定义子bucket来优化视图。点击 *+ Add sub-buckets* 来定义一个子bucket，然后选择 *Split Rows*  或 *Split Table* ，再从类型列表中选择一种聚合。
+一旦指定了一个 bucket 类型的聚合，就可以定义子 bucket 来优化视图。点击 *+ Add sub-buckets* 来定义一个子 bucket，然后选择 *Split Rows*  或 *Split Table* ，再从类型列表中选择一种聚合。
 
 当在坐标轴上定义好多个聚合以后，就可以使用向上或向下键翻到合适的聚合类型，以更改聚合优先级。
 
@@ -45,12 +45,12 @@ include::color-picker.asciidoc[]
 
 *Exclude Pattern*:: 从结果中排除该字段指定的模式。
 *Include Pattern*:: 在结果中包括该字段所指定的模式。
-*JSON Input*:: 一个文本字段，可以通过加入指定的JSON格式属性与聚合定义合并，示例如下：
+*JSON Input*:: 一个文本字段，可以通过加入指定的 JSON 格式属性与聚合定义合并，示例如下：
 
 [source,shell]
 { "script" : "doc['grade'].value * 1.2" }
 
-NOTE: 在Elasticsearch 1.4.3及以后版本中，该功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting] 。
+NOTE: 在 Elasticsearch 1.4.3及以后版本中，该功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting] 。
 
 这些选项是否可用取决于所选的聚合。
 

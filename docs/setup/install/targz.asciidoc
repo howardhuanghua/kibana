@@ -3,8 +3,8 @@
 
 Kibana 为 Linux 和 Darwin 平台提供了 `.tar.gz` 安装包。这些类型的包非常容易使用。
 
-Kibana 的最新稳定版本可以在 link:/downloads/kibana[Kibana 下载] 页找到。
-其它版本可以在 link:/downloads/past-releases[已发布版本] 中查看。
+Kibana 的最新稳定版本可以在 link:/downloads/kibana[Kibana 下载]页找到。
+其它版本可以在 link:/downloads/past-releases[已发布版本]中查看。
 
 
 [[install-linux64]]

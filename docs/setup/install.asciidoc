@@ -32,7 +32,7 @@ Elastic Docker 仓库中有现有的可以运行 Kibana 的 Docker 镜像，并�
 +
 <<docker>>
 
-IMPORTANT: 如果您安装的 Elasticsearch 是受 {xpack-ref}xpack-security.html[X-Pack 安全插件] 保护的，请查看{xpack-ref}kibana.html[使用 Kibana X-Pack 安全插件] 获取更多的配置信息。
+IMPORTANT: 如果您安装的 Elasticsearch 是受 {xpack-ref}xpack-security.html[X-Pack 安全插件]保护的，请查看{xpack-ref}kibana.html[使用 Kibana X-Pack 安全插件]获取更多的配置信息。
 
 
 include::install/targz.asciidoc[]

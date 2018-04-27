@@ -3,7 +3,7 @@
 
 这一节您将学会如何使用条件逻辑修改时间序列数据和创建移动平均趋势。这样可以非常方便的发现随着时间推移的异常数据。
 
-为了便于本节内容的学习，我们可以基于 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat 数据] 利用可视化控件监控内存消耗情况。可以使用如下表达式在图表中呈现 `system.memory.actual.used.bytes` 的最大值。 
+为了便于本节内容的学习，我们可以基于 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat 数据]利用可视化控件监控内存消耗情况。可以使用如下表达式在图表中呈现 `system.memory.actual.used.bytes` 的最大值。 
 
 [source,text]
 ----------------------------------

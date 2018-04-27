@@ -9,7 +9,7 @@ _桶_ 聚合决定需要从数据集抽取何种信息。
 
 在选择一个桶聚合之前，需要知道是否为单个图或组合图的X轴或Y轴定义桶。一个组合图必须在所有其他聚合之前执行。当划分一个图时，可以通过点击 *Rows | Columns* 选择器，来改变划分是显示为一行还是一列。
 
-该图的X轴和Y轴支持下面的聚合，点击每个聚合的链接名称查看对应聚合的Elasticsearch文档。
+该图的X轴和Y轴支持下面的聚合，点击每个聚合的链接名称查看对应聚合的 Elasticsearch 文档。
 
 *Date Histogram*:: 一个 {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[_date histogram_] 从一个数值型字段构建，并按日期组织。可以为间隔指定一个按秒、分钟、小时、天、周、月或年的时间段。也可以指定一个自定义的时间区间，只需选择 *Custom* 作为间隔，并在文本字段中指定一个数字和一个时间单位即可。对于自定义间隔时间单位，*s* 表示秒， *m* 表示分钟，*h* 表示小时， *d* 表示天， *w* 表示周， *y* 表示年。不同单位支持不同的精度级别，最低为一秒。
 
@@ -35,7 +35,7 @@ _桶_ 聚合决定需要从数据集抽取何种信息。
 
 *Include Pattern*:: 在结果中包括该字段所指定的模式。
 
-*JSON Input*:: 一个文本字段，可以通过加入指定的JSON格式属性与聚合定义合并，示例如下：
+*JSON Input*:: 一个文本字段，可以通过加入指定的 JSON 格式属性与聚合定义合并，示例如下：
 
 [source,shell]
 { "script" : "doc['grade'].value * 1.2" }
@@ -54,7 +54,7 @@ _桶_ 聚合决定需要从数据集抽取何种信息。
 
 *Reverse Color Schema*:: 勾选此项将翻转配色方案。
 
-*Color Scale*:: 可以切换为linear、log及sqrt的颜色范围。
+*Color Scale*:: 可以切换为 linear、log 及 sqrt 的颜色范围。
 
 *Scale to Data Bounds*:: 默认的Y轴边界是0到返回数据中的最大值。勾选此项可以更新上下边界来适应实际数值。
 

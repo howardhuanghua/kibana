@@ -1,9 +1,9 @@
 [[deb]]
 === 使用 Debian 包安装 Kibana
 
-Kibana Debian 安装包可以在 <<install-deb, 我们的网站下载>> 或者从我们的 <<deb-repo,APT 仓库>> 下载。它可以用来在任何基于 Debian的系统，如 Debian 和 Ubuntu 上安装 Kibana。
+Kibana Debian 安装包可以在<<install-deb, 我们的网站下载>>或者从我们的<<deb-repo,APT 仓库>>下载。它可以用来在任何基于 Debian 的系统，如 Debian 和 Ubuntu 上安装 Kibana。
 
-Kibana 最新稳定版本可以在 link:/downloads/kibana[Kibana 下载] 页找到。其他版本可以在 link:/downloads/past-releases[已发布版本] 中查看。
+Kibana 最新稳定版本可以在 link:/downloads/kibana[Kibana 下载]页找到。其他版本可以在 link:/downloads/past-releases[已发布版本]中查看。
 
 [[deb-key]]
 ==== 导入 Elastic PGP 密钥

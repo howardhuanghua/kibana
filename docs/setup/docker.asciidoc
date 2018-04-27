@@ -121,5 +121,5 @@ services:
 `elasticsearch.password`:: `changeme`
 `xpack.monitoring.ui.container.elasticsearch.enabled`:: `true`
 
-这些配置项的默认值在 `kibana.yml` 中设置。可以通过 <<docker-bind-mount-config, 自定义 `kibana.yml`>> 或者 <<docker-env-config, 环境变量 >> 覆盖这些默认值。
+这些配置项的默认值在 `kibana.yml` 中设置。可以通过 <<docker-bind-mount-config, 自定义 `kibana.yml`>> 或者 <<docker-env-config, 环境变量>>覆盖这些默认值。
 

@@ -5,7 +5,7 @@
 Advanced Settings>> 中的 `discover:sampleSize` 设置表中显示的文档个数。默认情况下，该表显示的是为所选索引模式和文本 `_source` 配置的时间域的本地化版本。
 您可以从 Fields 表中
 <<adding-columns,选择字段向 Documents 表中添加>> 。
-您可以通过表中包含的任意索引字段 <<sorting, 对所列文档进行分类>>。
+您可以通过表中包含的任意索引字段<<sorting, 对所列文档进行分类>>。
 
 查看文档的字段数据，请击该文档表项目左侧的 *Expand*
 image:images/ExpandButton.jpg[Expand Button] 按钮。

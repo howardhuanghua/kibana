@@ -5,7 +5,7 @@
 ===========================================
 在升级 Kibana 之前：
 
-* 请参考 <<breaking-changes, 主要变更内容>> 文档。
+* 请参考 <<breaking-changes, 主要变更内容>>文档。
 * 在升级生产服务之前请先在测试环境测试升级。
 * 使用 Elasticsearch 的 {es-ref}modules-snapshots.html[snapshots] 特性备份数据。除非存在备份数据，否则版本 **不能向前回滚** 。
 * 如果使用了自定义插件，检查其是否有兼容版本。
@@ -27,10 +27,10 @@
 ===========================================
 只要是从 Kibana 4.1或4.0升级上来的，就需要进行索引重建。
 
-如果您现在运行的 Kibana 版本为4.2或更高，如果之前是从 Kibana 4.0或4.1 升级过来的，您将需要进行一次 
-<<upgrade-standard-reindex, 标准升级及索引重建>> 来升级到5.x。
+如果您现在运行的 Kibana 版本为4.2或更高，如果之前是从 Kibana 4.0或4.1升级过来的，您将需要进行一次 
+<<upgrade-standard-reindex, 标准升级及索引重建>>来升级到5.x。
 
-这是因为 Elasticsearch 需要对所有在 Elasticsearch 2.0 之前创建的索引进行重建，哪怕目前工作的版本是 Elasticsearch 2.x。
+这是因为 Elasticsearch 需要对所有在 Elasticsearch 2.0之前创建的索引进行重建，哪怕目前工作的版本是 Elasticsearch 2.x。
 
 升级到5.x 的过程只需要进行一次索引重建。
 ===========================================

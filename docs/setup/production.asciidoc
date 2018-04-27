@@ -7,7 +7,7 @@
 
 Kibana 的配置很大程度上依赖于您的使用场景。如果只有自己使用，可以在自己的机器上运行 Kibana，配置它指向任何您想要交互的 Elasticsearch 实例。相反，如果有大量的 Kibana 使用者，需要多个 Kibana 实例连接至同一个 Elasticsearch 节点，来保证负载均衡。
 
-尽管 Kibana 不是非常耗费资源，我们仍然建议运行 Kibana 的节点和 Elasticsearch 数据或主节点分开。在 Elasticsearch 集群中分配 Kibana，可以在 Elasticsearch 客户端节点上运行 Kibana。更多信息请访问 <<load-balancing, Elasticsearch 多节点负载均衡>> 。
+尽管 Kibana 不是非常耗费资源，我们仍然建议运行 Kibana 的节点和 Elasticsearch 数据或主节点分开。在 Elasticsearch 集群中分配 Kibana，可以在 Elasticsearch 客户端节点上运行 Kibana。更多信息请访问 <<load-balancing, Elasticsearch 多节点负载均衡>>。
 
 [float]
 [[configuring-kibana-shield]]

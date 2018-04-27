@@ -1,9 +1,9 @@
 [[connect-to-elasticsearch]]
 == 连接 Kibana 和 Elasticsearch
 
-开始使用 Kibana 前，需要告诉 Kibana 您想要探索的 Elasticsearch 索引。第一次访问 Kibana 时，会提示您定义一个 _index pattern_ 匹配一个或多个索引。这就是初次使用 Kibana 时所有需要配置的。任何时候都可以在 <<settings-create-pattern,Management 页面>> 增加索引模式。
+开始使用 Kibana 前，需要告诉 Kibana 您想要探索的 Elasticsearch 索引。第一次访问 Kibana 时，会提示您定义一个 _index pattern_ 匹配一个或多个索引。这就是初次使用 Kibana 时所有需要配置的。任何时候都可以在 <<settings-create-pattern,Management 页面>>增加索引模式。
 
-TIP: 默认情况下，Kibana 会连接运行在 `localhost` 上的 Elasticsearch 实例。如果需要连接不同的 Elasticsearch实例，可以修改 `kibana.yml` 配置文件中的 Elasticsearch URL 配置项并重启 Kibana。如果在生产环境节点上使用 Kibana，请参考 <<production>>。
+TIP: 默认情况下，Kibana 会连接运行在 `localhost` 上的 Elasticsearch 实例。如果需要连接不同的 Elasticsearch实例，可以修改 `kibana.yml` 配置文件中的 Elasticsearch URL 配置项并重启 Kibana。如果在生产环境节点上使用 Kibana，请参考 <<production>> 。
 
 设置您想通过 Kibana 访问的 Elasticsearch 索引：
 
@@ -31,12 +31,12 @@ NOTE: Kibana 可视化控件中的字段以及 `.kibana` 索引管理依赖动�
 * 在 <<visualize, Visualize>> 页做数据图表映射。
 * 在 <<dashboard, Dashboard>> 页创建并查看自定义仪表盘。
 
-您可以通过查看 <<getting-started, 基础入门>> 来获取 Kibana 的主要内容介绍。
+您可以通过查看 <<getting-started, 基础入门>>来获取 Kibana 的主要内容介绍。
 
 [float]
 [[kibana-dynamic-mapping]]
 === Kibana 和 Elasticsearch 动态映射
-默认情况下，Elasticsearch 启用了字段的 {es-ref}dynamic-mapping.html[动态映射] 。Kibana 需要利用动态映射在可视化控件中正确使用字段，同时管理 `.kibana` 索引，这些索引存储了已保存的搜索、可视化图表和仪表盘。
+默认情况下，Elasticsearch 启用了字段的 {es-ref}dynamic-mapping.html[动态映射]。Kibana 需要利用动态映射在可视化控件中正确使用字段，同时管理 `.kibana` 索引，这些索引存储了已保存的搜索、可视化图表和仪表盘。
 
 如果 Elasticsearch 使用场景需要禁止动态映射，这就需要手动提供创建可视化控件所需要字段的映射，并手动启用 `.kibana` 索引的动态映射。
 

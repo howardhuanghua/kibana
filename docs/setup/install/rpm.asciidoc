@@ -1,11 +1,11 @@
 [[rpm]]
 === 使用 RPM 包安装 Kibana
 
-Kibana RPM 包可以从 <<install-rpm,我们的网站下载>> 或者从我们的 <<rpm-repo,RPM 仓库下载>> 。RPM 包可以用来安装 Kibana 在任何基于 RPM 包管理的系统上，如 OpenSuSE 、SLES、Centos、Red Hat 和 Oracle 企业版等系统上。
+Kibana RPM 包可以从<<install-rpm,我们的网站下载>>或者从我们的 <<rpm-repo,RPM 仓库下载>>。RPM 包可以用来安装 Kibana 在任何基于 RPM 包管理的系统上，如 OpenSuSE 、SLES、Centos、Red Hat 和 Oracle 企业版等系统上。
 
 NOTE: RPM 安装不支持旧的系统版本，例如 SLES 11 和 CentOS 5。详情请参考 <<targz>> 。
 
-Kibana 的最新稳定版本可以在 link:/downloads/kibana[Kibana 下载] 页找到。其它版本可以在 link:/downloads/past-releases[已发布版本] 中查看。
+Kibana 的最新稳定版本可以在 link:/downloads/kibana[Kibana 下载]页找到。其它版本可以在 link:/downloads/past-releases[已发布版本]中查看。
 
 [[rpm-key]]
 ==== 导入 Elastic PGP 密钥
