@@ -1,15 +1,13 @@
 [[development-elasticsearch]]
-=== Communicating with Elasticsearch
+=== 与 Elasticsearch 通信
 
-Kibana exposes two clients on the server and browser for communicating with elasticsearch.
-There is an 'admin' client which is used for managing Kibana's state, and a 'data' client for all
-other requests.  The clients use the {ref}/client/javascript-api/current/index.html[elasticsearch.js library].
+Kibana 为和 elasticsearch 通信，在服务器和浏览器上提供了两种客户端。一种是用于管理 Kibana 状态的 'admin' 客户端，另一种是用于所有其他请求的 'data' 客户端。客户端使用 {ref}/client/javascript-api/current/index.html[elasticsearch.js library]。
 
 [float]
 [[client-server]]
-=== Server clients
+=== 服务器客户端
 
-Server clients are exposed through the elasticsearch plugin.
+服务器客户端通过 elasticsearch 插件暴露。
 [source,javascript]
 ----
   const adminCluster = server.plugins.elasticsearch.getCluster('admin);
@@ -24,9 +22,9 @@ Server clients are exposed through the elasticsearch plugin.
 
 [float]
 [[client-browser]]
-=== Browser clients
+=== 浏览器客户端
 
-Browser clients are exposed through AngularJS services.
+浏览器客户端通过 AngularJS 服务暴露。
 
 [source,javascript]
 ----
@@ -39,3 +37,4 @@ uiModules.get('kibana')
   });
 });
 ----
+

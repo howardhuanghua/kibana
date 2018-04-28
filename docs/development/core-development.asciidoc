@@ -1,5 +1,5 @@
 [[core-development]]
-== Core Development
+== 核心开发
 
 * <<development-basepath>>
 * <<development-dependencies>>

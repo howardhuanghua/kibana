@@ -1,100 +1,81 @@
 [[translating-kibana]]
-Translating Kibana
+翻译 Kibana
 ------------------
 
 [[background]]
-Background
-~~~~~~~~~
+背景
+~~~~~~~~
 
-Please see https://github.com/elastic/kibana/issues/6515[kibana#6515]
-for background discussion on the Kibana translation work.
+请通过 https://github.com/elastic/kibana/issues/6515[kibana#6515]
+查看关于 Kibana 翻译工作的背景讨论
 
 [[prerequisites]]
-Prerequisites
-~~~~~~~~~~~~
+预备知识
+~~~~~~~~~~~
 
-Kibana must be installed and operational, see README.md
+必须安装和操作 Kibana， 参见 README.md
 
 [[audience]]
-Audience
-~~~~~~~
+面向用户
+~~~~~~
 
-There are three audiences for this document:
+这个文档面向下面三类用户：
 
-* those that want to contribute language packs to Kibana
-* those that want to enable translations in existing Kibana plugins
-* those that want to create a new Kibana Plugin
+* 那些想要为 Kibana 提供语言包的用户
+* 那些想要在现有 Kibana 插件中进行翻译的用户
+* 那些想要创造一个新的 Kibana 插件的用户
 
 [[contributing-language-packs]]
-Contributing Language Packs
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+贡献语言包
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For this example, we will demonstrate translation into Maltese (Language
-code `mt`). Add-on functionality for Kibana is implemented with plug-in modules.
-Refer to
-<<kibana-plugins, Kibana Plugins>> for more details.
+在本例中，我们将演示翻译为马耳他语（语言代码 `mt` ）。Kibana 插件是通过插件模块实现的。参考 <<kibana-plugins, Kibana 插件>>以了解更多。
 
-* Fork the `kibana` source, and ensure you have an up to date copy of
-the source.
-* Ensure you have signed the agreement as in CONTRIBUTING.md
-* Choose the right link:[bcp47] language code for your work. In this
-example, we will use the `kibana` plugin for translating and `mt` for
-Maltese. Other examples might be `zh-Hans` for Chinese using Simplified
-characters, or `az-Cyrl` for Azerbaijani using Cyrillic characters. The
-following links can help:
-* https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes[List of ISO
-639-1 codes]
+* Fork `kibana` 源代码，并确保您有一个最新的版本。
+* 确保您已经签署了 CONTRIBUTING.md 中的协议。
+* 为您的工作选择正确的链接：[bcp47]。在本例中，我们使用 `kibana` 插件来翻译，使用 `mt` 代表马耳他语。其他例子可能是 `zh-Hans` 代表简体中文，或者 `az-Cyrl` 代表使用斯拉夫字母字符的阿塞拜疆语。下面的链接会有所帮助：
+* https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes[ISO639-1 编码列表]
 *
-http://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code[“Picking
-the right language code”]
-* Create a new branch for your work:
+http://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code[“选择正确的语言代码”]
+* 为您的工作创建一个新的分支：
 +
 git checkout -b translate-mt
-* For each translation scope (see link:#Enabling%20Translations%20on%20Existing%20Plugins[Enabling Translations on Existing Plugins], below), generate a Kibana plugin with name _plugin_-_languagecode_ using the https://github.com/elastic/generator-kibana-plugin[Kibana Plugin Yeoman Generator]:
+* 对每一个翻译范围(参见链接:#Enabling%20Translations%20on%20Existing%20Plugins[Enabling Translations on Existing Plugins], below)，使用 https://github.com/elastic/generator-kibana-plugin[Kibana Plugin Yeoman Generator] 产生一个命名为 _plugin_-_languagecode_ 的 Kibana插件：
 +
-* Replace the the `es.json` translation file with _languagecode_`.json`:
+* 用翻译文件 _languagecode_`.json` 替换 `es.json` ：
 `mv src/plugins/kibana-mt/translations/es.json src/plugins/kibana-mt/translations/mt.json`
-* Translate the `mt.json` file in a JSON editor
-* Edit index file (`kibana-mt/index.js`), updating the
-'translations' item in 'uiExports' as per your plugin translation file(s)
-* Copy translations plugin (`kibana-mt/`) to the Kibana plugins (`<kibana_root>/plugins`) directory
-* Start up Kibana and verify the translation works as expected
-* Ensure Kibana tests pass
-* Commit the `kibana-mt` directory and files, and push them to your own
-fork of `kibana`
-* Open a pull request titled `Translation: Maltese (mt)`
+* 使用 JSON 编辑器翻译 `mt.json` 文件
+* 编辑索引文件(`kibana-mt/index.js`)，根据您的翻译文件，更新 'uiExports' 中的 'translations' 条目
+* 复制翻译插件 (`kibana-mt/`) 到 Kibana 插件 (`<kibana_root>/plugins`) 目录
+* 启动 Kibana 并确认翻译符合预期
+* 确保 Kibana 测试通过
+* 提交 `kibana-mt` 目录和文件，并推送到您自己的仓库
+* 开启一个名为 `Translation: Maltese (mt)` 的pr
 
 [[enabling-ranslations-on-existing-plugins]]
-Enabling Translations on Existing Plugins
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+启用现有插件的翻译
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Kibana translates according to plugin scope, so there is a `.json` file
-in `translations` subdirectory for each plugin.
+Kibana 根据插件作用域翻译，所以在每个插件的 `translations` 子目录，都一个 `.json` 文件。
 
 [[enabling-translation-of-an-angular-view]]
-Enabling Translation of an Angular view
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+启用 Angular 视图翻译
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Determine which views share a plugin scope. In this example, `create`
-and `edit` will share scope.
-* If it does not already exist, Create the appropriate `translation`
-directory and the new translation file `en.json` inside it. In the above
-example, it would be: `src/core_plugins/kibana/translations/en.json`
-* If it does not exist add 'translations' item to the 'uiExports' in the plugin creation (`src/core_plugins/kibana/translations/en.json`) as follows:
+* 决定哪几个视图共享插件作用域。在本例， `create` 和 `edit` 会共享作用域。
+* 如果它不存在，创建合适的 `translation` 目录，并在其中创建新的翻译文件 `en.json` 。在上例，其会是 `src/core_plugins/kibana/translations/en.json`
+* 如果不存在的话，在插件创建的 'uiExports' 中添加 'translations' 项 (`src/core_plugins/kibana/translations/en.json`) 如下：
 -------------------------------------------------------------------------
 uiExports {
-  translations: [ 
+  translations: [
     resolve(__dirname, './translations/en.json')
   ], ….
 }
 -------------------------------------------------------------------------
 
-* In the view (HTML) file, such as
+* 在视图 (HTML) 文件，例如
 `src/core_plugins/kibana/public/management/sections/indices/_create.html`
-Replace English text with translation keys, and copy the English text
-into the `en.json` file appropriately. Note that loose text was put into
-a `<p></p>` tag for translation purposes. Also note the prefix `KIBANA-`
-matching the plugin being translated.
+用翻译键替换英语文本，并复制英语文本到对应的 `en.json` 文件。注意，为了翻译的目的，松散的文本放入 `<p></p>` 标签。还要注意与正在翻译的插件相匹配的前缀 `KIBANA` 。
 
 [[before]]
 Before
@@ -106,7 +87,7 @@ Before
     <h1>Configure an index pattern</h1>
     In order to use Kibana you must configure at least one index pattern…
 
-    <kbn-info info="This field will be used to filter events with the global time filter"></kbn-info> 
+    <kbn-info info="This field will be used to filter events with the global time filter"></kbn-info>
 -----------------------------------------------------------------------------------------------------
 
 [[after]]
@@ -122,12 +103,7 @@ After
     <kbn-info info="{{ 'KIBANA-FIELD_FILTER_EVENTS_GLOBAL_TIME' | translate }}"></kbn-info>
 -------------------------------------------------------------------------------------------
 
-* In the view (JS) file, such as
-`src/core_plugins/kibana/public/management/sections/indices/_create.js`
-As above, replace English text with translation keys, and copy the English text
-into the `en.json` file appropriately. Note that some strings may not be user facing
-and do not need to be replaced then. Also note the prefix `KIBANA-` matching the plugin
-being translated.
+* 在视图(JS)文件，例如 `src/core_plugins/kibana/public/management/sections/indices/_create.js` 用翻译键替换英文文本，如上，并拷贝英语文本到对应的 `en.json` 文件。注意，有些字符串可能不是面向用户的，因此不用替换。还要注意与正在翻译的插件相匹配的前缀 `KIBANA` 。
 
 [[before]]
 Before
@@ -160,27 +136,21 @@ After
     }
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-* Refresh the Kibana page and verify the UI looks the same.
-* Refer to Kibana core plugin (`src/core_plugins/kibana/`) for examples.
+* 刷新 Kibana 页面并验证 UI 看起来是一样的。
+* 示例请参阅 Kibana 核心插件 (`src/core_plugins/kibana/`)。
 
 [[new-plugin-authors]]
-New Plugin Authors
-~~~~~~~~~~~~~~~~~
+新插件作者
+~~~~~~~~~~~~~~~~
 
-Add-on functionality for Kibana is implemented with plug-in modules.
-Refer to
-<<kibana-plugins, Kibana
-Plugins>> for more details. It is recommended that when creating a plugin
-you enable translations (see link:#Enabling%20Translations%20on%20Existing%20Plugins[Enabling Translations on Existing Plugins], above).
+Kibana 插件功能是通过插件模块实现的。更多细节参考<<kibana-plugins, 插件>> 。建议在创建插件时启用翻译。（参考链接： #Enabling%20Translations%20on%20Existing%20Plugins[Enabling Translations on Existing Plugins], above）.
 
 [[enabling-translation-in-a-plugin]]
-Enabling Translation in a New Plugin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+在新插件中启用翻译
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Generate a Kibana plugin using the https://github.com/elastic/generator-kibana-plugin[Kibana Plugin Yeoman Generator]. In this
-example, `plugin1`
-* Add the translation IDs to the views
-* Add the corresponding translation IDs and text to the default translation file (`translations/en.json`)
-* Refer to link:#Enabling%20Translations%20on%20Existing%20Plugins[Enabling Translations on Existing Plugins] for more
-details on enabling translation in your plugin views and refer to Kibana
-core plugin (`src/core_plugins/kibana/`) for an example.
+* 使用 https://github.com/elastic/generator-kibana-plugin[Kibana Plugin Yeoman Generator] 产生一个新的 Kibana 插件。在本例为 `plugin1` 。
+* 在视图中添加翻译
+* 添加对应的翻译 ID 和文本到默认翻译文件
+* 关于在您的插件视图启动翻译的更多细节参考链接：#Enabling%20Translations%20on%20Existing%20Plugins[Enabling Translations on Existing Plugins]，例子可以参考 Kibana 核心插件(`src/core_plugins/kibana/`)。
+
