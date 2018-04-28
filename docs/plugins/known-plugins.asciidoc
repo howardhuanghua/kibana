@@ -1,30 +1,30 @@
 [[known-plugins]]
-== Known Plugins
+== 已知的插件
 
 [IMPORTANT]
-.Plugin compatibility
+.插件兼容性
 ==============================================
-The Kibana plugin interfaces are in a state of constant development.  We cannot provide backwards compatibility for plugins due to the high rate of change.  Kibana enforces that the installed plugins match the version of Kibana itself.  Plugin developers will have to release a new version of their plugin for each new Kibana release as a result.
+Kibana 插件接口一直在不断发展中，由于变化太快我们无法为插件提供向后的兼容性。Kibana 会强制要安装的插件与 Kibana 当前版本相匹配。因此，插件的开发者需要不断为每个 Kibana 的新版本发布他们所提供插件的新版本。
 ==============================================
 
-This list of plugins is not guaranteed to work on your version of Kibana. Instead, these are plugins that were known to work at some point with Kibana *5.x*. The Kibana installer will reject any plugins that haven't been published for your specific version of Kibana.
+这个插件列表不保证适用于您的 Kibana 版本。不过它们是可以在 Kibana *5.x* 上正常工作。Kibana 安装程序将拒绝安装任何非针对您当前版本 Kibana 发布的插件。
 
 [float]
-=== Packs
-* https://www.elastic.co/downloads/x-pack[X-Pack] - security, monitoring, reporting, alerts, graph
+=== 包
+* https://www.elastic.co/downloads/x-pack[X-Pack] - 安全、监控、报告、告警、图形
 
 [float]
-=== Apps
-* https://github.com/sivasamyk/logtrail[LogTrail] - View, analyze, search and tail log events in realtime with a developer/sysadmin friendly interface
-* https://github.com/wtakase/kibana-own-home[Own Home] (wtakase) - enables multi-tenancy
-* https://github.com/asileon/kibana_shard_allocation[Shard Allocation] (asileon) - visualize elasticsearch shard allocation
+=== 应用
+* https://github.com/sivasamyk/logtrail[LogTrail] - 为开发者/系统管理员提供实时查看、分析、搜索事件的易用接口
+* https://github.com/wtakase/kibana-own-home[Own Home] (wtakase) - 支持多租户
+* https://github.com/asileon/kibana_shard_allocation[Shard Allocation] (asileon) - 可视化 elasticsearch 分片的分配
 
 [float]
-=== Timelion Extensions
-* https://github.com/fermiumlabs/mathlion[mathlion] (fermiumlabs) - enables equation parsing and advanced math under Timelion
+=== Timelion 扩展
+* https://github.com/fermiumlabs/mathlion[mathlion] (fermiumlabs) - 为 Timelion 增加方程解析和高数能力。
 
 [float]
-=== Visualizations
+=== 可视化组件
 * https://github.com/prelert/kibana-swimlane-vis[Swimlanes] (prelert)
 * https://github.com/sbeyn/kibana-plugin-line-sg[Line] (sbeyn)
 * https://github.com/sbeyn/kibana-plugin-gauge-sg[Gauge] (sbeyn)
@@ -44,7 +44,8 @@ This list of plugins is not guaranteed to work on your version of Kibana. Instea
 * https://github.com/dlumbrer/kbn_searchtables[Search-Tables] (dlumbrer)
 
 [float]
-=== Other
-* https://github.com/nreese/kibana-time-plugin[Time picker as a dashboard panel] Widget to view and edit the time range from within dashboards.
+=== 其他
+* https://github.com/nreese/kibana-time-plugin[Time picker as a dashboard panel] 在仪表板内可以查看和编辑时间范围的小组件
 
-NOTE: If you want your plugin to be added to this page, open a {repo}tree/{branch}/docs/plugins/known-plugins.asciidoc[pull request].
+NOTE: 如果您希望将您的插件也添加到此页面，请打开 {repo}tree/{branch}/docs/plugins/known-plugins.asciidoc[pull request].
+
