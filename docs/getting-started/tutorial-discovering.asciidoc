@@ -1,5 +1,5 @@
 [[tutorial-discovering]]
-== 探索你的数据
+== 探索您的数据
 
 单击侧面导航中的 *Discover* 进入 Kibana 的数据探索功能：
 

@@ -1,5 +1,5 @@
 [[metric-chart]]
-== Metric
+== 指标（Metric）
 
 一个指标视图为每个查询聚合显示一个单一的数字：
 

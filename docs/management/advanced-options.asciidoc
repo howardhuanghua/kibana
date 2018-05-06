@@ -6,7 +6,7 @@
 要设置高级选项：
 
 . 进入 *设置 > 高级* 。
-. 点击你想要修改选项的 *编辑* 按钮。
+. 点击您想要修改选项的 *编辑* 按钮。
 . 为该选项输入一个新的值。
 . 点击 *保存* 按钮。
 
@@ -29,13 +29,13 @@ WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可
 `discover:sampleSize`:: 定义”发现“标签页中表格要显示的文档行数。
 `discover:aggs:terms:size`:: 定义在”发现“边栏中点击”可视化“按钮时，下拉列表中要显示多少条目。默认值是 `20` 。
 `doc_table:highlight`:: ”发现“标签页和保存的搜索仪表板中会高亮显示搜索结果。但是如果遇到超大文档可能会导致请求响应变慢。将此属性设置为 `false` 可禁用高亮显示。
-`doc_table:highlight:all_fields`:: 通过在 `query_string` 查询上使用 `all_fields` 模式的单独 `highlight_query` 来改进高亮显示性能。如果你在索引中使用 `default_field` 字段，则设置为 `false` 。
+`doc_table:highlight:all_fields`:: 通过在 `query_string` 查询上使用 `all_fields` 模式的单独 `highlight_query` 来改进高亮显示性能。如果您在索引中使用 `default_field` 字段，则设置为 `false` 。
 `courier:maxSegmentCount`:: Kibana 将”发现“功能中的请求拆分成多个段，以限制发送到 Elasticsearch 集群请求的大小。该设置限制了段列表的长度。太长的段列表会显著增加请求处理的时间。
 `courier:ignoreFilterIfFieldNotInIndex`:: 设置这个属性为 `true` 可以跳过那些可视化索引中不存在字段的过滤器。在组成仪表盘的可视化组件来自于多个索引模式时特别有用。
 `fields:popularLimit`:: 这个设置控制显示多少个热门字段。
 `histogram:barTarget`:: 当日期直方图使用 `auto` 间隔时，Kibana 试图产生条块的数量。
 `histogram:maxBars`:: 日期直方图不会生成超过此属性值的条块数量，并在需要时自动缩放。
-`visualization:tileMap:maxPrecision`:: 瓦片图上显示的最大 geoHash 精度：7表示高，10表示非常高，12是最大值。 {es-ref}search-aggregations-bucket-geohashgrid-aggregation.html#_cell_dimensions_at_the_equator[Explanation of cell dimensions].
+`visualization:tileMap:maxPrecision`:: tile 地图上显示的最大 geoHash 精度：7表示高，10表示非常高，12是最大值。 {es-ref}search-aggregations-bucket-geohashgrid-aggregation.html#_cell_dimensions_at_the_equator[Explanation of cell dimensions].
 `visualization:tileMap:WMSdefaults`:: WMS 地图服务器在坐标图中的默认属性。
 `visualization:colorMapping`:: 在可视化组件内映射值到指定颜色。
 `visualization:loadingDelay`:: 在载入可视化组件查询时的等待时长。

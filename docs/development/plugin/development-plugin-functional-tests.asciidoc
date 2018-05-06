@@ -27,7 +27,7 @@ export default async function ({ readConfigFile }) {
   const kibanaConfig = await readConfigFile(KIBANA_CONFIG_PATH);
 
   return {
-    // 列出包含你插件测试用例的文件路径
+    // 列出包含您插件测试用例的文件路径
     testFiles: [
       resolve(__dirname, './my_test_file.js'),
     ],

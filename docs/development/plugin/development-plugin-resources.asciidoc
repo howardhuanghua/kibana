@@ -5,8 +5,7 @@
 
 [float]
 ==== 我们的 IRC 频道
-很多 Kibana 开发者都在 `#kibana` 频道上的 `irc.freenode.net` 上玩。我们 *想* 帮助您开发插件。更重要的，我们 *想要您的帮助* 来理解您的插件目标， 所以我们可以为您创建一个大的插件系统。如果您从来没有用过 IRC， 欢迎来玩。您可以从 http://webchat.freenode.net/?channels=kibana[Freenode 网页客户端]开始。
-[Freenode Web Client].
+很多 Kibana 开发者都在 `#kibana` 频道上的 `irc.freenode.net` 上玩。我们 *想* 帮助您开发插件。更重要的，我们 *想要您的帮助* 来理解您使用插件的目标，借此我们可以为您创建一个更好的插件系统。如果您从来没有用过 IRC，欢迎来玩。您可以从 http://webchat.freenode.net/?channels=kibana[Freenode 网页客户端]开始。
 
 [float]
 ==== 一些有用的文章

@@ -4,7 +4,7 @@
 
 时间过滤器默认的时间段为最近15分钟。您可以使用页面顶部的 Time Picker 来调整时间段和刷新频率。
 
-通过 Time Picker 设置时间过滤器:
+通过 Time Picker 设置时间过滤器：
 
 . 点击 Kibana 工具栏中的 *Time Picker* image:images/time-picker.jpg[] 。
 . 可以通过点击一个时间段设置快速过滤。
@@ -18,12 +18,12 @@ image::images/time-filter-relative.jpg[Relative time filter]
 image::images/time-filter-absolute.jpg[Absolute time filter]
 . 点击工具条下方最右侧的脱字符图标来关闭 Time Picker 。
 
-用如下两种方式可以通过直方图来设置时间过滤器:
+用如下两种方式可以通过直方图来设置时间过滤器：
 
 * 直接点击直方图上的一根柱子来放大对应的时间段。
 * 通过拖拽的方式指定时间段。当光标在图表的背景上变成一个加号时，代表这是可以选取的时间段。
 
-可以点击 Time Picker 左边和右边的箭头来选择上一个或下一个时间段:
+可以点击 Time Picker 左边和右边的箭头来选择上一个或下一个时间段：
 
 image::images/time-picker-step.jpg[Move backwards in time]
 

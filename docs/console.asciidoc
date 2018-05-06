@@ -3,7 +3,7 @@
 
 [partintro]
 --
-控制台插件提供一个用户界面来和 Elasticsearch 的 REST API 交互。控制台有两个主要部分： *编辑器* ，用来编写提交给 Elasticsearch 的请求； *响应区* 面板，用来展示请求结果的响应。在页面顶部的文本框中输入 Elasticsearch 服务器的地址。默认地址是：“localhost:9200”。
+控制台插件提供一个用户界面来和 Elasticsearch 的 REST API 交互。控制台有两个主要部分： *editor* ，用来编写提交给 Elasticsearch 的请求； *response* 面板，用来展示请求结果的响应。在页面顶部的文本框中输入 Elasticsearch 服务器的地址。默认地址是：“localhost:9200”。
 
 .控制台用户界面
 image::images/introduction_screen.png[Screenshot]
@@ -20,7 +20,7 @@ GET /_search
 }
 ----------------------------------
 
-就是一个简单的 Elasticsearch `_search API` 请求。下面是同样效果的 cURL 命令。
+就是一个简单的 Elasticsearch `_search API GET` 请求。下面是同样效果的 cURL 命令。
 
 [source,bash]
 ----------------------------------

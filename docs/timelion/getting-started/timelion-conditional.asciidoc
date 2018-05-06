@@ -17,7 +17,7 @@ image::images/timelion-conditional01.png[]
 
 NOTE: 如果上述阈值相对您的机器过高或过低，可以自行调节。
 
-你可以使用 Timelion 的条件逻辑配置这两个阈值。可以使用 `if()` 去比较每个点的值和某个数值的大小，如果数值超过阈值则使用不同的样式，如果未超过阈值，则使用默认样式。Timelion 提供以下六种比较操作：
+您可以使用 Timelion 的条件逻辑配置这两个阈值。可以使用 `if()` 去比较每个点的值和某个数值的大小，如果数值超过阈值则使用不同的样式，如果未超过阈值，则使用默认样式。Timelion 提供以下六种比较操作：
 
 [horizontal]
 `eq`:: 等于
@@ -39,7 +39,7 @@ image::images/timelion-conditional02.png[]
 
 参考 https://www.elastic.co/blog/timeseries-if-then-else-with-timelion[I have but one .condition()] 博文查看更多关于 Timelion 的用法。
 
-现在我们有阈值控制可以轻松的识别错误数据，接下我们创建一个新的时序图来呈现真正的趋势。Timelion 的 `mvavg()` 方法可以方便的计算给定时间窗口的移动平均值。这对于分析有很多噪音数据的时序图非常有帮助。这里，你可以使用 `.mvavg(10)` 创建有10个数据点的移动平均窗口。使用如下表达式创建最大内存使用量的移动平均趋势。
+现在我们有阈值控制可以轻松的识别错误数据，接下我们创建一个新的时序图来呈现真正的趋势。Timelion 的 `mvavg()` 方法可以方便的计算给定时间窗口的移动平均值。这对于分析有很多噪音数据的时序图非常有帮助。这里，您可以使用 `.mvavg(10)` 创建有10个数据点的移动平均窗口。使用如下表达式创建最大内存使用量的移动平均趋势。
 
 [source,text]
 ----------------------------------
@@ -59,4 +59,4 @@ image::images/timelion-conditional03.png[]
 image::images/timelion-conditional04.png[]
 {nbsp}
 
-保存你的 Timelion 工作表，继续学习下一章节将这些工作表添加到你的仪表盘上。
+保存您的 Timelion 工作表，继续学习下一章节将这些工作表添加到您的仪表盘上。

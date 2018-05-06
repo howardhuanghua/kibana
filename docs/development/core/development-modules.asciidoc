@@ -47,7 +47,7 @@ Kibana 用 Webpack 管理依赖。
     ** `./node_modules/${moduleName}` 是一个目录
   * 如果没有找到匹配
     ** 转到上层目录
-    ** start again at *2.iii* until reaching the root directory or a match is found
+    ** 从 2.iii 重新开始，直至找到匹配或者到达根目录
   * 如果找到匹配
     ** 以匹配的全路径替换 requite 语句中的 `moduleName` 前缀，然后转到 *3*
 . 搜索文件

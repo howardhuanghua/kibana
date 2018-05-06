@@ -3,8 +3,7 @@
 
 *试验特性*
 
-时间序列可视化生成器是一个时间序列数据可视化工具，重点在于允许您使用 Elasticsearch 聚合框架的全部功能。
-时间序列可视化生成器允许您组合无限数量的聚合和管道聚合，以有意义的方式显示复杂的数据。
+时间序列可视化生成器是一个时间序列数据可视化工具，重点在于允许您使用 Elasticsearch 聚合框架的全部功能。时间序列可视化生成器允许您组合无限数量的聚合和管道聚合，以有意义的方式显示复杂的数据。
 
 image:images/tsvb-screenshot.png["Time Series Visual Builder Interface"]
 
@@ -29,24 +28,21 @@ image:images/tsvb-metric.png["Metric Visualization"]
 
 ==== Top N
 
-这是一个水平条形图，其中 y 轴是基于一个系列的指标，x 轴是这些系列中的最新值，按降序排列。
-条形的颜色可以根据一组规则完全自定义。
+这是一个水平条形图，其中 y 轴是基于一个系列的指标，x 轴是这些系列中的最新值，按降序排列。条形的颜色可以根据一组规则完全自定义。
 
 image:images/tsvb-top-n.png["Top N Visualization"]
 
 
 ==== 测量仪（Gauge）
 
-这是基于系列中最新值的单值计量可视化。
-测量仪的面貌可以是半圆表或全圆表。您可以自定义内线和外线的厚度以达到所需的设计美学效果。测量仪和文本的颜色可根据一组规则完全自定义。
+这是基于系列中最新值的单值计量可视化。测量仪的面貌可以是半圆表或全圆表。您可以自定义内线和外线的厚度以达到所需的设计美学效果。测量仪和文本的颜色可根据一组规则完全自定义。
 
 image:images/tsvb-gauge.png["Gauge Visualization"]
 
 
 ==== Markdown
 
-此可视化允许您输入 Markdown 文本并嵌入 Mustache 模板语法，以基于一组系列数据自定义 Markdown。
-该可视化还支持 HTML 标记以及自定义样式表的功能。
+此可视化允许您输入 Markdown 文本并嵌入 Mustache 模板语法，以基于一组系列数据自定义 Markdown。该可视化还支持 HTML 标记以及自定义样式表的功能。
 
 image:images/tsvb-markdown.png["Markdown Visualization"]
 
@@ -57,19 +53,17 @@ image:images/tsvb-markdown.png["Markdown Visualization"]
 
 ==== 数据标签页
 
-数据标签页用于配置每个可视化的 序列。此选项卡允许您根据可视化支持的内容添加多个序列，并将多个聚合组合在一起以创建单个指标。
-以下是 数据标签页 UI 重要组件的细分。
+数据标签页用于配置每个可视化的序列。此选项卡允许您根据可视化支持的内容添加多个序列，并将多个聚合组合在一起以创建单个指标。以下是数据标签页 UI 重要组件的细分。
 
 ===== 序列标签和颜色
 
-每个序列都支持一个标签，该标签将用于图例和标题，具体取决于所选的可视化类型。 对于按词项分组的序列，可以指定 `{{key}}` 的 mustache 变量以替换该词项。 对于大多数可视化，您还可以通过点击色板打开颜色选择器选择一种颜色。
+每个序列都支持一个标签，该标签将用于图例和标题，具体取决于所选的可视化类型。对于按词项分组的序列，可以指定 `{{key}}` 的 mustache 变量以替换该词项。 对于大多数可视化，您还可以通过点击色板打开颜色选择器选择一种颜色。
 
 image:images/tsvb-data-tab-label.png["Label Example"]
 
 ===== 指标
 
-每个序列支持多个指标（聚合）; 最后一个指标（聚合）是将为该序列显示的值，用指标左侧的“眼睛”图标表示。指标可以使用管道聚合进行组合。
-一个常见的用例是创建一个带有“最大值”聚合的指标，然后创建一个“导数”指标，并选择之前的“最大值”指标作为源，这将会创造一个比率。
+每个序列支持多个指标（聚合）; 最后一个指标（聚合）是将为该序列显示的值，用指标左侧的“眼睛”图标表示。指标可以使用管道聚合进行组合。一个常见的用例是创建一个带有“最大值”聚合的指标，然后创建一个“导数”指标，并选择之前的“最大值”指标作为源，这将会创造一个比率。
 
 image:images/tsvb-data-tab-derivative-example.png["Derivative Example"]
 
@@ -96,7 +90,7 @@ image:images/tsvb-data-tab-series-options-time-series.png["Time Series Series Op
 
 ===== 分组控件
 
-在指标的底部有一组“分组依据”控件，允许您指定该序列应该如何分组或拆分。 有四种选择：
+在指标的底部有一组“分组依据”控件，允许您指定该序列应该如何分组或拆分。有四种选择：
 
 * 所有
 * 过滤器（单个）
@@ -107,7 +101,7 @@ image:images/tsvb-data-tab-series-options-time-series.png["Time Series Series Op
 
 ==== 面板选项标签页
 
-面板选项标签页用于配置整个面板，可用选项集取决于您选择的可视化。 以下是每个可视化可用的选项列表：
+面板选项标签页用于配置整个面板，可用选项集取决于您选择的可视化。以下是每个可视化可用的选项列表：
 
 *时间序列*
 
@@ -156,7 +150,7 @@ image:images/tsvb-data-tab-series-options-time-series.png["Time Series Series Op
 
 ==== Annotations 标签页
 
-注解标签页用于将注解数据源添加到时间序列可视化中。 您可以配置以下选项：
+注解标签页用于将注解数据源添加到时间序列可视化中。您可以配置以下选项：
 
 * 索引模式和时间字段
 * 注解颜色
@@ -169,8 +163,7 @@ image:images/tsvb-annotations.png["Annotation Tab"]
 
 ==== Markdown 选项卡
 
-Markdown 标签页用于编辑 Markdown 可视化的源代码。
-用户界面左侧有一个编辑器，右侧有数据标签页中的可用变量。您可以单击变量名称将 Mustache 模板变量插入到光标位置的标记中。Mustache 语法使用 Handlebar.js 处理器，它是 Mustache 模板语言的扩展版本。
+Markdown 标签页用于编辑 Markdown 可视化的源代码。用户界面左侧有一个编辑器，右侧有数据标签页中的可用变量。您可以单击变量名称将 Mustache 模板变量插入到光标位置的标记中。Mustache 语法使用 Handlebar.js 处理器，它是 Mustache 模板语言的扩展版本。
 
 image:images/tsvb-markdown-tab.png["Markdown Tab"]
 

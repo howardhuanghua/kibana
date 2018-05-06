@@ -2,21 +2,19 @@
 
 *Count*:: {es-ref}search-aggregations-metrics-valuecount-aggregation.html[_计数_] 聚合返回所选索引模式中元素的原始计数。
 *Average*:: 该聚合返回数字字段的{es-ref}search-aggregations-metrics-avg-aggregation.html[_平均值_] 。从下拉菜单中选择一个字段。
-*Sum*:: {es-ref}search-aggregations-metrics-sum-aggregation.html[_总和_] 聚合返回数字字段的总和。 从下拉菜单中选择一个字段。
-*Min*:: {es-ref}search-aggregations-metrics-min-aggregation.html[_最小值_] 聚合返回数字字段的最小值。 从下拉菜单中选择一个字段。
-*Max*:: {es-ref}search-aggregations-metrics-max-aggregation.html[_最大值_] 聚合返回数字字段的最大值。 从下拉菜单中选择一个字段。
-*Unique Count*:: {es-ref}search-aggregations-metrics-cardinality-aggregation.html[_基数_] 聚合返回字段中唯一值的数量。 从下拉菜单中选择一个字段。
+*Sum*:: {es-ref}search-aggregations-metrics-sum-aggregation.html[_总和_] 聚合返回数字字段的总和。从下拉菜单中选择一个字段。
+*Min*:: {es-ref}search-aggregations-metrics-min-aggregation.html[_最小值_] 聚合返回数字字段的最小值。从下拉菜单中选择一个字段。
+*Max*:: {es-ref}search-aggregations-metrics-max-aggregation.html[_最大值_] 聚合返回数字字段的最大值。从下拉菜单中选择一个字段。
+*Unique Count*:: {es-ref}search-aggregations-metrics-cardinality-aggregation.html[_基数_] 聚合返回字段中唯一值的数量。从下拉菜单中选择一个字段。
 *Standard Deviation*:: {es-ref}search-aggregations-metrics-extendedstats-aggregation.html[_扩展统计_]
-聚合返回数字字段中数据的标准偏差。 从下拉菜单中选择一个字段。
-*Percentiles*:: {es-ref}search-aggregations-metrics-percentile-aggregation.html[_百分数_] 聚合将数字字段中的值分成您指定的百分数区间。 从下拉列表中选择一个字段，然后在 *Percentiles* 输入域中指定一个或多个范围。点击 *X* 删除百分数字段。 点击 *+ Add* 添加百分数字段。
+聚合返回数字字段中数据的标准偏差。从下拉菜单中选择一个字段。
+*Percentiles*:: {es-ref}search-aggregations-metrics-percentile-aggregation.html[_百分数_] 聚合将数字字段中的值分成您指定的百分数区间。从下拉列表中选择一个字段，然后在 *Percentiles* 输入域中指定一个或多个范围。点击 *X* 删除百分数字段。点击 *+ Add* 添加百分数字段。
 *Percentile Rank*:: {es-ref}search-aggregations-metrics-percentile-rank-aggregation.html[_百分位等级_]
-聚合返回指定的数值字段中的值的百分位等级。 从下拉菜单中选择一个数字字段，然后在 *Values* 输入域中指定一个或多个百分比等级值。点击 *X* 删除值字段。 点击 *+ Add* 添加值字段。
+聚合返回指定的数值字段中的值的百分位等级。从下拉菜单中选择一个数字字段，然后在 *Values* 输入域中指定一个或多个百分比等级值。点击 *X* 删除值字段。点击 *+ Add* 添加值字段。
 
 父级管道聚合：
 
-对于每个父管道聚合，您必须定义用于计算聚合的指标。
-这可能是您现有的指标之一或新的指标。 您也可以嵌套这些聚合 
-（例如产生3阶导数）
+对于每个父管道聚合，您必须定义用于计算聚合的指标。这可能是您现有的指标之一或新的指标。您也可以嵌套这些聚合（例如产生3阶导数）。
 
 *Derivative*:: {es-ref}search-aggregations-pipeline-derivative-aggregation.html[_导数_] 聚合计算特定指标的导数。
 *Cumulative Sum*:: {es-ref}search-aggregations-pipeline-cumulative-sum-aggregation.html[_累计总和_] 聚合计算父直方图中指定指标的累计总和
@@ -25,8 +23,7 @@
 
 同级管道聚合：
 
-就像使用父级管道聚合一样，您需要提供一个用于计算同级聚合的指标。
-除此之外，还需要提供一个桶聚合，它将定义同级聚合将在其中运行的桶。
+就像使用父级管道聚合一样，您需要提供一个用于计算同级聚合的指标。除此之外，还需要提供一个桶聚合，它将定义同级聚合将在其中运行的桶。
 
 *Average Bucket*:: {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_桶平均值_] 
 计算同级聚合中指定指标的（中数）平均值

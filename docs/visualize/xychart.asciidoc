@@ -72,7 +72,7 @@ NOTE: 在 Elasticsearch 版本1.4.3及更高版本中，此功能要求您启用
 这些选项适用于整个图表，而不仅仅是单个数据系列。
 
 ==== 通用选项
-*Legend Position*:: 将你的图例移动到 *left* 、 *right* 、 *top* 或 *bottom* 。
+*Legend Position*:: 将您的图例移动到 *left* 、 *right* 、 *top* 或 *bottom* 。
 *Show Tooltip*:: 启用或禁止显示鼠标悬停在图表对象上时的工具提示。
 *Current Time Marker*:: 显示一条线表示当前时间。
 

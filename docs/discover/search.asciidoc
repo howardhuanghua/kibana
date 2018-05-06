@@ -1,6 +1,6 @@
 [[search]]
 == 搜索您的数据
-通过在搜索栏输入搜索条件，您可以在匹配当前索引模式的索引中进行搜索。您可以进行简单的文本查询，或使用 https://lucene.apache.org/core/2_9_4/queryparsersyntax.html[Lucene 语法]，或使用基于JSON的 {es-ref}query-dsl.html[Elasticsearch
+通过在搜索栏输入搜索条件，您可以在匹配当前索引模式的索引中进行搜索。您可以进行简单的文本查询，或使用 https://lucene.apache.org/core/2_9_4/queryparsersyntax.html[Lucene 语法]，或使用基于 JSON 的 {es-ref}query-dsl.html[Elasticsearch
 查询 DSL] 。
 
 提交一次搜索请求后，直方图、文档列表、字段列表会按新的搜索结果来展示。工具栏上会展示命中的文档数量。文档列表会展示前5条命中的文档。默认情况下，文档列表会按时间倒序进行排列，最新的文档显示在最上面。您可以点击时间字段的表头来调整顺序。您可以基于任何索引字段来指定列表的顺序。可以参考 <<sorting,
@@ -12,10 +12,10 @@ Sorting the Documents Table>> 获取更多信息。
 
 * 可以用字段名作为前缀来根据指定字段进行搜索。例如，输入 `status:200` 来搜索字段 `status` 中包含词条`200` 的文档。
 
-* 可以通过中括号指定范围搜索,
-`[START_VALUE TO END_VALUE]` 。例如, 搜索状态为 4xx 的条目，您可以输入 `status:[400 TO 499]` 。
+* 可以通过中括号指定范围搜索，
+`[START_VALUE TO END_VALUE]` 。例如，搜索状态为 4xx 的条目，您可以输入 `status:[400 TO 499]` 。
 
-* 您可以通过布尔操作符 `AND` ，`OR` ，和 `NOT` 来指定更多的搜索条件。例如，搜索状态为 4xx 而且扩展名为 `php` 或 `html` 的条目, 您可以输入 `status:[400 TO
+* 您可以通过布尔操作符 `AND` 、 `OR` 和 `NOT` 来指定更多的搜索条件。例如，搜索状态为 4xx 而且扩展名为 `php` 或 `html` 的条目，您可以输入 `status:[400 TO
 499] AND (extension:php OR extension:html)` 。
 
 NOTE: 这些例子使用 Lucene 语法。您也可以通过 Elasticsearch 查询 DSL 来提交查询请求。请参考 Elasticsearch 手册中的 {es-ref}query-dsl-query-string-query.html#query-string-syntax[query string syntax] 。
@@ -35,7 +35,7 @@ NOTE: 这些例子使用 Lucene 语法。您也可以通过 Elasticsearch 查询
 [float]
 [[load-search]]
 === 打开已经保存的搜索
-在搜索栏载入已经保存的搜索:
+在搜索栏载入已经保存的搜索：
 
 . 在 Kibana 工具栏点击 *Open* 。
 . 选择您要打开的搜索。
@@ -55,16 +55,16 @@ NOTE: 这些例子使用 Lucene 语法。您也可以通过 Elasticsearch 查询
 === 刷新搜索结果
 随着越来越多的文档被加入您要搜索的索引中，视图中展示的搜索结果会变得越陈旧。您可以设置刷新频率来周期性的提交搜索请求，以获取最新的结果。  
 
-开启自动刷新:
+开启自动刷新：
 
 . 点击 Kibana 工具栏中的 *Time Picker* image:images/time-picker.jpg[Time Picker] 。
-. 点击 *Auto refresh* 
+. 点击 *Auto refresh* 。 
 . 在列表中选择刷新频率。
 +
 image::images/autorefresh-intervals.png[]
 
-自动刷新开启后，刷新频率会在和一个 Pause 按钮一起展示在 Time Picker 旁边。点击 *Pause* 可以临时性的暂停自动刷新。
+自动刷新开启后，刷新频率会和一个 Pause 按钮一起展示在 Time Picker 旁边。点击 *Pause* 可以临时性的暂停自动刷新。
 
-NOTE: 如果自动刷新没有打开, 您可以手动点击 *Refresh* 来刷新视图。
+NOTE: 如果自动刷新没有打开，您可以手动点击 *Refresh* 来刷新视图。
 
 
