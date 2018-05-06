@@ -1,10 +1,8 @@
 [[viewing-field-stats]]
-== Viewing Field Data Statistics
+== 展示字段数据统计
 
-From the Fields list, you can see how many of the documents in the Documents
-table contain a particular field, what the top 5 values are, and what
-percentage of documents contain each value.
+通过 Fields 列表， 您可以看到文档列表里面有多少文档包含特定的字段，这个字段排名前5的值是什么，包含每一个值的文档所占的百分比是多少。
 
-To view field data statistics, click the name of a field in the Fields list.
+在字段列表里面点击字段名称，可以展示字段数据统计。
 
 image:images/filter-field.jpg[Field Statistics]

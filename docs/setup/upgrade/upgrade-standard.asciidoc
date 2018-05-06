@@ -1,11 +1,11 @@
 [[upgrade-standard]]
 === 标准升级
 
-标准升级是升级 Kibana 最直接的方法，仅支持4.2及以上的版本。
+标准升级是升级 Kibana 最直接的方法，仅支持 4.2 及以上的版本。
 
-如果您之前没有升级过 Kibana，参考 <<upgrade, 该表格>>来验证您的版本是否支持标准升级。
+如果您之前没有升级过 Kibana，参考<<upgrade, 该表格>>来验证您的版本是否支持标准升级。
 
-NOTE: 如果您从 Kibana 中保存或导出过依赖 <<search,Elasticsearch Query DSL>> 的对象，确保参考过 Elasticsearch {es-ref}breaking-changes.html[重要修改]文档并且按照其指引进行过必要的修复。
+NOTE: 如果您从 Kibana 中保存或导出过依赖 <<search, Elasticsearch Query DSL>> 的对象，确保参考过 Elasticsearch {es-ref}breaking-changes.html[重要修改]文档并且按照其指引进行过必要的修复。
 
 [float]
 ==== 用 `deb` 或 `rpm` 包进行升级
@@ -16,10 +16,10 @@ NOTE: 如果您从 Kibana 中保存或导出过依赖 <<search,Elasticsearch Que
 --
 Kibana 4.x 的配置文件路径不同于 5.0+，所以如果您是从 4.x 升级的，您需要把配置从原有的配置文件(`/opt/kibana/config/kibana.yml`)拷贝到新的配置文件(`/etc/kibana/kibana.yml`)。
 
-确保您移动或者升级了 <<breaking-changes,重要修改>> 文件中指明的配置项，否则 Kibana 将无法启动。
+确保您移动或者升级了<<breaking-changes, 重要修改>>文件中指明的配置项，否则 Kibana 将无法启动。
 --
 . 运用以下方法升级插件：删除已存在的插件，使用 `kibana-plugin` 脚本重新安装相应的版本。
-  参考 <<kibana-plugins, 插件>> 文档获取更多信息。
+  参考<<kibana-plugins, 插件>>文档获取更多信息。
 . 在当前系统中使用相应的命令启动新的 Kibana 进程。
 
 [float]
