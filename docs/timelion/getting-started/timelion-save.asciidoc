@@ -5,10 +5,7 @@
 
 按照如下步骤来保存一个 Timelion 控件至仪表盘：
 
-选择需要添加至仪表盘的一个或多个可视化控件。
-点击上面菜单中的 `Save` 选项。
-选择 `Save current expression as Kibana dashboard panel`.
-定义控件的名称并点击 `Save` 来保存成一个仪表盘可视化控件。
+选择需要添加至仪表盘的一个或多个可视化控件。点击上面菜单中的 `Save` 选项。选择 `Save current expression as Kibana dashboard panel` 。定义控件的名称并点击 `Save` 来保存成一个仪表盘可视化控件。
 
 image::images/timelion-save01.png[]
 {nbsp}

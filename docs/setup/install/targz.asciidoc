@@ -3,8 +3,7 @@
 
 Kibana 为 Linux 和 Darwin 平台提供了 `.tar.gz` 安装包。这些类型的包非常容易使用。
 
-Kibana 的最新稳定版本可以在 link:/downloads/kibana[Kibana 下载]页找到。
-其它版本可以在 link:/downloads/past-releases[已发布版本]中查看。
+Kibana 的最新稳定版本可以在 link:/downloads/kibana[Kibana 下载]页找到。其它版本可以在 link:/downloads/past-releases[已发布版本]中查看。
 
 
 [[install-linux64]]
@@ -88,22 +87,22 @@ Kibana 默认情况下从 `$KIBANA_HOME/config/kibana.yml` 加载配置文件。
 |=======================================================================
 | 类型 | 描述 | 默认位置 | 设置
 | home
-  | Kibana home 目录或  `$KIBANA_HOME`
+  | Kibana home 目录或 `$KIBANA_HOME` 。
  d| 解压包时创建的目录
  d|
 
 | bin
-  | 二进制脚本，包括 `kibana` 启动 Kibana 服务和 `kibana-plugin` 安装插件
+  | 二进制脚本，包括 `kibana` 启动 Kibana 服务和 `kibana-plugin` 安装插件。
   | $KIBANA_HOME\bin
  d|
 
 | config
-  | 配置文件，包括 `kibana.yml`
+  | 配置文件，包括 `kibana.yml` 。
   | $KIBANA_HOME\config
  d|
 
 | data
-  | Kibana 和其插件写入磁盘的数据文件位置
+  | Kibana 和其插件写入磁盘的数据文件位置。
   | $KIBANA_HOME\data
  d|
 

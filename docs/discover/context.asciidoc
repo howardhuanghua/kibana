@@ -1,7 +1,7 @@
 [[document-context]]
 == 查看文档上下文
 
-对于某些应用程序来说，窗口查看围绕特定主题的多个文档是很有用的。上下文视图能够帮助设置包含时限性事件的索引模式。
+对于某些应用程序来说，窗口查看围绕特定主题的多个文档是很有用的。上下文视图能够帮助设置包含时序性事件的索引模式。
 
 想要显示与锚文档相关的上下文，点击文档表条目左侧的 *Expand* 按钮
 image:images/ExpandButton.jpg[Expand Button] ，然后点击 *View surrounding documents* 链接。
@@ -18,18 +18,17 @@ Advanced Options*>> 中的 `context:defaultSize` 设置。
 
 === 改变上下文数量
 
-可以单独改变锚文档之前或之后的文档显示数量。
+可以单独改变锚文档前后的文档显示数量。
 
-想要增加比锚文档更新的文档的显示数量， 点击文档列表上方的*Load 5 more* 按钮，或者在该按钮右侧的输入框中输入所需的数量。
+想要增加比锚文档更新文档的显示数量， 点击文档列表上方的*Load 5 more* 按钮，或者在该按钮右侧的输入框中输入所需的数量。
 
 image::images/Discover-ContextView-SizePicker-Newer.png[]
 {nbsp}
 
-想要增加比锚文档更旧的文档的显示数量，点击文档列表下方的 *Load 5 more* 按钮，或者在该按钮右侧的输入框中输入所需的数量。
+想要增加比锚文档更旧文档的显示数量，点击文档列表下方的 *Load 5 more* 按钮，或者在该按钮右侧的输入框中输入所需的数量。
 
 image::images/Discover-ContextView-SizePicker-Older.png[]
 {nbsp}
 
-NOTE: 每次点击按钮默认加载的文档数量能够通过 <<advanced-options, *Management >
-Advanced Options*>> 中的 `context:step` 配置。
+NOTE: 每次点击按钮默认加载的文档数量能够通过 <<advanced-options, *Management > Advanced Options*>> 中的 `context:step` 配置。
 

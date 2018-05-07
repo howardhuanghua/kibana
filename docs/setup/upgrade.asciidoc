@@ -5,7 +5,7 @@
 ===========================================
 在升级 Kibana 之前：
 
-* 请参考<<breaking-changes, 主要变更内容>>文档。
+* 请参考<<breaking-changes, 重要变更>>文档。
 * 在升级生产服务之前请先在测试环境测试升级。
 * 使用 Elasticsearch 的 {es-ref}modules-snapshots.html[snapshots] 特性备份数据。除非存在备份数据，否则版本 **不能向前回滚** 。
 * 如果使用了自定义插件，检查其是否有兼容版本。

@@ -46,7 +46,7 @@ export default async function ({ readConfigFile }) {
       myApp: MyAppPageProvider,
     },
 
-    // apps 部分定义 `PageObjects.common.navigateTo(appKey)` 使用的 urls
+    // apps 部分定义 PageObjects.common.navigateTo(appKey) 使用的 urls
     // 为您的插件合并 Kibana 配置中定义的 url，以便使用帮助
     apps: {
       ...kibanaConfig.get('apps'),

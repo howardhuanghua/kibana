@@ -141,22 +141,22 @@ Kibana 默认情况下从 `$KIBANA_HOME/config/kibana.yml` 加载配置文件。
 |=======================================================================
 | 类型 | 描述 | 默认位置 | 设置
 | home
-  | Kibana home 目录或 `$KIBANA_HOME`
+  | Kibana home 目录或 `$KIBANA_HOME` 。
   | /usr/share/kibana
  d|
 
 | bin
-  | 二进制脚本，包括 `kibana` 启动 Kibana server 和 `kibana-plugin` 安装插件
+  | 二进制脚本，包括 `kibana` 启动 Kibana server 和 `kibana-plugin` 安装插件。
   | /usr/share/kibana/bin
  d|
 
 | config
-  | 配置文件，包括 `kibana.yml`
+  | 配置文件，包括 `kibana.yml` 。
   | /etc/kibana
  d|
 
 | data
-  | Kibana 和其插件写入磁盘的数据文件位置
+  | Kibana 和其插件写入磁盘的数据文件位置。
   | /var/lib/kibana
  d|
 

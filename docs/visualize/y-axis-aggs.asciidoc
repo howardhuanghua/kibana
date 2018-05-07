@@ -17,8 +17,8 @@
 对于每个父管道聚合，您必须定义用于计算聚合的指标。这可能是您现有的指标之一或新的指标。您也可以嵌套这些聚合（例如产生3阶导数）。
 
 *Derivative*:: {es-ref}search-aggregations-pipeline-derivative-aggregation.html[_导数_] 聚合计算特定指标的导数。
-*Cumulative Sum*:: {es-ref}search-aggregations-pipeline-cumulative-sum-aggregation.html[_累计总和_] 聚合计算父直方图中指定指标的累计总和
-*Moving Average*:: {es-ref}search-aggregations-pipeline-movavg-aggregation.html[_移动平均值_] 聚合将滑动数据窗口并发出该窗口的平均值
+*Cumulative Sum*:: {es-ref}search-aggregations-pipeline-cumulative-sum-aggregation.html[_累计总和_] 聚合计算父直方图中指定指标的累计总和。
+*Moving Average*:: {es-ref}search-aggregations-pipeline-movavg-aggregation.html[_移动平均值_] 聚合将滑动数据窗口并发出该窗口的平均值。
 *Serial Diff*:: {es-ref}search-aggregations-pipeline-serialdiff-aggregation.html[_串行差分_] 是一种时间序列中的值在不同时间滞后或周期内从自身减去的技术。
 
 同级管道聚合：

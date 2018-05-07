@@ -20,7 +20,7 @@
 [float]
 ==== 插件生成器
 
-下载 https://github.com/elastic/generator-kibana-plugin[plugin generator] 以快速生成您的插件。
+下载 https://github.com/elastic/generator-kibana-plugin[插件生成器] 以快速生成您的插件。
 
 [float]
 ==== 代码中的引用

@@ -10,7 +10,7 @@ Kibana 提供以下格式的安装包：
 
  `tar.gz` 包用来在 Linux 和 Darwin 系统下安装，也是最方便的一种选择。
 +
- `zip` 包是唯一支持 Windows 系统的安装包。
+ zip 包是唯一支持 Windows 系统的安装包。
 +
 <<targz>> 或者 <<windows>>
 

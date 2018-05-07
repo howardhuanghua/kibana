@@ -37,7 +37,7 @@ Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasti
 <<time-series-visual-builder,Time Series Visual Builder>>:: 使用管道聚合显示时间序列数据。
 * *其他* 
 [horizontal]
-<<tagcloud-chart,Tag cloud>>:: 显示词云，每个词的字体大小表示其重要性。
+<<tagcloud-chart,Tag cloud>>:: 显示标签云，每个标签的字体大小表示其重要性。
 <<markdown-widget,Markdown widget>>:: 显示自由格式信息或说明。
 . 指定一个查询，为视图获取数据：
 ** 想要输入新的搜索条件，只需为包含想要可视化数据的索引库选择索引模式。这将打开一个可视化视图编辑器，并关联一个匹配所选索引库里所有文档的通配符查询。
@@ -87,7 +87,7 @@ Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasti
 * {es-ref}search-aggregations-bucket-filters-aggregation.html[filters]
 * {es-ref}search-aggregations-bucket-significantterms-aggregation.html[significant terms]
 
-比如，如果正在索引 Apache 服务器日志，就可以构建一个 bar 图，通过指定 `geo.src` 字段上的一个 term 聚合，来展示地理位置的请求分布：
+比如，如果正在索引 Apache 服务器日志，就可以构建一个条形图，通过指定 `geo.src` 字段上的一个 term 聚合，来展示地理位置的请求分布：
 
 image::images/bar-terms-agg.jpg[]
 

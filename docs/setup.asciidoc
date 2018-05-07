@@ -1,5 +1,5 @@
 [[setup]]
-= 搭建 Kibana
+= 搭建
 
 [partintro]
 --
@@ -15,7 +15,7 @@
 [float]
 == 支持的平台
 
-Kibana 有 Linux, Darwin, 和 Windows 版本的安装包。由于 Kibana 基于 Node.js 运行，我们在这些平台上包含了一些必要的 Node.js 二进制文件。Kibana 不支持在独立维护的 Node.js 版本上运行。
+Kibana 有 Linux、Darwin 和 Windows 版本的安装包。由于 Kibana 基于 Node.js 运行，我们在这些平台上包含了一些必要的 Node.js 二进制文件。Kibana 不支持在独立维护的 Node.js 版本上运行。
 
 [float]
 [[elasticsearch-version]]

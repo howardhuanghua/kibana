@@ -3,7 +3,7 @@
 
 坐标地图显示一个地理区域，按照由您指定的数据桶确定的数据，在上面覆盖一些圆圈。
 
-NOTE: 默认情况下，Kibana 使用 https://www.elastic.co/elastic-tile-service[Elastic Tile Service] 来显示地图 Tiles。 要使用其他 Tile 服务提供商，请在 `kibana.yml` 中配置 <<tilemap-settings,tilemap settings>>。
+NOTE: 默认情况下，Kibana 使用 https://www.elastic.co/elastic-tile-service[Elastic Tile Service] 来显示地图瓦片（Tiles）。要使用其他 Tile 服务提供商，请在 `kibana.yml` 中设置 <<tilemap-settings,tilemap 配置项>>。
 
 === 配置
 
@@ -11,7 +11,7 @@ NOTE: 默认情况下，Kibana 使用 https://www.elastic.co/elastic-tile-servic
 
 ===== 指标
 
-坐标地图的默认 _指标_ 聚合是 *Count* 聚合。 您可以选择以下任何一项聚合作为指标聚合：
+坐标地图的默认 _指标_ 聚合是 *Count* 聚合。您可以选择以下任何一项聚合作为指标聚合：
 
 *Count* :: {es-ref}search-aggregations-metrics-valuecount-aggregation.html[_计数_] 聚合返回所选索引模式中元素的原始计数。
 *Average* :: 此聚合返回数值字段的{es-ref}search-aggregations-metrics-avg-aggregation.html[_平均值_]。从下拉菜单中选择一个字段。

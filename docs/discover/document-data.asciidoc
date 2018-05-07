@@ -3,9 +3,7 @@
 
 提交一个搜索查询后，Documents 表中就会列出500个匹配查询的最新文档。您可以通过 <<advanced-options,
 Advanced Settings>> 中的 `discover:sampleSize` 设置表中显示的文档个数。默认情况下，该表显示的是为所选索引模式和文本 `_source` 配置的时间域的本地化版本。
-您可以从 Fields 表中
-<<adding-columns,选择字段向 Documents 表中添加>> 。
-您可以通过表中包含的任意索引字段<<sorting, 对所列文档进行分类>>。
+您可以从 Fields 表中<<adding-columns,选择字段向 Documents 表中添加>>。您可以通过表中包含的任意索引字段<<sorting, 对所列文档进行排序>>。
 
 查看文档的字段数据，请击该文档表项目左侧的 *Expand*
 image:images/ExpandButton.jpg[Expand Button] 按钮。
@@ -16,7 +14,7 @@ image::images/Expanded-Document.png[]
 
 以单独页面查看文档数据，请点击 *View single document* 链接。可以通过收藏和分享本链接来实现对特定文档的直接访问。
 
-显示或隐藏 Documents 表中的某一个字段所在的列, 请点击
+显示或隐藏 Documents 表中的某一个字段所在的列，请点击
 image:images/add-column-button.png[Add Column] *Toggle column in table* 按钮。
 
 折叠文档细节，请点击 *Collapse* 按钮
@@ -39,7 +37,7 @@ image:images/CollapseButton.jpg[Collapse Button]。
 
 从文档的字段数据中添加字段列，请展开文档并点击该字段的 image:images/add-column-button.png[Add Column] *Toggle column in table* 按钮。
 
-添加的字段列会取代Documents表中的 `_source` 列。添加的字段也会被添加到 *Selected Fields* 列表中。
+添加的字段列会取代 Documents 表中的 `_source` 列。添加的字段也会被添加到 *Selected Fields* 列表中。
 
 重新排列字段列，请将鼠标置于想要移动的列的标题上，然后点击  *Move left* 或 *Move right* 按钮。
 

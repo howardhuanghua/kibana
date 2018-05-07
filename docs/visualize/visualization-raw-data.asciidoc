@@ -20,4 +20,4 @@ image:images/spy-panel.png[]
 .调试
 以 JSON 形式保存的可视化容器的状态。
 
-将可视化数据以逗号分割值的形式导成（cvs）文件，点击数据表底部的 *Raw* 或者 *Formatted* 链接。 *Raw* 导出 Elasticsearch 存储格式的数据。 *Formatted* 导出格式化好的数据，详情参考<<managing-fields,field formatters>>。
+将可视化数据以逗号分割值的形式导成（cvs）文件，点击数据表底部的 *Raw* 或者 *Formatted* 链接。 *Raw* 导出 Elasticsearch 存储格式的数据。 *Formatted* 导出格式化好的数据，详情参考 <<managing-fields,field formatters>>。

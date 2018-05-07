@@ -1,7 +1,7 @@
 [[timelion-math]]
 === 使用数学函数
 
-前面两节您学会了如何创建和自定义 Timelion 可视化控件。这一节带您领略 Timelion 数学函数的风采。我们继续使用 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat data] 来创建基于网络上下行链路数据的新的 Timelion 可视化控件。您可以先添加一个新的 Timelion 可视化控件。
+前面两节您学会了如何创建和自定义 Timelion 可视化控件。这一节带您领略 Timelion 数学函数的风采。我们继续使用 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat] 数据来创建基于网络上下行链路数据的新的 Timelion 可视化控件。您可以先添加一个新的 Timelion 可视化控件。
 
 在菜单的顶层，点击 `Add` 添加第二个控件。添加到当前工作表的时候，您可以注意到查询输入框会被替换成默认的 `.es(*)` 表达式。因为这个查询是和您当前选中的控件相关联的。
 
@@ -28,7 +28,7 @@ image::images/timelion-math02.png[]
 image::images/timelion-math03.png[]
 {nbsp}
 
-针对上行数据，您需要添加类似的指标 `system.network.out.bytes`. 因为上行数据是从您的设备发出去的，一般我们用负数来表达这一指标。`.multiply()` 函数将会利用一个数来乘以一个序列的数据。结果也将是一个序列或者一个链表的序列数据。例如，您可以使用 `.multiply(-1)` 来将上行线路转换成负数。使用如下表达式来更新您的控件：
+针对上行数据，您需要添加类似的指标 `system.network.out.bytes` 。因为上行数据是从您的设备发出去的，一般我们用负数来表达这一指标。`.multiply()` 函数将会利用一个数来乘以一个序列的数据。结果也将是一个序列或者一个链表的序列数据。例如，您可以使用 `.multiply(-1)` 来将上行线路转换成负数。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
@@ -38,7 +38,7 @@ image::images/timelion-math03.png[]
 image::images/timelion-math04.png[]
 {nbsp}
 
-为了使该可视化控件可读性更强，可以将数据单位从 bytes 转换为 megabytes(MB). Timelion 有一个 `.divide()` 函数可以使用。该函数接收和 `.multiply()` 类似的数据参数，会利用整个序列的数据来除以定义好的参数。使用如下表达式来更新您的控件：
+为了使该可视化控件可读性更强，可以将数据单位从 bytes 转换为 megabytes(MB)。Timelion 有一个 `.divide()` 函数可以使用。该函数接收和 `.multiply()` 类似的数据参数，会利用整个序列的数据来除以定义好的参数。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
@@ -48,7 +48,7 @@ image::images/timelion-math04.png[]
 image::images/timelion-math05.png[]
 {nbsp}
 
-我们可以利用前面章节学过的样式定制函数 `.title()`, `.label()`, `.color()`, `.lines()` 和 `.legend()` 将我们的控件变的更美观。使用如下表达式来更新您的控件：
+我们可以利用前面章节学过的样式定制函数 `.title()` 、 `.label()` 、 `.color()` 、 `.lines()` 和 `.legend()` 将我们的控件变的更美观。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------

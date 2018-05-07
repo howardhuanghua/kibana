@@ -3,7 +3,7 @@
 
 这一节您将学会如何使用条件逻辑修改时间序列数据和创建移动平均趋势。这样可以非常方便的发现随着时间推移的异常数据。
 
-为了便于本节内容的学习，我们可以基于 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat 数据]利用可视化控件监控内存消耗情况。可以使用如下表达式在图表中呈现 `system.memory.actual.used.bytes` 的最大值。 
+为了便于本节内容的学习，我们可以基于 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat] 数据利用可视化控件监控内存消耗情况。可以使用如下表达式在图表中呈现 `system.memory.actual.used.bytes` 的最大值。 
 
 [source,text]
 ----------------------------------
@@ -49,7 +49,7 @@ image::images/timelion-conditional02.png[]
 image::images/timelion-conditional03.png[]
 {nbsp}
 
-现在我们有了阈值控制和移动平均，我们来利用上一节描述过的 `.color()`, `.line()`, `.title()` 和 `.legend()` 方法来丰富我们的图表以便于更好的查看：
+现在我们有了阈值控制和移动平均，我们来利用上一节描述过的 `.color()` 、 `.line()` 、 `.title()` 和 `.legend()` 方法来丰富我们的图表以便于更好的查看：
 
 [source,text]
 ----------------------------------

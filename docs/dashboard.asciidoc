@@ -19,7 +19,7 @@ image:images/Dashboard-Tutorial-Edit-Mode.png[Example dashboard in edit mode]
 [[dashboard-getting-started]]
 == 创建一个仪表盘
 
-如何创建一个仪表盘:
+如何创建一个仪表盘：
 
 . 点击侧面导航中的 *Dashboard* 。您如果之前没有浏览过仪表盘，Kibana 会显示一个登陆页，在这个页面您可以点击 *+* 。如果没有这个页面，点击 *Dashboard* 返回登陆页。
 +
@@ -30,19 +30,19 @@ image:images/Dashboard-Landing-Page.png[Dashboard Landing Page]
 +
 image:images/Dashboard-View-Mode.png[Dashboard View Mode]
 
-. 一旦进入编辑模式, 点击 *Add* 并选择一个可视化结果。如果您有很多可视化结果，您可以敲入 *过滤条件* 字符串来过滤这个列表。
+. 一旦进入编辑模式，点击 *Add* 并选择一个可视化结果。如果您有很多可视化结果，您可以敲入 *过滤条件* 字符串来过滤这个列表。
 +
 image:images/Dashboard-Edit-Mode.png[Dashboard Edit Mode]
 +
 Kibana 在仪表盘容器中展示选中的可视化结果。如果您觉得容器展示的信息太小，您可以<<resizing-containers,调整容器大小>>。
 +
-NOTE: 默认情况下， Kibana 仪表盘使用浅色主题。 想使用深色主题，点击 *Options* 并选择 *Use dark theme* 。想修改默认主题，到 *Management/Kibana/Advanced Settings* 并设置 `dashboard:defaultDarkTheme` 为 `true` 。
+NOTE: 默认情况下，Kibana 仪表盘使用浅色主题。 想使用深色主题，点击 *Options* 并选择 *Use dark theme* 。想修改默认主题，到 *Management/Kibana/Advanced Settings* 并设置 `dashboard:defaultDarkTheme` 为 `true` 。
 
 
 [[saving-dashboards]]
 . 当您完成添加并整理好可视化结果后，点击 *Save* 来保存到仪表盘：
 .. 为仪表盘取一个名字。
-.. 要使用仪表盘存储时间过滤器中指定的时间段，请选择 *Store time with dashboard*。
+.. 要使用仪表盘存储时间过滤器中指定的时间段，请选择 *Store time with dashboard* 。
 .. 点击 *Save* 按钮保存为 Kibana 保存项。
 
 [float]
@@ -119,7 +119,7 @@ image:images/NYCTA-Table.jpg[]
 如何打开一个保存的仪表盘：
 
 . 点击侧边导航栏中的 *Dashboard* 。
-. 选中一个仪表盘并点击 *Open* 。 如果您有很多仪表盘， 您可以敲入 *Filter* 字符串来过滤仪表盘列表。
+. 选中一个仪表盘并点击 *Open* 。如果您有很多仪表盘，您可以敲入 *Filter* 字符串来过滤仪表盘列表。
 +
 TIP: 导入、导出和删除仪表盘，点击管理仪表盘链接打开 *Management/Kibana/Saved Objects/Dashboards* 。
 

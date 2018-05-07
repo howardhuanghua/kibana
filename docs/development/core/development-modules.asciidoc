@@ -10,12 +10,12 @@
 
 
 - *`import 'ui/autoload/styles'`*
-    在 `src/ui/public/styles` 导入所有样式
+    在 `src/ui/public/styles` 导入所有样式。
 
 - *`import 'ui/autoload/directives'`*
-    在 `src/ui/public/directives` 导入所有指令
+    在 `src/ui/public/directives` 导入所有指令。
 - *`import 'ui/autoload/filters'`*
-    在 `src/ui/public/filters` 导入所有过滤器
+    在 `src/ui/public/filters` 导入所有过滤器。
 
 - *`import 'ui/autoload/modules'`*
     导入 Kibana 依赖却没有导入的 angular、一些 ui 服务和 “组件”。需要导入的全量列表被硬编码在模块中。希望这个列表会随着时间的推移而缩小，因为我们正确地映射出所需的模块并导入它们实际上是必要的。
@@ -39,7 +39,7 @@ Kibana 用 Webpack 管理依赖。
     ** 转到 *3*
   * 转到 *2*
 . 搜索已命名模块
-  * `moduleName` = dirname(require path)` 
+  * `moduleName` = dirname(require path)
   * 如果 `moduleName` 是下面别名中的一个，或者以下面中的别名开头，则匹配
     ** 用匹配替换别名，继续 ***3***
   * 当满足这些条件时，匹配：

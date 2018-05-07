@@ -24,7 +24,7 @@ _桶_ 聚合决定了需要从数据集中抽取哪些信息。
 [source,shell]
 { \"script\" : \"doc[\'grade\'].value * 1.2\" }
 
-注意：在 Elasticsearch 1.4.3及以后的版本中，这个功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting] 。
+注意：在 Elasticsearch 1.4.3及以后的版本中，这个功能需要打开 {es-ref}modules-scripting.html[动态 Groovy 脚本] 。
 
 选择 *Options* 标签来改变下列图形的方向：
 

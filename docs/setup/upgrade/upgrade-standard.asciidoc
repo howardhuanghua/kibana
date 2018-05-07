@@ -5,7 +5,7 @@
 
 如果您之前没有升级过 Kibana，参考<<upgrade, 该表格>>来验证您的版本是否支持标准升级。
 
-NOTE: 如果您从 Kibana 中保存或导出过依赖 <<search, Elasticsearch Query DSL>> 的对象，确保参考过 Elasticsearch {es-ref}breaking-changes.html[重要修改]文档并且按照其指引进行过必要的修复。
+NOTE: 如果您从 Kibana 中保存或导出过依赖 <<search, Elasticsearch Query DSL>> 的对象，确保参考过 Elasticsearch {es-ref}breaking-changes.html[重要变更]文档并且按照其指引进行过必要的修复。
 
 [float]
 ==== 用 `deb` 或 `rpm` 包进行升级
@@ -16,7 +16,7 @@ NOTE: 如果您从 Kibana 中保存或导出过依赖 <<search, Elasticsearch Qu
 --
 Kibana 4.x 的配置文件路径不同于 5.0+，所以如果您是从 4.x 升级的，您需要把配置从原有的配置文件(`/opt/kibana/config/kibana.yml`)拷贝到新的配置文件(`/etc/kibana/kibana.yml`)。
 
-确保您移动或者升级了<<breaking-changes, 重要修改>>文件中指明的配置项，否则 Kibana 将无法启动。
+确保您移动或者升级了<<breaking-changes, 重要变更>>文件中指明的配置项，否则 Kibana 将无法启动。
 --
 . 运用以下方法升级插件：删除已存在的插件，使用 `kibana-plugin` 脚本重新安装相应的版本。
   参考<<kibana-plugins, 插件>>文档获取更多信息。
@@ -26,7 +26,7 @@ Kibana 4.x 的配置文件路径不同于 5.0+，所以如果您是从 4.x 升�
 ==== 用 `zip` 或 `tar.gz` 压缩包进行升级
 
 . 将 `zip` 或 `tar.gz` 压缩包解压到一个新的文件夹，确保 `config` 或 `data` 文件夹没有被覆盖。
-. 将原来安装的 `config` 文件夹下的所有文件拷贝到新安装目录中。确保您移动或者升级了<<breaking-changes, 重要修改>>文件中指明的配置项，否则 Kibana 将无法启动。
+. 将原来安装的 `config` 文件夹下的所有文件拷贝到新安装目录中。确保您移动或者升级了<<breaking-changes, 重要变更>>文件中指明的配置项，否则 Kibana 将无法启动。
 . 将原来安装的 `data` 文件夹下的所有文件拷贝到新安装目录中。
 . 使用 `kibana-plugin` 脚本重新安装相应的版本。参考<<kibana-plugins, 插件>>文档获取更多信息。
 . 关闭原 Kibana 进程。

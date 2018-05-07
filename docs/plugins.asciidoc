@@ -1,5 +1,5 @@
 [[kibana-plugins]]
-= Kibana 插件
+= 插件
 
 [partintro]
 --

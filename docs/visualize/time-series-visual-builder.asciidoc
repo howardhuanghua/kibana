@@ -57,7 +57,7 @@ image:images/tsvb-markdown.png["Markdown Visualization"]
 
 ===== 序列标签和颜色
 
-每个序列都支持一个标签，该标签将用于图例和标题，具体取决于所选的可视化类型。对于按词项分组的序列，可以指定 `{{key}}` 的 mustache 变量以替换该词项。 对于大多数可视化，您还可以通过点击色板打开颜色选择器选择一种颜色。
+每个序列都支持一个标签，该标签将用于图例和标题，具体取决于所选的可视化类型。对于按词项分组的序列，可以指定 `{{key}}` 的 mustache 变量以替换该词项。对于大多数可视化，您还可以通过点击色板打开颜色选择器选择一种颜色。
 
 image:images/tsvb-data-tab-label.png["Label Example"]
 

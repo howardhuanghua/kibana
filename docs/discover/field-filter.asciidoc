@@ -10,11 +10,9 @@
 +
 image::images/filter-field.jpg[]
 . 添加积极过滤器，请点击 *Positive Filter* 按钮
-image:images/PositiveFilter.jpg[Positive Filter]。
-这会只显示包含该字段值的文档。
+image:images/PositiveFilter.jpg[Positive Filter]。这会只显示包含该字段值的文档。
 . 添加消极过滤器，请点击 *Negative Filter* 按钮
-image:images/NegativeFilter.jpg[Negative Filter]。
-这会排除包含该字段值的文档。
+image:images/NegativeFilter.jpg[Negative Filter]。这会排除包含该字段值的文档。
 
 从 Documents 表中添加一个过滤器：
 

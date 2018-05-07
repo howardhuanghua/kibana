@@ -72,7 +72,7 @@ WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可
 `timelion:default_rows`:: 在 timelion 工作表上使用的默认行数。
 `timelion:graphite.url`:: [试验的] 用于 graphite 查询，这里设置其主机的 URL
 `timelion:quandl.key`:: [试验的] 用于 quandl 查询，值来自于 www.quandl.com 上您的 API key。
-`state:storeInSessionStorage`:: [试验的] Kibana 跟踪 URL 中的 UI 状态，当存在大量信息并且 URL 变得非常长的时候，可能会导致问题。启用这个功能会将部分状态保存在浏览器会话中，以保持较短的URL。
+`state:storeInSessionStorage`:: [试验的] Kibana 跟踪 URL 中的 UI 状态，当存在大量信息并且 URL 变得非常长的时候，可能会导致问题。启用这个功能会将部分状态保存在浏览器会话中，以保持较短的 URL。
 `context:defaultSize`:: 指定在上下文视图中显示的环绕条目的初始数量。默认值是5。
 `context:step`:: 使用上下文视图中的按钮时，指定用于递增或递减上下文大小的数字。默认值是5。
 

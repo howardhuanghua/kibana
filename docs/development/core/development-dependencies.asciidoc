@@ -79,9 +79,9 @@ module.exports = window.angular;
 
 如果您一行一行的看，会发现桥接代码做的很简单：
 
-. 确保 jQuery 在 angular（实际运行在 shim 之上） 之前加载
-. 从 npm 安装中加载 angular.js
-. 加载 angular-elastic 插件，每当我们导入 angular 时，都会要包含它
+. 确保 jQuery 在 angular（实际运行在 shim 之上） 之前加载。
+. 从 npm 安装中加载 angular.js 。
+. 加载 angular-elastic 插件，每当我们导入 angular 时，都会要包含它。
 . 使用 `ui/modules` 模块添加被 angular-elastic 导入进来的模块作为 `kibana` angular 模块的依赖。
-. 最后，导出 window.angular 变量。这意味着当写下 `import angular from 'angular';` 时会恰当地设置 angular 库中的angular 变量，而不是未定义的默认配置。
+. 最后，导出 window.angular 变量。这意味着当写下 `import angular from 'angular';` 时会恰当地设置 angular 库中的 angular 变量，而不是未定义的默认配置。
 

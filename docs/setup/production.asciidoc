@@ -26,7 +26,7 @@ Kibana 的配置很大程度上依赖于您的使用场景。如果只有自己�
 === 启用 SSL
 不管是客户端的请求，还是 Kibana 服务端发给 Elasticsearch 的请求，Kibana 都支持 SSL 加密。
 
-要加密浏览器和 Kibana 服务等的会话，请配置 `kibana.yml` 文件中的 `server.ssl.enabled` 、 `server.ssl.certificate` 和 `server.ssl.key` 属性：
+要加密浏览器和 Kibana 服务端之间的会话，请配置 `kibana.yml` 文件中的 `server.ssl.enabled` 、 `server.ssl.certificate` 和 `server.ssl.key` 属性：
 
 [source,text]
 ----
@@ -45,8 +45,7 @@ server.ssl.certificate: /path/to/your/server.crt
 elasticsearch.url: "https://<your_elasticsearch_host>.com:9200"
 ----
 
-如果 Elasticsearch 使用了自签名证书，设置 `kibana.yml` 文件中的 `certificateAuthorities` 属性指向 PEM 文件的位置， 设置 `certificateAuthorities` 属性可以使用
-默认的 `verificationMode` 选项 `full` 。
+如果 Elasticsearch 使用了自签名证书，设置 `kibana.yml` 文件中的 `certificateAuthorities` 属性指向 PEM 文件的位置，设置 `certificateAuthorities` 属性可以使用默认的 `verificationMode` 选项 `full` 。
 
 [source,text]
 ----
