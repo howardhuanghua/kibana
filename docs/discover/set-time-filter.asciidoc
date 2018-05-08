@@ -1,45 +1,32 @@
 [[set-time-filter]]
-== Setting the Time Filter
-The time filter restricts the search results to a specific time period. You can
-set a time filter if your index contains time-based events and a time-field is
-configured for the selected index pattern.
+== 设置时间过滤器
+时间过滤器按照指定的时间段展示搜索结果。设置了 `index contains time-based events` 和 `time-field` 的索引模式可以使用时间过滤器。
 
-By default the time filter is set to the last 15 minutes. You can use the Time
-Picker to change the time filter or select a specific time interval or time
-range in the histogram at the top of the page.
+时间过滤器默认的时间段为最近15分钟。您可以使用页面顶部的 Time Picker 来调整时间段和刷新频率。
 
-To set a time filter with the Time Picker:
+通过 Time Picker 设置时间过滤器：
 
-. Click Time Picker image:images/time-picker.jpg[] in the Kibana toolbar.
-. To set a quick filter, click one of the shortcut links.
+. 点击 Kibana 工具栏中的 *Time Picker* image:images/time-picker.jpg[] 。
+. 可以通过点击一个时间段设置快速过滤。
 +
 image::images/time-filter.jpg[Time filter shortcuts]
-. To specify a time filter relative to the current time, click *Relative* and
-specify the start time as a number of seconds, minutes, hours, days,
-months, or years. You can also specify the end time relative
-to the current time. Relative times can be in the past or future.
+. 可以基于当前时间来设置相对时间过滤器，点击 *Relative* 后选择数字和时间单位（秒、分、时、天、月、年）来指定当前时间多久之前是开始时间。也可以用同样的方式指定当前多久之后为结束时间。相对时间既可以是过往也可以是将来。
 +
 image::images/time-filter-relative.jpg[Relative time filter]
-. To specify both the start and end times for the time filter, click
-*Absolute* and select a start and end date. You can adjust the time
-by editing the *To* and *From* fields.
+. 可以点击 *Absolute* ，通过修改 *To* 和 *From* 字段直接指定开始时间和结束时间。
 +
 image::images/time-filter-absolute.jpg[Absolute time filter]
-. Click the caret in the bottom right corner to close the Time Picker.
+. 点击工具条下方最右侧的脱字符图标来关闭 Time Picker 。
 
-To set a time filter from the histogram, do one of the following:
+用如下两种方式可以通过直方图来设置时间过滤器：
 
-* Click the bar that represents the time interval you want to zoom in on.
-* Click and drag to view a specific timespan. You must start the selection with
-the cursor over the background of the chart--the cursor changes to a plus sign
-when you hover over a valid start point.
+* 直接点击直方图上的一根柱子来放大对应的时间段。
+* 通过拖拽的方式指定时间段。当光标在图表的背景上变成一个加号时，代表这是可以选取的时间段。
 
-To move forward/backward in time, click the arrows to the left or right of the Time Picker:
+可以点击 Time Picker 左边和右边的箭头来选择上一个或下一个时间段：
 
 image::images/time-picker-step.jpg[Move backwards in time]
 
-You can use the browser Back button to undo your changes.
+您可以通过浏览器的返回按钮进行撤销操作。
 
-The displayed time range and interval are shown on the histogram. By default,
-the interval is set automatically based on the time range. To use a different
-interval, click the link and select an interval.
+时间段和刷新周期会在直方图上展示。默认情况下，刷新周期会根据时间段来自动设置。也可以可以通过页面上的链接手动设置刷新周期。

@@ -1,65 +1,57 @@
 [[development-modules]]
-=== Modules and Autoloading
+=== 模块和自动加载
 
 [float]
-==== Autoloading
+==== 自动加载
 
-Because of the disconnect between JS modules and angular directives, filters,
-and services it is difficult to know what you need to import. It is even more
-difficult to know if you broke something by removing an import that looked
-unused.
+由于 JS 模块与指令、过滤器和服务的脱节，很难知道要导入哪些内容。更难的是，您不知道自己移除的看似无用的模块是否会对其他地方产生影响。
 
-To prevent this from being an issue the ui module provides "autoloading"
-modules. The sole purpose of these modules is to extend the environment with
-certain components. Here is a breakdown of those modules:
+为了防止其成为一个问题，ui 模块提供了 “自动加载（autoloading）” 模块。这些模块的唯一目的是使用某些组件拓展环境。以下是这些模块的分解：
+
 
 - *`import 'ui/autoload/styles'`*
-    Imports all styles at the root of `src/ui/public/styles`
+    在 `src/ui/public/styles` 导入所有样式。
 
 - *`import 'ui/autoload/directives'`*
-    Imports all directives in `src/ui/public/directives`
-
+    在 `src/ui/public/directives` 导入所有指令。
 - *`import 'ui/autoload/filters'`*
-    Imports all filters in `src/ui/public/filters`
+    在 `src/ui/public/filters` 导入所有过滤器。
 
 - *`import 'ui/autoload/modules'`*
-    Imports angular and several ui services and "components" which Kibana
-    depends on without importing. The full list of imports is hard coded in the
-    module. Hopefully this list will shrink over time as we properly map out
-    the required modules and import them were they are actually necessary.
+    导入 Kibana 依赖却没有导入的 angular、一些 ui 服务和 “组件”。需要导入的全量列表被硬编码在模块中。希望这个列表会随着时间的推移而缩小，因为我们正确地映射出所需的模块并导入它们实际上是必要的。
 
 - *`import 'ui/autoload/all'`*
-    Imports all of the above modules
+    导入所有上述模块
 
 [float]
-==== Resolving Require Paths
+==== 解析所需路径
 
-Kibana uses Webpack to bundle Kibana's dependencies.
+Kibana 用 Webpack 管理依赖。
 
-Here is how import/require statements are resolved to a file:
+下面是如何将 import/require 语句解析为一个文件：
 
-. Check the beginning of the module path  
-  * if the path starts with a '.'
-    ** append it the directory of the current file
-    ** proceed to *3*
-  * if the path starts with a '/'
-    ** search for this exact path
-    ** proceed to *3*
-  * proceed to *2*
-. Search for a named module
-  * `moduleName` = dirname(require path)`
-  * match if `moduleName` is or starts with one of these aliases
-    ** replace the alias with the match and continue to ***3***
-  * match when any of these conditions are met:
-    ** `./webpackShims/${moduleName}` is a directory
-    ** `./node_modules/${moduleName}` is a directory
-  * if no match was found
-    ** move to the parent directory
-    ** start again at *2.iii* until reaching the root directory or a match is found
-  * if a match was found
-    ** replace the `moduleName` prefix from the require statement with the full path of the match and proceed to *3*
-. Search for a file
-  * the first of the following paths that resolves to a **file** is our match
+. 检查模块路径的开头
+  * 如果路径以 '.' 开头
+    ** 添加当前文件的目录
+    ** 转到 *3*
+  * 如果路径以 '/' 开头
+    ** 搜索这条精确路径
+    ** 转到 *3*
+  * 转到 *2*
+. 搜索已命名模块
+  * `moduleName` = dirname(require path)
+  * 如果 `moduleName` 是下面别名中的一个，或者以下面中的别名开头，则匹配
+    ** 用匹配替换别名，继续 ***3***
+  * 当满足这些条件时，匹配：
+    ** `./webpackShims/${moduleName}` 是一个目录
+    ** `./node_modules/${moduleName}` 是一个目录
+  * 如果没有找到匹配
+    ** 转到上层目录
+    ** 从 2.iii 重新开始，直至找到匹配或者到达根目录
+  * 如果找到匹配
+    ** 以匹配的全路径替换 requite 语句中的 `moduleName` 前缀，然后转到 *3*
+. 搜索文件
+  * 解析到下列路径中的第一个 **file** 是我们的匹配
     ** path + '.js'
     ** path + '.json'
     ** path + '.jsx'
@@ -75,4 +67,5 @@ Here is how import/require statements are resolved to a file:
     ** path/index + '.jsx'
     ** path/index + '.less'
     ** path/index
-  * if none of the above paths matches then an error is thrown
+  * 如果以上路径均不匹配则抛出错误
+

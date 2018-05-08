@@ -1,44 +1,44 @@
 [[development-functional-tests]]
-=== Functional Testing
+=== 功能测试
 
-We use functional tests to make sure the Kibana UI works as expected. It replaces hours of manual testing by automating user interaction. To have better control over our functional test environment, and to make it more accessible to plugin authors, Kibana uses a tool called the `FunctionalTestRunner`.
+我们通过功能测试确保 Kibana UI 按照预期方式运行。该功能测试通过自动化用户交互，取代了长达数小时的人工测试。Kibana 使用的工具叫做  `FunctionalTestRunner` ，能够更好的控制功能测试环境，更便于插件作者使用。
 
 [float]
-==== Running functional tests
+==== 运行功能测试
 
-The `FunctionalTestRunner` is very bare bones and gets most of its functionality from its config file, located at {blob}test/functional/config.js[test/functional/config.js]. If you’re writing a plugin you will have your own config file. See <<development-plugin-functional-tests>> for more info.
+`FunctionalTestRunner` 结构非常简单，大部分功能主要源自位于 {blob}test/functional/config.js[test/functional/config.js] 的配置文件。如果您正在编写一个插件，就会拥有自己的配置文件。有关更多信息，请参见 <<development-plugin-functional-tests>> 。
 
-Execute the `FunctionalTestRunner`'s script with node.js to run the tests with Kibana's default configuration:
+使用 node.js 执行 `FunctionalTestRunner` 脚本运行测试，使用 Kibana 的默认配置：
 
 ["source","shell"]
 -----------
 node scripts/functional_test_runner
 -----------
 
-When run without any arguments the `FunctionalTestRunner` automatically loads the configuration in the standard location, but you can override that behavior with the `--config` flag. There are also command line flags for `--bail` and `--grep`, which behave just like their mocha counterparts. The logging can also be customized with `--quiet`, `--debug`, or `--verbose` flags.
+在没有任何参数的情况下运行时， `FunctionalTestRunner` 会自动加载位于标准位置的配置，但是您可以用 `--config` 标记来覆盖这个行为。 `--bail` 和 `--grep` 也有命令行标记，功能与 mocha 类似。 日志也可以通过使用 `--quiet` 、 `--debug` 或 `--verbose` 标记进行自定义设置。
 
-Use the `--help` flag for more options.
-
-[float]
-==== Writing functional tests
+使用 `--help` 标记获得更多选项。
 
 [float]
-===== Environment
-
-The tests are written in https://mochajs.org[mocha] using https://github.com/Automattic/expect.js[expect] for assertions.
-
-We use https://sites.google.com/a/chromium.org/chromedriver/[chromedriver], https://theintern.github.io/leadfoot[leadfoot], and https://github.com/theintern/digdug[digdug] for automating Chrome. When the `FunctionalTestRunner` launches, digdug opens a `Tunnel` which starts chromedriver and a stripped-down instance of Chrome. It also creates an instance of https://theintern.github.io/leadfoot/module-leadfoot_Command.html[Leadfoot's `Command`] class, which is available via the `remote` service. The `remote` communicates to Chrome through the digdug `Tunnel`. See the https://theintern.github.io/leadfoot/module-leadfoot_Command.html[leadfoot/Command API] docs for all the commands you can use with `remote`.
-
-The `FunctionalTestRunner` automatically transpiles functional tests using babel, so that tests can use the same ECMAScript features that Kibana source code uses. See {blob}style_guides/js_style_guide.md[style_guides/js_style_guide.md].
+==== 编写功能测试
 
 [float]
-===== Definitions
+===== 环境
+
+测试位于 https://mochajs.org[mocha] ，使用 https://github.com/Automattic/expect.js[expect] 作断言。
+
+我们使用 https://sites.google.com/a/chromium.org/chromedriver/[chromedriver]、 https://theintern.github.io/leadfoot[leadfoot] 和 https://github.com/theintern/digdug[digdug] 在 Chrome 上做自动化测试。 `FunctionalTestRunner` 启动后，digdug 会打开一个启动 chromedriver 的  `Tunnel` 和一个 Chrome 的精简用例。digdug 还会创建一个 https://theintern.github.io/leadfoot/module-leadfoot_Command.html[Leadfoot's `Command`] 类的用例，该用例可以通过 `remote` 服务器获取。 `remote` 通过 digdug `Tunnel` 与 Chrome 进行通讯。 `remote` 涉及的所有命令详见 https://theintern.github.io/leadfoot/module-leadfoot_Command.html[leadfoot/Command API]。
+
+`FunctionalTestRunner` 使用 babel 语言自动编译功能测试，因此测试可以使用 Kibana 源代码使用的 ECMAScript 特性。详见 {blob}style_guides/js_style_guide.md[style_guides/js_style_guide.md]。
+
+[float]
+===== 术语
 
 **Provider:**
 
-Code run by the `FunctionalTestRunner` is wrapped in a function so it can be passed around via config files and be parameterized. Any of these Provider functions may be asynchronous and should return/resolve-to the value they are meant to _provide_. Provider functions will always be called with a single argument: a provider API (see the <<functional_test_runner_provider_api,Provider API Section>>).
+`FunctionalTestRunner` 运行的代码会被打包进一个函数中，这样它就可以通过配置文件传递，并且能被参数化。这些 Provider 的功能有可能是一步的，并需要返回或重新获取他们想要的 _provide_ 。Provider 函数总通过单一参数：API Provider（参见 <<functional_test_runner_provider_api,Provider API Section>>）来调用。
 
-A config provder:
+provider 配置示例：
 
 ["source","js"]
 -----------
@@ -51,21 +51,21 @@ export default function (/* { providerAPI } */) {
 -----------
 
 **Services**:::
-Services are named singleton values produced by a Service Provider. Tests and other services can retrieve service instances by asking for them by name. All functionality except the mocha API is exposed via services.\
+Services 根据 Service Provider 产生的单一值命名。测试和其他服务能够通过请求 Services 的名称来检索服务实例。除 mocha API 以外的所有功能都是通过 services 公开的。
 
 **Page objects**:::
-Page objects are a special type of service that encapsulate behaviors common to a particular page or plugin. When you write your own plugin, you’ll likely want to add a page object (or several) that describes the common interactions your tests need to execute.
+Page objects 是一种将通常行为封装进特定页面或插件的特殊 service。当您编写自己的插件时，您可能想要添加一个（或多个）用于描述测试所需执行的常见交互的页面对象。
 
 **Test Files**:::
-The `FunctionalTestRunner`'s primary purpose is to execute test files. These files export a Test Provider that is called with a Provider API but is not expected to return a value. Instead Test Providers define a suite using https://mochajs.org/#bdd[mocha's BDD interface].
+`FunctionalTestRunner` 的主要目的是执行测试文件。这些文件导出一个 Provider API 调用的 Test Provider，但并不会返回数值。相反，Test Providers 使用  https://mochajs.org/#bdd[mocha's BDD interface] 定义一个程序组。
 
 **Test Suite**:::
-A test suite is a collection of tests defined by calling `describe()`, and then populated with tests and setup/teardown hooks by calling `it()`, `before()`, `beforeEach()`, etc. Every test file must define only one top level test suite, and test suites can have as many nested test suites as they like.
+测试套件是调用 `describe()` 的测试集，然后通过调用 `it()` 、 `before()` 、 `beforeEach()` 等填充测试和 setup/teardown hooks。每个测试文件都必须定义唯一一个顶级测试套件，但测试套件可以拥有任意多个嵌套测试套件。
 
 [float]
-===== Anatomy of a test file
+===== 测试文件剖析
 
-The annotated example file below shows the basic structure every test suite uses. It starts by importing https://github.com/Automattic/expect.js[`expect.js`] and defining its default export: an anonymous Test Provider. The test provider then destructures the Provider API for the `getService()` and `getPageObjects()` functions. It uses these functions to collect the dependencies of this suite. The rest of the test file will look pretty normal to mocha.js users. `describe()`, `it()`, `before()` and the lot are used to define suites that happen to automate a browser via services and objects of type `PageObject`.
+下列带注释的示例文件展示了每个测试套件所使用的基本结构。它首先导入 https://github.com/Automattic/expect.js[`expect.js`]，然后定义其默认输出：一个匿名的 Test Provider。该 test Provider 为 `getService()` 和 `getPageObjects()` 函数拆解 Provider API。它使用这些函数来收集本套件的依赖。对于 mocha.js 用户，其他测试文件看起来就很普通了。 `describe()` 、 `it()` 、 `before()` 和 the lot 用于定义通过服务偶然自动化浏览器的套件和 `PageObject` 类型的对象。
 
 ["source","js"]
 ----
@@ -125,24 +125,24 @@ export default function ({ getService, getPageObject }) {
 [[functional_test_runner_provider_api]]
 ==== Provider API
 
-The first and only argument to all providers is a Provider API Object. This object can be used to load service/page objects and config/test files.
+Provider API Object 是所有 provider 的第一个也是唯一一个参数。这个对象可以用于加载服务、页面对象和配置、测试文件。
 
-Within config files the API has the following properties
-
-[horizontal]
-`log`::: An instance of the {blob}src/utils/tooling_log/tooling_log.js[`ToolingLog`] that is ready for use
-`readConfigFile(path)`::: Returns a promise that will resolve to a Config instance that provides the values from the config file at `path`
-
-Within service and PageObject Providers the API is:
+在配置文件中，API具有以下属性
 
 [horizontal]
-`getService(name)`::: Load and return the singleton instance of a service by name
-`getPageObjects(names)`::: Load the singleton instances of `PageObject`s and collect them on an object where each name is the key to the singleton instance of that PageObject
+`log`:::  {blob}src/utils/tooling_log/tooling_log.js[`ToolingLog`] 的一个准备使用的实例
+`readConfigFile(path)`::: 返回一个解析为配置实例的承诺，提供 `path` 路径下的配置文件值
 
-Within a test Provider the API is exactly the same as the service providers API but with an additional method:
+在服务和 PageObject Providers 中，API 是：
 
 [horizontal]
-`loadTestFile(path)`::: Load the test file at path in place. Use this method to nest suites from other files into a higher-level suite
+`getService(name)`::: 根据名称，加载并返回 service 的一个单例实例
+`getPageObjects(names)`::: 加载 `PageObject` 的单例实例，收集它们到一个对象，名字是 PageObject 中每个对象的 key
+
+测试 Provider 中的 API 与 service providers API 相同，但是具有附加方法：
+
+[horizontal]
+`loadTestFile(path)`::: 加载路径上的测试文件。使用此方法将其他文件中的套件嵌套到更高级的套件中。
 
 [float]
 ==== Service Index
@@ -150,42 +150,43 @@ Within a test Provider the API is exactly the same as the service providers API 
 [float]
 ===== Built-in Services
 
-The `FunctionalTestRunner` comes with three built-in services:
+`FunctionalTestRunner` 自带三种内置 service：
 
 **config:**:::
-* Source: {blob}src/functional_test_runner/lib/config/config.js[src/functional_test_runner/lib/config/config.js]
-* Schema: {blob}src/functional_test_runner/lib/config/schema.js[src/functional_test_runner/lib/config/schema.js]
-* Use `config.get(path)` to read any value from the config file
+* 源码： {blob}src/functional_test_runner/lib/config/config.js[src/functional_test_runner/lib/config/config.js]
+* 概要： {blob}src/functional_test_runner/lib/config/schema.js[src/functional_test_runner/lib/config/schema.js]
+* 使用 `config.get(path)` 查看配置文件中的任意值
 
 **log:**:::
-* Source: {blob}src/utils/tooling_log/tooling_log.js[src/utils/tooling_log/tooling_log.js]
-* `ToolingLog` instances are readable streams. The instance provided by this service is automatically piped to stdout by the `FunctionalTestRunner` CLI
-* `log.verbose()`, `log.debug()`, `log.info()`, `log.warning()` all work just like console.log but produce more organized output
+* 源码： {blob}src/utils/tooling_log/tooling_log.js[src/utils/tooling_log/tooling_log.js]
+* `ToolingLog` 实例是可读流。此服务提供的实例由 `FunctionalTestRunner` CLI 自动传输到 stdout
+* `log.verbose()` 、 `log.debug()` 、 `log.info()` 、 `log.warning()` 像 console.log 那样工作，只不过产生结构化更好的输出
 
 **lifecycle:**:::
-* Source: {blob}src/functional_test_runner/lib/lifecycle.js[src/functional_test_runner/lib/lifecycle.js]
-* Designed primary for use in services
-* Exposes lifecycle events for basic coordination. Handlers can return a promise and resolve/fail asynchronously
-* Phases include: `beforeLoadTests`, `beforeTests`, `beforeEachTest`, `cleanup`, `phaseStart`, `phaseEnd`
+* 源码： {blob}src/functional_test_runner/lib/lifecycle.js[src/functional_test_runner/lib/lifecycle.js]
+* 设计主要用于 service 中
+* 公开生命周期事件以进行基本协调。处理程序可以返回承诺并异步地解析、失败
+
+* 包括 `beforeLoadTests` 、 `beforeTests` 、 `beforeEachTest` 、 `cleanup` 、 `phaseStart` 、 `phaseEnd` 阶段
 
 [float]
 ===== Kibana Services
 
-The Kibana functional tests define the vast majority of the actual functionality used by tests.
+Kibana 功能测试定义了绝大部分测试会使用的实际功能。
 
 **retry:**:::
-* Source: {blob}test/functional/services/retry.js[test/functional/services/retry.js]
-* Helpers for retrying operations
-* Popular methods:
-** `retry.try(fn)` - execute `fn` in a loop until it succeeds or the default try timeout elapses
-** `retry.tryForTime(ms, fn)` execute fn in a loop until it succeeds or `ms` milliseconds elapses
+* 源码： {blob}test/functional/services/retry.js[test/functional/services/retry.js]
+* 重试操作辅助器
+* 常用方法：
+** `retry.try(fn)` - 在 loop 中执行 `fn` 直至成功或超过默认重试时间
+** `retry.tryForTime(ms, fn)` 在 loop 中执行，直至成功或超过 `ms` 毫秒
 
 **testSubjects:**:::
-* Source: {blob}test/functional/services/test_subjects.js[test/functional/services/test_subjects.js]
-* Test subjects are elements that are tagged specifically for selecting from tests
-* Use `testSubjects` over CSS selectors when possible
-* Usage:
-** Tag your test subject with a `data-test-subj` attribute:
+* 源码： {blob}test/functional/services/test_subjects.js[test/functional/services/test_subjects.js]
+* 测试主题是从测试中选出的被专门标记过的要素
+* 可能的情况下，在 CSS 选择器中使用 `testSubjects`
+* 使用：
+** 用 `data-test-subj` 属性标记您的测试对象：
 +
 ["source","html"]
 -----------
@@ -194,68 +195,68 @@ The Kibana functional tests define the vast majority of the actual functionality
 </div>
 -----------
 +
-** Click this button using the `testSubjects` helper:
+** 使用 `testSubjects` 帮助器点击这个按钮
 +
 ["source","js"]
 -----------
 await testSubjects.click(‘containerButton’);
 -----------
 +
-* Popular methods:
-** `testSubjects.find(testSubjectSelector)` - Find a test subject in the page; throw if it can't be found after some time
-** `testSubjects.click(testSubjectSelector)` - Click a test subject in the page; throw if it can't be found after some time
+* 常用方法：
+** `testSubjects.find(testSubjectSelector)` - 在页面中寻找一个测试对象；如果过一段时间没有找到，抛出异常
+** `testSubjects.click(testSubjectSelector)` - 在页面中点击一个测试主题；如果过一段时间没有找到，抛出异常
 
 **find:**:::
-* Source: {blob}test/functional/services/find.js[test/functional/services/find.js]
-* Helpers for `remote.findBy*` methods that log and manage timeouts
-* Popular methods:
+* 源码： {blob}test/functional/services/find.js[test/functional/services/find.js]
+* `remote.findBy` 方法帮助器，用于记录日志和管理超时
+* 常用方法：
 ** `find.byCssSelector()`
 ** `find.allByCssSelector()`
 
 **kibanaServer:**:::
-* Source: {blob}test/functional/services/kibana_server/kibana_server.js[test/functional/services/kibana_server/kibana_server.js]
-* Helpers for interacting with Kibana's server
-* Commonly used methods:
+* 源码： {blob}test/functional/services/kibana_server/kibana_server.js[test/functional/services/kibana_server/kibana_server.js]
+* 与 Kibana 服务器交互的帮助器
+* 常用方法：
 ** `kibanaServer.uiSettings.update()`
 ** `kibanaServer.version.get()`
 ** `kibanaServer.status.getOverallState()`
 
 **esArchiver:**:::
-* Source: {blob}test/functional/services/es_archiver.js[test/functional/services/es_archiver.js]
-* Load/unload archives created with the `esArchiver`
-* Popular methods:
+* 源码： {blob}test/functional/services/es_archiver.js[test/functional/services/es_archiver.js]
+* 用 `esArchiver` 创建的加载、卸载文件
+* 常用方法：
 ** `esArchiver.load(name)`
 ** `esArchiver.loadIfNeeded(name)`
 ** `esArchiver.unload(name)`
 
 **docTable:**:::
-* Source: {blob}test/functional/services/doc_table.js[test/functional/services/doc_table.js]
-* Helpers for interacting with doc tables
+* 源码： {blob}test/functional/services/doc_table.js[test/functional/services/doc_table.js]
+* 与 doc 表格交互的帮助器
 
 **pointSeriesVis:**:::
-* Source: {blob}test/functional/services/point_series_vis.js[test/functional/services/point_series_vis.js]
-* Helpers for interacting with point series visualizations
+* 源码： {blob}test/functional/services/point_series_vis.js[test/functional/services/point_series_vis.js]
+* 与点序列可视化交互的帮助器
 
 **Low-level utilities:**:::
 * es
-** Source: {blob}test/functional/services/es.js[test/functional/services/es.js]
-** Elasticsearch client
-** Higher level options: `kibanaServer.uiSettings` or `esArchiver`
+** 源码： {blob}test/functional/services/es.js[test/functional/services/es.js]
+** Elasticsearch 客户端
+** 高级选项： `kibanaServer.uiSettings` 或 `esArchiver`
 * remote
-** Source: {blob}test/functional/services/remote/remote.js[test/functional/services/remote/remote.js]
-** Instance of https://theintern.github.io/leadfoot/module-leadfoot_Command.html[Leadfoot's `Command]` class
-** Responsible for all communication with the browser
-** Higher level options: `testSubjects`, `find`, and `PageObjects.common`
-** See the https://theintern.github.io/leadfoot/module-leadfoot_Command.html[leadfoot/Command API] for full API
+** 源码: {blob}test/functional/services/remote/remote.js[test/functional/services/remote/remote.js]
+** https://theintern.github.io/leadfoot/module-leadfoot_Command.html[Leadfoot's `Command]` 类实例
+** 负责与浏览器的所有通信
+** 高级选项： `testSubjects` 、 `find` 和 `PageObjects.common`
+** 完整 API 参见 https://theintern.github.io/leadfoot/module-leadfoot_Command.html[leadfoot/Command API]
 
 [float]
 ===== Custom Services
 
-Services are intentionally generic. They can be literally anything (even nothing). Some services have helpers for interacting with a specific types of UI elements, like `pointSeriesVis`, and others are more foundational, like `log` or `config`. Whenever you want to provide some functionality in a reusable package, consider making a custom service.
+Service 是有意通用的。它们可以是任何东西（甚至什么都不是）。有些 service 有助于与特定类型的 UI 元素（如 PooSosieServices ）交互，而其他服务则更为基础，如日志或配置。每当您想在可重用包中提供一些功能时，请考虑制作自定义服务。
 
-To create a custom service `somethingUseful`:
+为了创建一个自定义的 `somethingUseful` service：
 
-* Create a `test/functional/services/something_useful.js` file that looks like this:
+* 创建一个如下的 `test/functional/services/something_useful.js` 文件:
 +
 ["source","js"]
 -----------
@@ -271,8 +272,8 @@ export function SomethingUsefulProvider({ getService }) {
 }
 -----------
 +
-* Re-export your provider from `services/index.js`
-* Import it into `src/functional/config.js` and add it to the services config:
+* 从 `services/index.js` 重新导出您的 provider
+* 将它导入到 `src/functional/config.js` 并添加到服务配置中：
 +
 ["source","js"]
 -----------
@@ -291,25 +292,25 @@ export default function () {
 [float]
 ==== PageObjects
 
-The purpose for each PageObject is pretty self-explanatory. The visualize PageObject provides helpers for interacting with the visualize app, dashboard is the same for the dashboard app, and so on.
+PageObject 的目的只是自我解释。可视化的 PageObject 提供与可视化 app 交互的助手，相当于仪表盘对于仪表盘 app。
 
-One exception is the "common" PageObject. A holdover from the intern implementation, the common PageObject is a collection of helpers useful across pages. Now that we have shareable services, and those services can be shared with other `FunctionalTestRunner` configurations, we will continue to move functionality out of the common PageObject and into services.
+"common" PageObject 是一个例外。作为一个延缓的实验性的实现，common PageObject 是有用的跨页面的帮助器集合。现在我们有了共享服务，并且这些服务可以与其他的 `FunctionalTestRunner` 共享，我们会继续将功能从 common PageObject 转移到服务中。
 
-Please add new methods to existing or new services rather than further expanding the CommonPage class.
+请在已有或新服务中添加新的方法，而不是进一步扩展 CommonPage 类。
 
 [float]
 ==== Gotchas
 
-Remember that you can’t run an individual test in the file (`it` block) because the whole `describe` needs to be run in order. There should only be one top level `describe` in a file.
+记住您不能运行文件（ `it` 块）中一个单独的测试，因为整个 `describe` 需要按顺序执行。在一个文件中应该只有一个顶级的 `describe` 。
 
 [float]
 ===== Functional Test Timing
 
-Another important gotcha is writing stable tests by being mindful of timing. All methods on `remote` run asynchronously. It’s better to write interactions that wait for changes on the UI to appear before moving onto the next step.
+另一个重要的 gotcha 是通过注意时间来编写稳定的测试。所有 `remote` 方法异步运行。最好在进入下一步之前，在 UI 上添加等待变化的交互。
 
-For example, rather than writing an interaction that simply clicks a button, write an interaction with the a higher-level purpose in mind:
+例如，与其简单的编写点击按钮的交互，不如在头脑中编写更高级目的的交互：
 
-Bad example: `PageObjects.app.clickButton()`
+不好的例子： `PageObjects.app.clickButton()`
 
 ["source","js"]
 -----------
@@ -324,7 +325,7 @@ class AppPage {
 }
 -----------
 
-Good example: `PageObjects.app.openMenu()`
+好的例子： `PageObjects.app.openMenu()`
 
 ["source","js"]
 -----------
@@ -339,21 +340,21 @@ class AppPage {
 }
 -----------
 
-Writing in this way will ensure your test timings are not flaky or based on assumptions about UI updates after interactions.
+这样写将确保您的测试时间不是片状的，或者基于交互后UI更新的假设。
 
 [float]
 ==== Debugging
 
-From the command line run:
+在命令行运行：
 
 ["source","shell"]
 -----------
 node --debug-brk --inspect scripts/functional_test_runner
 -----------
 
-This prints out a URL that you can visit in Chrome and debug your functional tests in the browser.
+该命令会输出一个URL，通过在 Chrome 浏览器中访问该URL，您可以调试您的功能测试用例。
 
-You can also see additional logs in the terminal by running the `FunctionalTestRunner` with the `--debug` or `--verbose` flag. Add more logs with statements in your tests like
+您也可以在运行 `FunctionalTestRunner` 时增加 `--debug` 或 `--verbose` 参数，从而在命令行看额外的日志信息。您可以像下面这样，在您的测试用例中增加日志：
 
 ["source","js"]
 -----------
@@ -363,3 +364,4 @@ const log = getService(‘log’);
 // log.debug only writes when using the `--debug` or `--verbose` flag.
 log.debug(‘done clicking menu’);
 -----------
+

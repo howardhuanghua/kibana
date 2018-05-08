@@ -1,51 +1,41 @@
 [[upgrade]]
-== Upgrading Kibana
+== 升级 Kibana
 
 [IMPORTANT]
 ===========================================
-Before upgrading Kibana:
+在升级 Kibana 之前：
 
-* Consult the <<breaking-changes,breaking changes>> docs.
-* Test upgrades in a dev environment before upgrading your production servers.
-* Backup your data using the Elasticsearch
-  {es-ref}modules-snapshots.html[snapshots] feature.
-  You **cannot roll back** to an earlier version unless you have a backup of
-  your data.
-* If you are using custom plugins, check that a compatible version is
-  available.
+* 请参考<<breaking-changes, 重要变更>>文档。
+* 在升级生产服务之前请先在测试环境测试升级。
+* 使用 Elasticsearch 的 {es-ref}modules-snapshots.html[snapshots] 特性备份数据。除非存在备份数据，否则版本 **不能向前回滚** 。
+* 如果使用了自定义插件，检查其是否有兼容版本。
 ===========================================
 
-Depending on which version of Kibana you're upgrading from, the upgrade process
-will vary. Please consult the following table to determine which process you
-should follow:
+从不同的 Kibana 版本进行升级，过程也不相同。请参考以下表格决定需要按照哪个过程进行升级：
 
 [cols="1<m,1<m,3",options="header",]
 |=======================================================================
-|Upgrade From   |Upgrade To     |Supported Upgrade Type
-|3.x            |5.x            |<<upgrade-new-install,New installation>>
-|4.0 or 4.1     |5.x            |<<upgrade-standard-reindex,Standard upgrade & reindex>>
-|4.x >= 4.2     |5.x            |<<upgrade-standard,Standard upgrade>>
-|5.0.0 pre GA   |5.x            |<<upgrade-standard-reindex,Standard upgrade & reindex>>
-|5.x            |5.y            |<<upgrade-standard,Standard upgrade>> (where `y > x`)
+|当前版本   |目标版本     |支持的升级类型
+|3.x            |5.x            |<<upgrade-new-install, 全新安装>>
+|4.0 or 4.1     |5.x            |<<upgrade-standard-reindex, 标准升级及索引重建>>
+|4.x >= 4.2     |5.x            |<<upgrade-standard, 标准升级>>
+|5.0.0 pre GA   |5.x            |<<upgrade-standard-reindex, 标准升级及索引重建>>
+|5.x            |5.y            |<<upgrade-standard, 标准升级>> (where `y > x`)
 |=======================================================================
 
 [IMPORTANT]
 ===========================================
-Reindex is required if you ever upgraded from Kibana 4.1 or 4.0
+只要是从 Kibana 4.1 或 4.0 升级上来的，就需要进行索引重建。
 
-Even if you're running Kibana version 4.2 or higher, if you have previously
-upgraded from Kibana 4.0 or 4.1, you will need to do a
-<<upgrade-standard-reindex,Standard upgrade & reindex>> when upgrading to 5.x.
+即使您现在运行的 Kibana 版本为 4.2 或更高，如果之前是从 Kibana 4.0 或 4.1 升级过来的，您仍需要进行一次<<upgrade-standard-reindex, 标准升级及索引重建>>来升级到 5.x。
 
-This is due to the Elasticsearch requirement that any index that was initially
-created before Elasticsearch 2.0 must be reindexed even if it's currently
-working in Elasticsearch 2.x.
+这是因为 Elasticsearch 需要对所有在 Elasticsearch 2.0 之前创建的索引进行重建，哪怕目前工作的版本是 Elasticsearch 2.x。
 
-You only need to do this once when moving to 5.x.
+升级到 5.x 的过程只需要进行一次索引重建。
+
 ===========================================
 
-NOTE: Saved searches, visualizations, and dashboards created in Kibana 4.x are
-generally compatible with 5.x.
+NOTE: 由 Kibana 4.x 保存的查询、视图和仪表盘一般兼容 5.x。
 
 include::upgrade/upgrade-standard.asciidoc[]
 

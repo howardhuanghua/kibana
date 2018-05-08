@@ -1,14 +1,13 @@
 [[development-plugin-functional-tests]]
-=== Functional Tests for Plugins
-
-Plugins use the `FunctionalTestRunner` by running it out of the Kibana repo. Ensure that your Kibana Development Environment is setup properly before continuing.
+=== 插件功能测试
+插件通过运行 Kibana repo 使用 `FunctionalTestRunner` 。在继续之前，请确认您的 Kibana 开发环境配置正确。
 
 [float]
-==== Writing your own configuration
+==== 编写您自己的配置
 
-Every project or plugin should have its own `FunctionalTestRunner` config file. Just like Kibana's, this config file will define all of the test files to load, providers for Services and PageObjects, as well as configuration options for certain services.
+每个工程或插件应该有自己的 `FunctionalTestRunner` 配置文件。就像 Kibana，配置文件会定义所有要加载的测试文件、服务提供者和 PageObjects，还有某些服务的配置选项。
 
-To get started copy and paste this example to `test/functional/config.js`:
+通过复制下面的例子到 `test/functional/config.js` 文件开始测试：
 
 ["source","js"]
 -----------
@@ -16,43 +15,39 @@ import { resolve } from 'path';
 import { MyServiceProvider } from './services/my_service';
 import { MyAppPageProvider } from './services/my_app_page;
 
-// allow overriding the default kibana directory
-// using the KIBANA_DIR environment variable
+// 允许重写默认的 kibana 目录
+// 使用 KIBANA_DIR 环境变量
 const KIBANA_CONFIG_PATH = resolve(process.env.KIBANA_DIR || '../kibana', 'test/functional/config.js');
 
-// the default export of config files must be a config provider
-// that returns an object with the projects config values
+// 配置文件的默认导出必须是一个配置提供程序
+// 它确保返回带有项目配置值的对象
 export default async function ({ readConfigFile }) {
 
-  // read the Kibana config file so that we can utilize some of
-  // its services and PageObjects
+  // 读取 Kibana 配置文件，这样我们可以使用它的一些服务和 PageObjects
   const kibanaConfig = await readConfigFile(KIBANA_CONFIG_PATH);
 
   return {
-    // list paths to the files that contain your plugins tests
+    // 列出包含您插件测试用例的文件路径
     testFiles: [
       resolve(__dirname, './my_test_file.js'),
     ],
 
-    // define the name and providers for services that should be
-    // available to your tests. If you don't specify anything here
-    // only the built-in services will be avaliable
+    // 定义在您的测试中可用的服务和提供者，
+    // 否则，只有内置的服务可用
     services: {
       ...kibanaConfig.get('services'),
       myService: MyServiceProvider,
     },
 
-    // just like services, PageObjects are defined as a map of
-    // names to Providers. Merge in Kibana's or pick specific ones
+    // 就像服务那样，PageObjects 定义为提供者的名称映射
+    // 在 Kibana 中合并或选择指定一个
     pageObjects: {
       management: kibanaConfig.get('pageObjects.management'),
       myApp: MyAppPageProvider,
     },
 
-    // the apps section defines the urls that
-    // `PageObjects.common.navigateTo(appKey)` will use.
-    // Merge urls for your plugin with the urls defined in
-    // Kibana's config in order to use this helper
+    // apps 部分定义 PageObjects.common.navigateTo(appKey) 使用的 urls
+    // 为您的插件合并 Kibana 配置中定义的 url，以便使用帮助
     apps: {
       ...kibanaConfig.get('apps'),
       myApp: {
@@ -60,24 +55,23 @@ export default async function ({ readConfigFile }) {
       }
     },
 
-    // choose where esArchiver should load archives from
+    // 选择 esArchiver 从哪里加载
     esArchiver: {
       directory: resolve(__dirname, './es_archives'),
     },
 
-    // choose where screenshots should be saved
+    // 选择 screenshots 保存到哪里
     screenshots: {
       directory: resolve(__dirname, './tmp/screenshots'),
     }
 
-    // more settings, like timeouts, mochaOpts, etc are
-    // defined in the config schema. See {blob}src/functional_test_runner/lib/config/schema.js[src/functional_test_runner/lib/config/schema.js]
+    // 更多设置，例如 timeouts、 mochaOpts 等定义在配置模式。参加{blob}src/functional_test_runner/lib/config/schema.js[src/functional_test_runner/lib/config/schema.js]
   };
 }
 
 -----------
 
-From the root of your repo you should now be able to run the `FunctionalTestRunner` script from your plugin project.
+现在可以在 repo 的根目录，运行您插件工程的 `FunctionalTestRunner` 脚本。
 
 ["source","shell"]
 -----------
@@ -85,7 +79,7 @@ node ../kibana/scripts/functional_test_runner
 -----------
 
 [float]
-==== Using esArchiver
+==== 使用 esArchiver
 
-We're working on documentation for this, but for now the best place to look is the original {pull}10359[pull request].
+我们正在为这部分准备文档，但目前最好的资料是原始的 {pull}10359[pull request].
 

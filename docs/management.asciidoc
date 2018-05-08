@@ -1,16 +1,11 @@
 [[management]]
-= Management
+= 管理
 
 [partintro]
 --
-The Management application is where you perform your runtime configuration of
-Kibana, including both the initial setup and ongoing configuration of index
-patterns, advanced settings that tweak the behaviors of Kibana itself, and
-the various "objects" that you can save throughout Kibana such as searches,
-visualizations, and dashboards.
+这里是用来管理您的 kibana 运行时配置的地方，包括初始化配置和后续的索引模式配置、高级设置等。您可以调整 kibana 自身的行为，也可以编辑您通过 kibana 保存的查询、视图、仪表板等各种 "对象“ 。
 
-This section is pluginable, so in addition to the out of the box capabitilies,
-packs such as X-Pack can add additional management capabilities to Kibana.
+这部分功能是通过插件实现的，所以除了开箱即用的功能外，诸如 X-Pack 之类的扩展也可以为 Kibana 增加额外的管理能力。
 --
 
 include::management/index-patterns.asciidoc[]
@@ -20,3 +15,4 @@ include::management/managing-fields.asciidoc[]
 include::management/advanced-options.asciidoc[]
 
 include::management/managing-saved-objects.asciidoc[]
+

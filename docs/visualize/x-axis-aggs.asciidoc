@@ -1,43 +1,25 @@
-The X axis of this chart is the _buckets_ axis. You can define buckets for the X axis, for a split area on the
-chart, or for split charts.
+这个图表的 X 轴是 _桶_ 轴。您可以为 X 轴定义桶，用于图表上的分割区域，也可以用于分割图表。
 
-This chart's X axis supports the following aggregations. Click the linked name of each aggregation to visit the main
-Elasticsearch documentation for that aggregation.
+这个图表的 X 轴支持下面的聚合。单击每个聚合的链接名称以访问该聚合的 Elasticsearch 主文档。
 
-*Date Histogram*:: A {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[_date histogram_] is built from a
-numeric field and organized by date. You can specify a time frame for the intervals in seconds, minutes, hours, days,
-weeks, months, or years. You can also specify a custom interval frame by selecting *Custom* as the interval and
-specifying a number and a time unit in the text field. Custom interval time units are *s* for seconds, *m* for minutes,
-*h* for hours, *d* for days, *w* for weeks, and *y* for years. Different units support different levels of precision,
-down to one second.
+*Date Histogram*:: {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[_日期直方图_] 是从数值字段构建并按日期组织的。您可以以秒、分钟、小时、天、周、月或年为单位指定时间间隔。您还可以通过选择 *Custom* 作为间隔并在文本域中输入数字和时间单位来指定自定义时间间隔。自定义间隔时间单位  *s* 为秒， *m* 为分钟，
+*h* 为小时， *d* 为天， *w* 为周， *y* 为年。不同的单位支持不同级别的精度，低至一秒。
 
-*Histogram*:: A standard {es-ref}search-aggregations-bucket-histogram-aggregation.html[_histogram_] is built from a
-numeric field. Specify an integer interval for this field. Select the *Show empty buckets* checkbox to include empty
-intervals in the histogram.
-*Range*:: With a {es-ref}search-aggregations-bucket-range-aggregation.html[_range_] aggregation, you can specify ranges
-of values for a numeric field. Click *Add Range* to add a set of range endpoints. Click the red *(x)* symbol to remove
-a range.
-*Date Range*:: A {es-ref}search-aggregations-bucket-daterange-aggregation.html[_date range_] aggregation reports values
-that are within a range of dates that you specify. You can specify the ranges for the dates using
-{es-ref}common-options.html#date-math[_date math_] expressions. Click *Add Range* to add a set of range endpoints.
-Click the red *(x)* symbol to remove a range.
-*IPv4 Range*:: The {es-ref}search-aggregations-bucket-iprange-aggregation.html[_IPv4 range_] aggregation enables you to
-specify ranges of IPv4 addresses. Click *Add Range* to add a set of range endpoints. Click the red *(x)* symbol to
-remove a range.
-*Terms*:: A {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] aggregation enables you to specify the top
-or bottom _n_ elements of a  given field to display, ordered by count or a custom metric.
-*Filters*:: You can specify a set of {es-ref}search-aggregations-bucket-filters-aggregation.html[_filters_] for the data.
-You can specify a filter as a query string or in JSON format, just as in the Discover search bar. Click *Add Filter* to
-add another filter. Click the image:images/labelbutton.png[Label button icon] *label* button to open the label field, where
-you can type in a name to display on the visualization.
-*Significant Terms*:: Displays the results of the experimental
-{es-ref}search-aggregations-bucket-significantterms-aggregation.html[_significant terms_] aggregation.
+*Histogram*:: 标准 {es-ref}search-aggregations-bucket-histogram-aggregation.html[_直方图_] 是从数字字段构建的。为此字段指定一个整数间隔。选择 *Show empty buckets* 复选框以在直方图中包含空白区间。
+*Range*:: 通过 {es-ref}search-aggregations-bucket-range-aggregation.html[_范围_] 聚合，您可以为数字字段指定值的范围。点击 *Add Range* 添加一组范围端点。点击红色的 *(x)* 符号删除一个范围。
+*Date Range*:: {es-ref}search-aggregations-bucket-daterange-aggregation.html[_日期范围_] 聚合报告在您指定的日期范围内的值。您可以使用
+{es-ref}common-options.html#date-math[_日期数学_] 表达式来指定日期的范围。点击 *Add Range* 添加一组范围端点。
+点击红色的 *(x)* 符号删除一个范围。
+*IPv4 Range*:: {es-ref}search-aggregations-bucket-iprange-aggregation.html[_IPv4 范围_] 聚合使您能够指定 IPv4 地址的范围。点击 *Add Range* 添加一组范围端点。点击红色的 *(x)* 符号删除一个范围。
+*Terms*:: {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] 聚合使您可以指定要显示的给定字段的顶部或底部 _n_ 个元素，按数量或自定义指标进行排序。
+*Filters*:: 您可以为数据指定一组 {es-ref}search-aggregations-bucket-filters-aggregation.html[_过滤器_] 。您可以将过滤器指定为查询字符串或采用 JSON 格式，就像在 Discover 搜索栏中一样。点击 *Add Filter* 添加另一个过滤器。点击 image:images/labelbutton.png[Label button icon] *label* 按钮打开标签字段，其中
+您可以键入一个名称以显示在可视化中。
+*Significant Terms*:: 显示实验性的
+{es-ref}search-aggregations-bucket-significantterms-aggregation.html[_重要词项_] 聚合的结果。
 
-Once you've specified an X axis aggregation, you can define sub-aggregations to refine the visualization. Click *+ Add
-Sub Aggregation* to define a sub-aggregation, then choose *Split Area* or *Split Chart*, then select a sub-aggregation
-from the list of types.
+一旦您指定了 X 轴聚合，您可以定义子聚合来优化可视化。单击 *+ Add
+Sub Aggregation* 定义子聚合，然后选择 *Split Area* 或 *Split Chart* ，然后从类型列表中选择一个子聚合。
 
-When multiple aggregations are defined on a chart's axis, you can use the up or down arrows to the right of the
-aggregation's type to change the aggregation's priority.
+在图表轴上定义多个聚合时，可以使用聚合类型右侧的向上或向下箭头来更改聚合的优先级。
 
-Enter a string in the *Custom Label* field to change the display label.
+在 *Custom Label* 输入域中输入字符串以更改显示标签。

@@ -1,41 +1,38 @@
 [[tagcloud-chart]]
-== Tag Clouds
+== 标签云
 
-A tag cloud visualization is a visual representation of text data, typically used to visualize free form text. 
-Tags are usually single words, and the importance of each tag is shown with font size or color.
+标签云视图是文本数据的一种可视化表示，通常用来可视化自由形式的文本。标签一般是单独的词，每个标签的重要程度通过字体大小或颜色来表示。
 
-The font size for each word is determined by the _metrics_ aggregation. The following aggregations are available for
-this chart:
+每个词的字体大小，是由 _指标_ 聚合来决定的。下列聚合可用于这个图：
+
 
 include::y-axis-aggs.asciidoc[]
 
 
-The _buckets_ aggregations determine what information is being retrieved from your data set.
+_桶_ 聚合决定了需要从数据集中抽取哪些信息。
 
-Before you choose a buckets aggregation, select the *Split Tags* option.
+在选择一个桶聚合前，要勾选 *Split Tags* 选项。
 
-You can specify the following bucket aggregations for tag cloud visualization:
+可以为标签云视图指定下列桶聚合：
 
-*Terms*:: A {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] aggregation enables you to specify the top
-or bottom _n_ elements of a  given field to display, ordered by count or a custom metric.
+*Terms*:: 一个 {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] 聚合支持显示给定字段的前面或后面的 _n_ 个元素，并按数量或自定义指标排序。
 
-You can click the *Advanced* link to display more customization options for your metrics or bucket aggregation:
+点击 *Advanced* 链接可以显示该指标或桶聚合的更多自定义选项：
 
-*JSON Input*:: A text field where you can add specific JSON-formatted properties to merge with the aggregation
-definition, as in the following example:
+*JSON Input*:: 这是一个文本字段，支持增加特定的 JSON 格式属性合并到聚合定义中，见下述例子：
 
 [source,shell]
-{ "script" : "doc['grade'].value * 1.2" }
+{ \"script\" : \"doc[\'grade\'].value * 1.2\" }
 
-NOTE: In Elasticsearch releases 1.4.3 and later, this functionality requires you to enable
-{es-ref}modules-scripting.html[dynamic Groovy scripting].
+注意：在 Elasticsearch 1.4.3及以后的版本中，这个功能需要打开 {es-ref}modules-scripting.html[动态 Groovy 脚本] 。
 
+选择 *Options* 标签来改变下列图形的方向：
 
-Select the *Options* tab to change the following aspects of the chart:
+*Text Scale*:: 可以选择 *linear*、 *log* 或 *square root* 作为文本比例。可以使用对数比例来显示指数变化的数据，或者使用平方根比例来归一化显示包含自身波动很大的变量的数据集。
 
-*Text Scale*:: You can select *linear*, *log*, or *square root* scales for the text scale. You can use a log
-scale to display data that varies exponentially or a square root scale to
-regularize the display of data sets with variabilities that are themselves highly variable.
-*Orientation*:: You can select how to orientate your text in the tag cloud. You can choose one of the following options:
-Single, right angles and multiple.
-*Font Size*:: Allows you to set minimum and maximum font size to use for this visualization.
+*Orientation*:: 支持选择在标签云中如何定位文本，可以选择下列选项之一：
+
+单个、直角和多个。
+
+*Font Size*:: 支持设置视图的最小和最大字体大小。
+

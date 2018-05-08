@@ -1,17 +1,14 @@
-[[console-kibana]]
-= Console
+﻿[[console-kibana]]
+= 控制台
 
 [partintro]
 --
-The Console plugin provides a UI to interact with the REST API of Elasticsearch. Console has two main areas: the *editor*,
-where you compose requests to Elasticsearch, and the *response* pane, which displays the responses to the request.
-Enter the address of your Elasticsearch server in the text box on the top of screen. The default value of this address
-is `localhost:9200`.
+控制台插件提供一个用户界面来和 Elasticsearch 的 REST API 交互。控制台有两个主要部分： *editor* ，用来编写提交给 Elasticsearch 的请求； *response* 面板，用来展示请求结果的响应。在页面顶部的文本框中输入 Elasticsearch 服务器的地址。默认地址是：“localhost:9200”。
 
-.The Console UI
+.控制台用户界面
 image::images/introduction_screen.png[Screenshot]
 
-Console understands commands in a cURL-like syntax. For example the following Console command
+控制台可以解析像 cURL 命令这样的语句。例如下面这条控制台命令
 
 [source,js]
 ----------------------------------
@@ -23,7 +20,7 @@ GET /_search
 }
 ----------------------------------
 
-is a simple `GET` request to Elasticsearch's `_search API`. Here is the equivalent command in cURL.
+就是一个简单的 Elasticsearch `_search API GET` 请求。下面是同样效果的 cURL 命令。
 
 [source,bash]
 ----------------------------------
@@ -35,36 +32,31 @@ curl -XGET "http://localhost:9200/_search" -d'
 }'
 ----------------------------------
 
-In fact, you can paste the above command into Console and it will automatically be converted into the Console syntax.
+实际上，您可以复制粘贴上面的命令到控制台，它会自动转换成控制台语句。
 
-When typing a command, Console will make context sensitive <<suggestions,suggestions>>. These suggestions can help
-you explore parameters for each API, or to just speed up typing. Console will suggest APIs, indexes and field
-names.
+当敲入一行命令，控制台会给出上下文相关的<<suggestions, 提示>>。这些<<suggestions, 提示>>可以帮助您探索每条 API 参数，或者用于提高输入速度。控制台会提示 APIs 、索引和字段名。
 
 [[suggestions]]
-.API suggestions
+.API 提示
 image::images/introduction_suggestion.png["Suggestions",width=400,align="center"]
 
-Once you have typed a command in to the left pane, you can submit it to Elasticsearch by clicking the little green
-triangle that appears next to the URL line of the request. Notice that as you move the cursor around, the little
- triangle and wrench icons follow you around. We call this the <<action_menu,Action Menu>>. You can also select
- multiple requests and submit them all at once.
+一旦您在左边的面板中敲入命令，您可以点击 URL 行边上的绿色小三角提交这条请求到 Elasticsearch。注意，当您移动光标的时候，会有一个小三角和扳手图标跟随着您。我们把这个叫做<<action_menu, 动作菜单>>。您也可以选择写多条请求并一起提交它们。
 
 [[action_menu]]
-.The Action Menu
+.动作菜单
 image::images/introduction_action_menu.png["The Action Menu",width=400,align="center"]
 
-When the response come back, you should see it in the left hand panel:
+当请求响应后，您可以在侧面的面板中看到它：
 
-.The Output Pane
+.输出面板
 image::images/introduction_output.png[Screenshot]
 
 [float]
 [[console-ui]]
-== The Console UI
+== 控制台用户界面
 
-In this section you will find a more detailed description of UI of Console. The basic aspects of the UI are explained
-in the <<console-kibana>> section.
+在这个章节中会有更多关于控制台界面的详细描述。<<console-kibana>>章节只介绍了基础的用户界面部分。
+
 --
 
 include::console/multi-requests.asciidoc[]

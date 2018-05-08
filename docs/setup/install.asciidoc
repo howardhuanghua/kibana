@@ -1,48 +1,38 @@
 [[install]]
-== Installing Kibana
+== 安装 Kibana
 
-NOTE: Starting with version 6.0.0, Kibana only supports 64 bit operating systems.
+NOTE: 从6.0.0开始，Kibana 只支持64位操作系统。
 
-Kibana is provided in the following package formats:
+Kibana 提供以下格式的安装包：
 
 [horizontal]
 `tar.gz`/`zip`::
 
-The `tar.gz` packages are provided for installation on Linux and Darwin and are
-the easiest choice for getting started with Kibana.
+ `tar.gz` 包用来在 Linux 和 Darwin 系统下安装，也是最方便的一种选择。
 +
-The `zip` package is the only supported package for Windows.
+ zip 包是唯一支持 Windows 系统的安装包。
 +
-<<targz>> or <<windows>>
+<<targz>> 或者 <<windows>>
 
 `deb`::
 
-The `deb` package is suitable for Debian, Ubuntu, and other Debian-based
-systems.  Debian packages may be downloaded from the Elastic website or from
-our Debian repository.
+ `deb` 包用来在 Debian、Ubuntu 和其他基于 Debian 的系统下安装，Debian 包可以从 Elastic 官网或者我们的 Debian 仓库中下载。
 +
 <<deb>>
 
 `rpm`::
 
-The `rpm` package is suitable for installation on Red Hat, Centos, SLES,
-OpenSuSE and other RPM-based systems.  RPMs may be downloaded from the
-Elastic website or from our RPM repository.
+ `rpm` 包用来在 Red Hat、Centos、SLES、OpenSuSe 以及其他基于 RPM 的系统下安装。RPM 包可以从 Elastic 官网或者我们的 RPM 仓库下载。
 +
 <<rpm>>
 
 `docker`::
 
-An image is available for running Kibana as a Docker container. It ships
-with https://www.elastic.co/products/x-pack[X-Pack] pre-installed and is
-available from the Elastic
-Docker registry.
+Elastic Docker 仓库中有现有的可以运行 Kibana 的 Docker 镜像，并预装了 https://www.elastic.co/products/x-pack[X-Pack] 。
 +
 <<docker>>
 
-IMPORTANT: If your Elasticsearch installation is protected by {xpack-ref}xpack-security.html[X-Pack Security]
-see {xpack-ref}kibana.html[Using Kibana with X-Pack Security] for additional setup
-instructions.
+IMPORTANT: 如果您安装的 Elasticsearch 是受 {xpack-ref}xpack-security.html[X-Pack 安全插件]保护的，请查看{xpack-ref}kibana.html[使用 Kibana X-Pack 安全插件]获取更多的配置信息。
 
 
 include::install/targz.asciidoc[]

@@ -1,42 +1,25 @@
 [[tutorial-discovering]]
-== Discovering Your Data
+== 探索您的数据
 
-Click *Discover* in the side navigation to display Kibana's data discovery functions:
+单击侧面导航中的 *Discover* 进入 Kibana 的数据探索功能：
 
 image::images/tutorial-discover.png[]
 
-In the query bar, you can enter an 
-{es-ref}query-dsl-query-string-query.html#query-string-syntax[Elasticsearch
-query] to search your data. You can explore the results in Discover and create
-visualizations of saved searches in Visualize. 
+在查询框里，您可以输入 {es-ref}query-dsl-query-string-query.html#query-string-syntax[Elasticsearch 查询语句] 来搜索您的数据。您可以在 Discover 页面下查看搜索结果并在 Visualize 页面下生成已保存搜索的可视化效果。
 
-The current index pattern is displayed beneath the query bar. The index pattern
-determines which indices are searched when you submit a query. To search a
-different set of indices, select different pattern from the drop down menu.
-To add an index pattern, go to *Management/Kibana/Index Patterns* and click
-*Add New*.
+当前索引模式显示在查询栏下面。索引模式决定了当您提交查询时搜索哪些索引。要搜索一组不同的索引，可以从下拉菜单中选择不同的模式。要添加索引模式，请到 *Management/Kibana/Index Patterns* 界面下点击 *Add New* 。
 
-You can construct searches by using the field names and the values you're
-interested in. With numeric fields you can use comparison operators such as
-greater than (>), less than (<), or equals (=). You can link elements with the
-logical operators AND, OR, and NOT, all in uppercase.
+您可以把您感兴趣的字段名称和值当做搜索的条件，对于数字字段您可以使用比较运算符，例如大于（>）、小于（<）或等于（=）。您可以使用逻辑运算符 AND，OR 和 NOT 连接搜索条件，这些运算符需要全部大写。
 
-To try it out, select the `ba*` index pattern and enter the following query string
-in the query bar:
+尝试选择 `ba*` 索引模式并在查询栏中输入以下字符串：
 
 [source,text]
 account_number:<100 AND balance:>47500
 
-This query returns all account numbers between zero and 99 with balances in
-excess of 47,500. When searching the sample bank data, it returns 5 results: 
-Account numbers 8, 32, 78, 85, and 97.
+此查询返回0到99之间所有余额超过47,500的账户号码。搜索银行样本数据时，它返回5个结果：帐户号码8，32，78，85和97。
 
 image::images/tutorial-discover-2.png[]
 
-By default, all fields are shown for each matching document. To choose which
-document fields to display, hover over the Available Fields list and click the
-*add* button next to each field you want include. For example, if you add
-just the `account_number`, the display changes to a simple list of five
-account numbers:
+每个匹配的文档默认显示所有字段。可以将鼠标悬停在可用字段上并点击您想要展示字段旁边的 *add* 按钮来添加需要展示的字段。例如，如果您仅仅添加 `account_number` ，就只会显示5个简单的账户号码的列表：
 
 image::images/tutorial-discover-3.png[]

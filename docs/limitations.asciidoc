@@ -1,9 +1,9 @@
 [[limitations]]
-= Limitations
+= 限制
 
 [partintro]
 --
-Kibana currently has the following limitations.
+Kibana 目前有以下限制：
 
 * <<nested-objects>>
 

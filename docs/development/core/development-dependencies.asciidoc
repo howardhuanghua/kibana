@@ -1,70 +1,55 @@
 [[development-dependencies]]
-=== Managing Dependencies
+=== 管理依赖
 
-While developing plugins for use in the Kibana front-end environment you will
-probably want to include a library or two (at least). While that should be
-simple to do 90% of the time, there are always outliers, and some of those
-outliers are very popular projects.
+在开发 Kibana 前端环境中使用的插件时，您可能想要包含一个或两个库（至少）。虽然这在90%的情况下都是很简单的，但总会有一些异常值，而其中一些异常值还是在非常受欢迎的项目中。
 
-Before you can use an external library with Kibana you have to install it. You
-do that using...
+在 Kibana 中使用外部库之前，您要先安装它。您可以通过如下方式安装：
 
 [float]
-==== npm (preferred method)
+==== npm （首选方法）
 
-Once you've http://npmsearch.com[found] a dependency you want to add, you can
-install it like so:
+一旦您http://npmsearch.com[发现]想要添加的依赖，您可以像这样安装它：
 
 ["source","shell"]
 -----------
 npm install --save some-neat-library
 -----------
 
-At the top of a javascript file, just import the library using it's name:
+在 javascript 文件的顶部，只需要使用它的名称来导入库：
 
 ["source","shell"]
 -----------
 import someNeatLibrary from 'some-neat-library';
 -----------
 
-Just like working in node.js, front-end code can require node modules installed
-by npm without any additional configuration.
-
+就像在 node.js 中一样，前端代码可以在不需要任何附件配置的情况下，使用 npm 安装节点模块。
 [float]
 ==== webpackShims
 
-When a library you want to use does use es6 or common.js modules but is not
-available on npm, you can copy the source of the library into a webpackShim.
+当您想要用的库使用 es6 或 common.js 模块，但在 npm 上不可用时，您可以复制库的源文件到 webpackShim。
 
 ["source","shell"]
 -----------
-# create a directory for our new library to live
+# 为新的库创建一个目录
 mkdir -p webpackShims/some-neat-library
-# download the library you want to use into that directory
+# 下载您想用的库导该目录
 curl https://cdnjs.com/some-neat-library/library.js > webpackShims/some-neat-library/index.js
 -----------
 
-Then include the library in your JavaScript code as you normally would:
-
+然后，像往常一样在您的 JavaScript 代码中包含包含该库：
 ["source","shell"]
 -----------
 import someNeatLibrary from 'some-neat-library';
 -----------
 
 [float]
-==== Shimming third party code
+==== 桥接第三方代码
 
-Some JavaScript libraries do not declare their dependencies in a way that tools
-like webpack can understand. It is also often the case that libraries do not
-`export` their provided values, but simply write them to a global variable name
-(or something to that effect).
+一些 JavaScript 库声明它们依赖的方式，其他工具例如 webpack 并不理解。通常情况下，库不会导出它们提供的值，而只是将它们写入到全局变量里（或者某种意义上的变量）。
 
-When pulling code like this into Kibana we need to write "shims" that will
-adapt the third party code to work with our application, other libraries, and
-module system. To do this we can utilize the `webpackShims` directory.
+当将这样的代码拉入到 Kibana 中时，我们要编写 “桥接代码（shims）” 来整合第三方代码，以便与我们的应用、其他库和模块系统一起工作。我们可以使用 `webpackShims` 目录来做到这一点。
 
-The easiest way to explain how to write a shim is to show you some. Here is our
-webpack shim for jQuery:
+通过例子，是解释如何编写桥接代码的最简单方式。下面是我们用于 jQuery 的 webpack 桥接代码。
 
 ["source","shell"]
 -----------
@@ -74,14 +59,12 @@ module.exports = window.jQuery = window.$ = require('node_modules/jquery/dist/jq
 require('ui/jquery/findTestSubject')(window.$);
 -----------
 
-This shim is loaded up anytime an `import 'jquery';` statement is found by
-webpack, because of the way that `webpackShims` behaves like `node_modules`.
-When that happens, the shim does two things:
+由于 `webpackShims` 的行为类似 `node_modules` ， 因此一旦 webpack 发现 `import 'jquery';` 语句，桥接代码会被加载。当它发生时，桥接代码会做两件事：
 
-. Assign the exported value of the actual jQuery module to the window at `$` and `jQuery`, allowing libraries like angular to detect that jQuery is available, and use it as the module's export value.
-. Finally, a jQuery plugin that we wrote is included so that every time a file imports jQuery it will get both jQuery and the `$.findTestSubject` helper function.
+. 将实际 jQuery 模块的导出值分配给 `$` 和 `jQuery` ，允许像 angular 这样的库检测 jQuery 是否可用，并将其作为模块的导出变量使用。
+. 最终，我们编写的 jQuery 插件被引入，因此每次在 jQuery 中导入文件，它会得到 jQuery 和 `$.findTestSubject` 帮助模块。
 
-Here is what our webpack shim for angular looks like:
+下面是我们用于 angular 的 webpack 桥接代码：
 
 ["source","shell"]
 -----------
@@ -94,10 +77,11 @@ require('ui/modules').get('kibana', ['monospaced.elastic']);
 module.exports = window.angular;
 -----------
 
-What this shim does is fairly simple if you go line by line:
+如果您一行一行的看，会发现桥接代码做的很简单：
 
-. makes sure that jQuery is loaded before angular (which actually runs the shim above)
-. load the angular.js file from the npm installation
-. load the angular-elastic plugin, a plugin we want to always be included whenever we import angular
-. use the `ui/modules` module to add the module exported by angular-elastic as a dependency to the `kibana` angular module
-. finally, export the window.angular variable. This means that writing `import angular from 'angular';` will properly set the angular variable to the angular library, rather than undefined which is the default behavior.
+. 确保 jQuery 在 angular（实际运行在 shim 之上） 之前加载。
+. 从 npm 安装中加载 angular.js 。
+. 加载 angular-elastic 插件，每当我们导入 angular 时，都会要包含它。
+. 使用 `ui/modules` 模块添加被 angular-elastic 导入进来的模块作为 `kibana` angular 模块的依赖。
+. 最后，导出 window.angular 变量。这意味着当写下 `import angular from 'angular';` 时会恰当地设置 angular 库中的 angular 变量，而不是未定义的默认配置。
+

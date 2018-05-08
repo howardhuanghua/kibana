@@ -1,15 +1,11 @@
 [[development-basepath]]
-=== Considerations for basePath
+=== basePath 注意事项
 
-All communication from the Kibana UI to the server needs to respect the
-`server.basePath`. Here are the "blessed" strategies for dealing with this
-based on the context:
-
+所有从 Kibana UI 到服务端的通信，都要遵守 `server.basePath` 。下面是一些基于上下文处理该问题的建议：
 [float]
-==== `<img>` and `<a>` elements
+==== `<img>` 和 `<a>` 元素
 
-Write the `src` or `href` urls as you would without the base path, but then
-replace `src` or `href` with `kbn-src` or `kbn-href`.
+如您所愿，可以不写基本路径而直接写上 `src` 或者 `href` urls，然后用 `kbn-src` 或 `kbn-href` 替换 `src` 或 `href` 。
 
 ["source","shell"]
 -----------
@@ -17,11 +13,9 @@ replace `src` or `href` with `kbn-src` or `kbn-href`.
 -----------
 
 [float]
-==== Getting a static asset url
+==== 获取一个静态的 asset url
 
-Use webpack to import the asset into the build. This will give you a URL in
-JavaScript and gives webpack a chance to perform optimizations and
-cache-busting.
+用 webpack 导入 asset 到 build 中。这会给您一个 JavaScript 的 URL，并给 webpack 一个机会去执行优化及中断缓冲。
 
 ["source","shell"]
 -----------
@@ -35,9 +29,9 @@ uiChrome.setBrand({
 -----------
 
 [float]
-==== API requests from the front-end
+==== 前端 API 请求
 
-Use `chrome.addBasePath()` to append the basePath to the front of the url.
+使用 `chrome.addBasePath()` 将 basePath 添加到 url 的前面。
 
 ["source","shell"]
 -----------
@@ -46,9 +40,9 @@ $http.get(chrome.addBasePath('/api/plugin/things'));
 -----------
 
 [float]
-==== Server side
+==== 服务器端
 
-Append `config.get('server.basePath')` to any absolute URL path.
+在每个绝对 URL 路径上添加 `config.get('server.basePath')`
 
 ["source","shell"]
 -----------
@@ -62,26 +56,24 @@ server.route({
 -----------
 
 [float]
-==== BasePathProxy in dev mode
+==== 开发模式中的 BasePathProxy
 
-The Kibana dev server automatically runs behind a proxy with a random
-`server.basePath`. This way developers will be constantly verifying that their
-code works with basePath, while they write it.
+Kibana 开发服务器自动运行在一个有随机 `server.basePath` 的代理之后。这样，当开发者编写代码时，他们会不断地确认他们的代码是否与 basePath 一起工作。
 
-To accomplish this the `serve` task does a few things:
+为了达到这个效果， `serve` 任务做了如下一些事情：
 
-1. change the port for the server to the `dev.basePathProxyTarget` setting (default `5603`)
-2. start a `BasePathProxy` at `server.port`
-  - picks a random 3-letter value for `randomBasePath`
-  - redirects from `/` to `/{randomBasePath}`
-  - redirects from `/{any}/app/{appName}` to `/{randomBasePath}/app/{appName}` so that refreshes should work
-  - proxies all requests starting with `/{randomBasePath}/` to the Kibana server
+1. 根据 `dev.basePathProxyTarget` 配置服务器的端口（默认 `5603` ）
+2. 在 `server.port` 启动一个 `BasePathProxy`
 
-This proxy can sometimes have unintended side effects in development, so when
-needed you can opt out by passing the `--no-base-path` flag to the `serve` task
-or `npm start`.
+  - 为 `randomBasePath` 挑选一个三位数的值
+
+  - 从 `/{any}/app/{appName}` 重定向到 `/{randomBasePath}/app/{appName}` ，所以刷新会起作用
+  - 代理所有到 Kibana 服务器并以 `/{randomBasePath}/` 开头的请求
+
+有时候，在开发环境中代理会产生意想不到的副作用。因此，当需要的时候您可以通过传递 `--no-base-path` 选项到 `serve` 任务或者 `npm start` 以退出代理。
 
 ["source","shell"]
 -----------
 npm start -- --no-base-path
 -----------
+

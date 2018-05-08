@@ -1,14 +1,14 @@
 [[timelion-math]]
-=== Using mathematical functions
+=== 使用数学函数
 
-You’ve learned how to create and style a Timelion visualization in the previous two sections. This section will explore the mathematical functions Timelion offers. You will continue to use the https://www.elastic.co/downloads/beats/metricbeat[Metricbeat data] to create a new Timelion visualization for inbound and outbound network traffic. To start, you'll need to add a new Timelion visualization to the sheet.
+前面两节您学会了如何创建和自定义 Timelion 可视化控件。这一节带您领略 Timelion 数学函数的风采。我们继续使用 https://www.elastic.co/downloads/beats/metricbeat[Metricbeat] 数据来创建基于网络上下行链路数据的新的 Timelion 可视化控件。您可以先添加一个新的 Timelion 可视化控件。
 
-In the top menu, click `Add` to add a second visualization. When added to the sheet, you’ll notice that the query bar has been replaced with the default `.es(*)` expression. This is because the query is associated with the visualization on the Timelion sheet you have selected. 
+在菜单的顶层，点击 `Add` 添加第二个控件。添加到当前工作表的时候，您可以注意到查询输入框会被替换成默认的 `.es(*)` 表达式。因为这个查询是和您当前选中的控件相关联的。
 
 image::images/timelion-math01.png[]
 {nbsp}
 
-To start tracking the inbound / outbound network traffic, your first expression will calculate the maximum value of `system.network.in.bytes`. Enter the expression below into your Timelion query bar:
+为了便于追踪网络上下行流量，您的第一个表达式将会计算 `system.network.in.bytes` 下行数据的最大值。在 Timelion 查询框输入如下表达式：
 
 [source,text]
 ----------------------------------
@@ -18,7 +18,7 @@ To start tracking the inbound / outbound network traffic, your first expression 
 image::images/timelion-math02.png[]
 {nbsp}
 
-Monitoring network traffic is much more valuable when plotting the rate of change. The `derivative()` function is used do just that - plot the change in values over time. This can be easily done by appending the `.derivative()` to the end of an expression. Use the following expression to update your visualization:
+监控网络流量对于评估网络速率来说是非常有价值的。`derivative()` 函数就可以用来做这种随着时间而变化的数据。我们可以简单的将该函数添加至表达式的末尾。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
@@ -28,7 +28,7 @@ Monitoring network traffic is much more valuable when plotting the rate of chang
 image::images/timelion-math03.png[]
 {nbsp}
 
-Now for the outbound traffic. You'll need to add a similar calculation for `system.network.out.bytes`. Since outbound traffic is leaving your machine, it makes sense to represent this metric as a negative number. The `.multiply()` function will multiply the series by a  number, the result of a series or a list of series. For this example, you will use `.multiply(-1)` to convert the outbound network traffic to a negative value. Use the following expression to update your visualization:
+针对上行数据，您需要添加类似的指标 `system.network.out.bytes` 。因为上行数据是从您的设备发出去的，一般我们用负数来表达这一指标。`.multiply()` 函数将会利用一个数来乘以一个序列的数据。结果也将是一个序列或者一个链表的序列数据。例如，您可以使用 `.multiply(-1)` 来将上行线路转换成负数。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
@@ -38,7 +38,7 @@ Now for the outbound traffic. You'll need to add a similar calculation for `syst
 image::images/timelion-math04.png[]
 {nbsp}
 
-To make this visualization a bit easier to consume, convert the series from bytes to megabytes. Timelion has a `.divide()` function that can be used. `.divide()` accepts the same input as `.multiply()` and will divide the series by the divisor defined. Use the following expression to update your visualization:
+为了使该可视化控件可读性更强，可以将数据单位从 bytes 转换为 megabytes(MB)。Timelion 有一个 `.divide()` 函数可以使用。该函数接收和 `.multiply()` 类似的数据参数，会利用整个序列的数据来除以定义好的参数。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
@@ -48,7 +48,7 @@ To make this visualization a bit easier to consume, convert the series from byte
 image::images/timelion-math05.png[]
 {nbsp}
 
-Utilizing the formatting functions `.title()`, `.label()`, `.color()`, `.lines()` and `.legend()` learned in <<timelion-customize, the last section>>, let’s clean up the visualization a bit. Use the following expression to update your visualization:
+我们可以利用前面章节学过的样式定制函数 `.title()` 、 `.label()` 、 `.color()` 、 `.lines()` 和 `.legend()` 将我们的控件变的更美观。使用如下表达式来更新您的控件：
 
 [source,text]
 ----------------------------------
@@ -58,4 +58,4 @@ Utilizing the formatting functions `.title()`, `.label()`, `.color()`, `.lines()
 image::images/timelion-math06.png[]
 {nbsp}
 
-Save your changes and continue on to the next section to learn about conditional logic and tracking trends.
+保存所有的修改继续学习下一节关于条件逻辑和趋势跟踪的内容。

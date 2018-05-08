@@ -1,69 +1,50 @@
 [[document-data]]
-== Viewing Document Data
+== 查看文档数据
 
-When you submit a search query, the 500 most recent documents that match the query
-are listed in the Documents table. You can configure the number of documents shown
-in the table by setting the `discover:sampleSize` property in <<advanced-options,
-Advanced Settings>>. By default, the table shows the localized version of the time
-field configured for the selected index pattern and the document `_source`. You can
-<<adding-columns, add fields to the Documents table>> from the Fields list.
-You can <<sorting, sort the listed documents>> by any indexed field that's included
-in the table.
+提交一个搜索查询后，Documents 表中就会列出500个匹配查询的最新文档。您可以通过 <<advanced-options,
+Advanced Settings>> 中的 `discover:sampleSize` 设置表中显示的文档个数。默认情况下，该表显示的是为所选索引模式和文本 `_source` 配置的时间域的本地化版本。
+您可以从 Fields 表中<<adding-columns,选择字段向 Documents 表中添加>>。您可以通过表中包含的任意索引字段<<sorting, 对所列文档进行排序>>。
 
-To view a document's field data, click the *Expand* button 
-image:images/ExpandButton.jpg[Expand Button] to the left of the document's table
-entry. 
+查看文档的字段数据，请击该文档表项目左侧的 *Expand*
+image:images/ExpandButton.jpg[Expand Button] 按钮。
 
 image::images/Expanded-Document.png[]
 
-To view the original JSON document (pretty-printed), click the *JSON* tab.
+查看原始 JSON 文档（整齐打印），请点击 *JSON* 标签。
 
-To view the document data as a separate page, click the *View single document* 
-link. You can bookmark and share this link to provide direct access to a 
-particular document.
+以单独页面查看文档数据，请点击 *View single document* 链接。可以通过收藏和分享本链接来实现对特定文档的直接访问。
 
-To display or hide a field's column in the Documents table, click the
-image:images/add-column-button.png[Add Column] *Toggle column in table* button.
+显示或隐藏 Documents 表中的某一个字段所在的列，请点击
+image:images/add-column-button.png[Add Column] *Toggle column in table* 按钮。
 
-To collapse the document details, click the *Collapse* button 
-image:images/CollapseButton.jpg[Collapse Button].
+折叠文档细节，请点击 *Collapse* 按钮
+image:images/CollapseButton.jpg[Collapse Button]。
 
 [float]
 [[sorting]]
-=== Sorting the Document List
-You can sort the documents in the Documents table by the values in any indexed
-field. If a time field is configured for the current index pattern, the 
-documents are sorted in reverse chronological order by default.
+=== 整理文档列表
+可以根据任意索引字段值对 Documents 表中的文档进行分类。如果为当前索引模式配置一个时间字段，文档将默认按照反时间顺序排列。
 
-To change the sort order, hover over the name of the field you want to sort by
-and click the sort button. Click again to reverse the sort order.
+若要改变排列顺序，鼠标放在您想分类的字段名上，然后点击分类按钮。再次点击将反向排序。
 
 [float]
 [[adding-columns]]
-=== Adding Field Columns to the Documents Table
-By default, the Documents table shows the localized version of the time field
-that's configured for the selected index pattern and the document `_source`. 
-You can add fields to the table from the Fields list or from a document's
-field data.
+=== 向文档表中添加字段列
+默认情况下, Documents 表显示的是为所选索引模式和 `_source` 文档配置的时间字段的本地化版本。
+您可以从 Fields 列表或文档的字段数据中选择字段向文档表中添加。
 
-To add a field column from the Fields list, hover over the field and click its
-*add* button.
+从 Fields 列表中添加字段列，请将鼠标放在该字段上，并点击该字段的 *add* 按钮。
 
-To add a field column from a document's field data, expand the document
-and click the field's
-image:images/add-column-button.png[Add Column] *Toggle column in table* button.
+从文档的字段数据中添加字段列，请展开文档并点击该字段的 image:images/add-column-button.png[Add Column] *Toggle column in table* 按钮。
 
-Added field columns replace the `_source` column in the Documents table. The added
-fields are also added to the *Selected Fields* list.
+添加的字段列会取代 Documents 表中的 `_source` 列。添加的字段也会被添加到 *Selected Fields* 列表中。
 
-To rearrange the field columns, hover over the header of the column you want to move
-and click the *Move left* or *Move right* button.
+重新排列字段列，请将鼠标置于想要移动的列的标题上，然后点击  *Move left* 或 *Move right* 按钮。
 
 image:images/Discover-MoveColumn.jpg[Move Column]
 
 [float]
 [[removing-columns]]
-=== Removing Field Columns from the Documents Table
-To remove a field column from the Documents table, hover over the header of the 
-column you want to remove and click the *Remove* button 
-image:images/RemoveFieldButton.jpg[Remove Field Button].
+=== 从文档表中移除字段列
+从文档表中移除一个字段列，请将鼠标置于想要移除的列的标题处，然后点击 *Remove* 按钮
+image:images/RemoveFieldButton.jpg[Remove Field Button]。

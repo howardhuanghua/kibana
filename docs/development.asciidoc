@@ -1,14 +1,11 @@
 [[development]]
-= Contributing to Kibana
+= 贡献
 
 [partintro]
 --
-Contributing to Kibana can be daunting at first, but it doesn't have to be. If
-you're planning a pull request to the Kibana repository, you may want to start
-with <<core-development>>.
+我们非常欢迎您为 Kibana 做贡献，如果您想提交 pull request 到 Kibana 仓库，您可以参考<<core-development>>。
 
-If you'd prefer to use Kibana's internal plugin API, then check out
-<<plugin-development>>.
+如果您想使用 Kibana 内部的插件 API，您可以查看<<plugin-development>>。
 --
 
 include::development/core-development.asciidoc[]

@@ -1,22 +1,22 @@
 [[tutorial-load-dataset]]
-== Loading Sample Data
+== 加载示例数据
 
-The tutorials in this section rely on the following data sets:
+本节内容依赖以下数据：
 
-* The complete works of William Shakespeare, suitably parsed into fields. Download this data set by clicking here:
+* 威廉·莎士比亚全集，解析成合适的字段。点击这里下载这个数据集：
   https://download.elastic.co/demos/kibana/gettingstarted/shakespeare_6.0.json[shakespeare.json].
-* A set of fictitious accounts with randomly generated data. Download this data set by clicking here:
-  https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip[accounts.zip]
-* A set of randomly generated log files. Download this data set by clicking here:
-  https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz[logs.jsonl.gz]
+* 一组虚构的账户与随机生成的数据。点击这里下载这个数据集：
+  https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip[accounts.zip].
+* 一组随机生成的日志文件。点击这里下载这个数据集：
+  https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz[logs.jsonl.gz].
 
-Two of the data sets are compressed. Use the following commands to extract the files:
+有两个数据集是压缩文件。使用以下命令解压缩文件：
 
 [source,shell]
 unzip accounts.zip
 gunzip logs.jsonl.gz
 
-The Shakespeare data set is organized in the following schema:
+莎士比亚数据集的组织方式如下：
 
 [source,json]
 {
@@ -28,7 +28,7 @@ The Shakespeare data set is organized in the following schema:
     "text_entry": "String",
 }
 
-The accounts data set is organized in the following schema:
+帐户数据集的组织方式如下：
 
 [source,json]
 {
@@ -45,7 +45,7 @@ The accounts data set is organized in the following schema:
     "state": "String"
 }
 
-The schema for the logs data set has dozens of different fields, but the notable ones used in this tutorial are:
+日志数据集的结构有许多不同的字段，以下是其中比较重要的字段：
 
 [source,json]
 {
@@ -54,11 +54,10 @@ The schema for the logs data set has dozens of different fields, but the notable
     "@timestamp": "date"
 }
 
-Before we load the Shakespeare and logs data sets, we need to set up {es-ref}mapping.html[_mappings_] for the fields.
-Mapping divides the documents in the index into logical groups and specifies a field's characteristics, such as the
-field's searchability or whether or not it's _tokenized_, or broken up into separate words.
+在莎士比亚和日志数据集加载之前，我们需要为字段设置 {es-ref}mapping.html[_映射_]。
+映射把索引中的文档按逻辑分组并指定了字段的属性，比如字段的可搜索性或者该字段是否是 _tokenized_ ，或分解成单独的单词。
 
-Use the following command in a terminal (eg `bash`) to set up a mapping for the Shakespeare data set:
+使用以下命令在终端（如 `bash` ）建立一个莎士比亚数据集的映射：
 
 [source,js]
 PUT /shakespeare
@@ -77,15 +76,14 @@ PUT /shakespeare
 
 //CONSOLE
 
-This mapping specifies the following qualities for the data set:
+这个映射指定了数据集的以下特点：
 
-* Because the _speaker_ and _play_name_ fields are keyword fields, they are not analyzed. The strings are treated as a single unit even if they contain multiple words.
-* The _line_id_ and _speech_number_ fields are integers.
+* 因为 _speaker_ 和 _play_name_ 字段是关键字字段，它们不需要分析。字符串即使包含多个词也仍被视为一个整体。
+* _line_id_ 和 _speech_number_ 字段是整数。
 
-The logs data set requires a mapping to label the latitude/longitude pairs in the logs as geographic locations by
-applying the `geo_point` type to those fields.
+日志数据集映射需要利用 `geo_point` 类型来标记经度/纬度地理位置字段。
 
-Use the following commands to establish `geo_point` mapping for the logs:
+使用下面的命令来为日志建立 `geo_point` 映射：
 
 [source,js]
 PUT /logstash-2015.05.18
@@ -147,24 +145,23 @@ PUT /logstash-2015.05.20
 
 //CONSOLE
 
-The accounts data set doesn't require any mappings, so at this point we're ready to use the Elasticsearch
-{es-ref}docs-bulk.html[`bulk`] API to load the data sets with the following commands:
+账户数据集不需要任何映射，基于这一点我们准备用 Elasticsearch {es-ref}docs-bulk.html[`bulk`] API 来加载数据集，命令如下：
 
 [source,shell]
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/shakespeare/doc/_bulk?pretty' --data-binary @shakespeare_6.0.json
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/_bulk?pretty' --data-binary @logs.jsonl
 
-These commands may take some time to execute, depending on the computing resources available.
+执行这些命令可能需要一段时间，取决于可用的计算资源。
 
-Verify successful loading with the following command:
+使用下面的命令来验证加载是否成功：
 
 [source,js]
 GET /_cat/indices?v
 
 //CONSOLE
 
-You should see output similar to the following:
+您应该会看到类似下面的输出：
 
 [source,shell]
 health status index               pri rep docs.count docs.deleted store.size pri.store.size

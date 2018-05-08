@@ -1,19 +1,18 @@
-=== Refreshing the Search Results
-You can configure a refresh interval to automatically refresh the page with the latest index data. This periodically
-resubmits the search query.
+=== 刷新搜索结果
+您可以通过配置刷新时间来实现自动更新网页的最新索引数据。这样就会周期性的提交搜索查询。
 
-When a refresh interval is set, it is displayed to the left of the Time Filter in the menu bar.
+设置的刷新时间会显示在菜单栏中时间过滤器的左侧。
 
-To set the refresh interval:
+刷新时间的设置方法：
 
-. Click the *Time Filter* image:images/TimeFilter.jpg[Time Filter].
-. Click the *Refresh Interval* tab.
-. Choose a refresh interval from the list.
+. 点击 *Time Filter* image:images/TimeFilter.jpg[时间过滤器]。
+. 点击 *Refresh Interval* 标签。
+. 从列表中选择一个刷新时间。
 
-To automatically refresh the data, click the image:images/autorefresh.png[] *Auto-refresh* button when the time picker
-is open and select an autorefresh interval:
+想要实现自动刷新数据，首先打开时间选择器，然后点击 image:images/autorefresh.png[] *Auto-refresh* 按钮，再选择一个自动刷新时间：
+
 
 image::images/autorefresh-intervals.png[]
 
-When auto-refresh is enabled, Kibana's top bar displays a pause button and the auto-refresh interval:
-image:images/autorefresh-pause.png[]. Click the *Pause* button to pause auto-refresh.
+启用自动刷新后，Kibana的顶部菜单会显示暂停按钮和自动刷新时间：
+image:images/autorefresh-pause.png[]。点击 *Pause* 按钮暂停自动刷新。

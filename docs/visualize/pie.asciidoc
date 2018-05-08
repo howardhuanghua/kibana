@@ -1,85 +1,63 @@
 [[pie-chart]]
-== Pie Charts
+== 饼图
 
-The slice size of a pie chart is determined by the _metrics_ aggregation. The following aggregations are available for
-this axis:
+饼图的切片大小由 _metrics_ 聚合决定，下列聚合可用于饼图：
 
-*Count*:: The {es-ref}search-aggregations-metrics-valuecount-aggregation.html[_count_] aggregation returns a raw count of
-the elements in the selected index pattern.
-*Sum*:: The {es-ref}search-aggregations-metrics-sum-aggregation.html[_sum_] aggregation returns the total sum of a numeric
-field. Select a field from the drop-down.
-*Unique Count*:: The {es-ref}search-aggregations-metrics-cardinality-aggregation.html[_cardinality_] aggregation returns
-the number of unique values in a field. Select a field from the drop-down.
+*Count*:: {es-ref}search-aggregations-metrics-valuecount-aggregation.html[_count_]  聚合返回所选索引模式中元素的原始数量。
 
-Enter a string in the *Custom Label* field to change the display label.
+*Sum*:: {es-ref}search-aggregations-metrics-sum-aggregation.html[_sum_] 聚合返回一个数值型字段的总和。从下拉框选择一个字段。
 
-The _buckets_ aggregations determine what information is being retrieved from your data set.
+*Unique Count*:: {es-ref}search-aggregations-metrics-cardinality-aggregation.html[_cardinality_]  聚合返回一个字段中唯一值的数量。从下拉列表选择一个字段。
 
-Before you choose a buckets aggregation, specify if you are splitting slices within a single chart or splitting into
-multiple charts. A multiple chart split must run before any other aggregations. When you split a chart, you can change
-if the splits are displayed in a row or a column by clicking the *Rows | Columns* selector.
+在 *Custom Label* 字段中输入一个字符串来修改显示标签。
 
-You can specify any of the following bucket aggregations for your pie chart:
+_桶_ 聚合用于决定从数据集抽取何种信息。
 
-*Date Histogram*:: A {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[_date histogram_] is built from a
-numeric field and organized by date. You can specify a time frame for the intervals in seconds, minutes, hours, days,
-weeks, months, or years. You can also specify a custom interval frame by selecting *Custom* as the interval and
-specifying a number and a time unit in the text field. Custom interval time units are *s* for seconds, *m* for minutes,
-*h* for hours, *d* for days, *w* for weeks, and *y* for years. Different units support different levels of precision,
-down to one second.
-*Histogram*:: A standard {es-ref}search-aggregations-bucket-histogram-aggregation.html[_histogram_] is built from a
-numeric field. Specify an integer interval for this field. Select the *Show empty buckets* checkbox to include empty
-intervals in the histogram.
-*Range*:: With a {es-ref}search-aggregations-bucket-range-aggregation.html[_range_] aggregation, you can specify ranges
-of values for a numeric field. Click *Add Range* to add a set of range endpoints. Click the red *(x)* symbol to remove
-a range.
-*Date Range*:: A {es-ref}search-aggregations-bucket-daterange-aggregation.html[_date range_] aggregation reports values
-that are within a range of dates that you specify. You can specify the ranges for the dates using
-{es-ref}common-options.html#date-math[_date math_] expressions. Click *Add Range* to add a set of range endpoints.
-Click the red *(/)* symbol to remove a range.
-*IPv4 Range*:: The {es-ref}search-aggregations-bucket-iprange-aggregation.html[_IPv4 range_] aggregation enables you to
-specify ranges of IPv4 addresses. Click *Add Range* to add a set of range endpoints. Click the red *(/)* symbol to
-remove a range.
-*Terms*:: A {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] aggregation enables you to specify the top
-or bottom _n_ elements of a  given field to display, ordered by count or a custom metric.
-*Filters*:: You can specify a set of {es-ref}search-aggregations-bucket-filters-aggregation.html[_filters_] for the data.
-You can specify a filter as a query string or in JSON format, just as in the Discover search bar. Click *Add Filter* to
-add another filter. Click the image:images/labelbutton.png[] *label* button to open the label field, where you can type
-in a name to display on the visualization.
-*Significant Terms*:: Displays the results of the experimental
-{es-ref}search-aggregations-bucket-significantterms-aggregation.html[_significant terms_] aggregation. The value of the
-*Size* parameter defines the number of entries this aggregation returns.
+在选择一个桶聚合之前，需要知道是否为单个图或组合图的X轴或Y轴定义桶。一个组合图必须在所有其他聚合之前执行。当划分一个图时，可以通过点击 *Rows | Columns* 选择器，来改变划分是显示为一行还是一列。
 
-After defining an initial bucket aggregation, you can define sub-buckets to refine the visualization. Click *+ Add
-sub-buckets* to define a sub-aggregation, then choose *Split Slices* to select a sub-bucket from the list of
-types.
+可以为饼图指定下列任意桶聚合：
 
-When multiple aggregations are defined on a chart's axis, you can use the up or down arrows to the right of the
-aggregation's type to change the aggregation's priority.
+*Date Histogram*:: 一个 {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[_date histogram_] 从一个数值型字段构建，并按日期组织。可以为间隔指定一个按秒、分钟、小时、天、周、月或年的时间段。也可以指定一个自定义的时间区间，只需选择 *Custom* 作为间隔，并在文本字段中指定一个数字和一个时间单位即可。对于自定义间隔时间单位，*s* 表示秒， *m* 表示分钟，*h* 表示小时， *d* 表示天， *w* 表示周， *y* 表示年。不同单位支持不同的精度级别，最低为一秒。
+
+*Histogram*:: 一个标准的 {es-ref}search-aggregations-bucket-histogram-aggregation.html[_histogram_] 从一个数值型字段构建，并为该字段指定一个整数类型的间隔，选择 *Show empty buckets* 复选框可在直方图中包括空的间隔。
+
+*Range*:: 通过一个 {es-ref}search-aggregations-bucket-range-aggregation.html[_range_] 聚合，可以为一个数值型字段指定值的范围。点击 *Add Range* 增加一个范围聚合，点击红色的 *(x)* 符号来删除一个范围。
+
+*Date Range*:: {es-ref}search-aggregations-bucket-daterange-aggregation.html[_date range_] 聚合展示在指定日期范围内的值。可通过 {es-ref}common-options.html#date-math[_date math_] 表达式来指定日期范围。点击 *Add Range* 增加一个范围聚合，点击红色的 *(/)* 符号来删除一个范围。
+
+*IPv4 Range*:: {es-ref}search-aggregations-bucket-iprange-aggregation.html[_IPv4 range_] 聚合支持指定IPV4地址范围。点击 *Add Range* 增加一组范围端点，点击红色的  *(/)* 符号移除范围。
+
+*Terms*:: {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] 聚合支持指定要显示的给定字段的头部或尾部 _n_ 个元素，并按数量或自定义指标进行排序。
+
+*Filters*:: 可以为数据指定一系列 {es-ref}search-aggregations-bucket-filters-aggregation.html[_filters_] 。支持通过一个查询串或者 JSON 格式来指定一个过滤器，就像在 Discover 搜索框中一样。点击 *Add Filter* 来增加另一个过滤器。点击 image:images/labelbutton.png[] *label* 按钮打开标签字段，输入一个可显示在视图中的名称。
+
+*Significant Terms*:: 显示试验 {es-ref}search-aggregations-bucket-significantterms-aggregation.html[_significant terms_] 聚合的结果。*Size* 参数的值定义了该聚合返回的实体数量。
+
+一旦指定了一个 bucket 类型的聚合，就可以定义子 bucket 来优化视图。点击 *+ Add sub-buckets* 来定义一个子 bucket，然后选择 *Split Rows*  或 *Split Table* ，再从类型列表中选择一种聚合。
+
+当在坐标轴上定义好多个聚合以后，就可以使用向上或向下键翻到合适的聚合类型，以更改聚合优先级。
 
 include::color-picker.asciidoc[]
 
-Enter a string in the *Custom Label* field to change the display label.
+在 *Custom Label* 字段输入一个字符串可修改显示标签。
 
-You can click the *Advanced* link to display more customization options for your metrics or bucket aggregation:
+可以点击 *Advanced* 链接显示指标或桶聚合的更多自定义选项：
 
-*Exclude Pattern*:: Specify a pattern in this field to exclude from the results.
-*Include Pattern*:: Specify a pattern in this field to include in the results.
-*JSON Input*:: A text field where you can add specific JSON-formatted properties to merge with the aggregation
-definition, as in the following example:
+*Exclude Pattern*:: 从结果中排除该字段指定的模式。
+*Include Pattern*:: 在结果中包括该字段所指定的模式。
+*JSON Input*:: 一个文本字段，可以通过加入指定的 JSON 格式属性与聚合定义合并，示例如下：
 
 [source,shell]
 { "script" : "doc['grade'].value * 1.2" }
 
-NOTE: In Elasticsearch releases 1.4.3 and later, this functionality requires you to enable
-{es-ref}modules-scripting.html[dynamic Groovy scripting].
+NOTE: 在 Elasticsearch 1.4.3及以后版本中，该功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting] 。
 
-The availability of these options varies depending on the aggregation you choose.
+这些选项是否可用取决于所选的聚合。
 
-Select the *Options* tab to change the following aspects of the table:
+选择 *Options* 标签来改变表格的下列方面：
 
-*Donut*:: Display the chart as a sliced ring instead of a sliced pie.
-*Show Tooltip*:: Check this box to enable the display of tooltips.
+*Donut*::  显示为切片环状图，而不是切片饼状图。
+*Show Tooltip*::  勾选此项开启显示提示语。
 
-After changing options, click the *Apply changes* button to update your visualization, or the grey *Discard
-changes* button to keep your visualization in its current state.
+在修改选项后，点击 *Apply changes* 按钮更新视图，或者点击 *Discard changes* 按钮保持视图为当前状态。
+

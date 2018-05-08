@@ -1,10 +1,8 @@
-The `Color` field formatter enables you to specify colors with specific ranges of values for a numeric field.
+`颜色` 字段格式化器可以让您为数值型字段的某一段值区间指定特定颜色。
 
-When you select the `Color` field formatter, Kibana displays the *Range*, *Font Color*, *Background Color*, and 
-*Example* fields.
+当您选择 `颜色` 字段格式化器时，Kibana 会显示 *区间* 、 *字体颜色* 、 *背景颜色* 和 *范例* 字段。
 
-Click the *Add Color* button to add a range of values to associate with a particular color. You can click in the *Font 
-Color* and *Background Color* fields to display a color picker. You can also enter a specific hex code value in the 
-field. The effect of your current color choices are displayed in the *Example* field.
+点击 *添加颜色* 按钮将一段区间值与一个特定颜色关联。您可以点击 *字体颜色* 和 *背景颜色* 字段来显示颜色选择器，也可以在该字段中输入十六进制的颜色码。最后您可以在 *范例* 字段中看到所选颜色的效果。
 
 image::images/colorformatter.png[]
+

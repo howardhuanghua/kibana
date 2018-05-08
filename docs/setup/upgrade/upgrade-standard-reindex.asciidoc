@@ -1,25 +1,13 @@
 [[upgrade-standard-reindex]]
-=== Standard Upgrade with Reindex
+=== 重建索引进行标准升级
 
-You must perform a reindex in Elasticsearch whenever you're upgrading Kibana
-that has an existing `.kibana` index created prior to Elasticsearch 2.0.
+无论何时对一个含有早于 Elasticsearch 2.0 版本创建的 `.kibana` 索引的 Kibana 进行升级，都必须在 Elasticsearch 中进行一次索引重建。
 
-This is the case if you're upgrading directly from Kibana 4.1 or 4.0 as well as
-when your existing install of Kibana 4.2+ was previously upgraded from 4.1 or
-4.0.
+例如，从 Kibana 4.1 或 4.0 直接升级或者从之前由 4.1 或 4.0 升级上来的 4.2+ 进行升级。
 
-Reindexing is the process of creating a new index with updated syntax and
-mappings directly from an existing index. While it is possible to do this
-manually, we recommend using the Elasticsearch Migration Plugin as described
-in the Elasticsearch
-{es-ref}reindex-upgrade.html#reindex-upgrade[Reindex to upgrade] guide.
+重建索引是从已有的索引升级语法、映射而创建一个新索引的过程。尽管这支持手动进行，我们仍然推荐使用在 Elasticsearch {es-ref}reindex-upgrade.html#reindex-upgrade[重建索引升级]指南中提到的 Elasticsearch 迁移插件。
 
-NOTE: The Elasticsearch Migration Plugin creates a versioned `.kibana` index
-as well as an {es-ref}indices-aliases.html[index alias] that points to it.
-Kibana 5.0 supports this index alias, but if you want to run Kibana 4.x while
-this Elastic stack upgrade is underway, you'll need to configure your Kibana
-4.x install to point to the versioned index using the `kibana.index`
-configuration in your `kibana.yml` file.
+NOTE: Elasticsearch 迁移插件创建一个新版本的 `.kibana` 索引并创建一个 {es-ref}indices-aliases.html[索引别名] 指向它。Kibana 5.0 支持这个索引别名，但是如果想在 Elastic stack 升级的过程中运行 Kibana 4.x，就需要配置 4.x 安装时指向该版本索引，使用 `kibana.yml` 文件中的 `kibana.index` 配置项进行配置。
 
-Once your reindex is complete, you can follow the
-<<upgrade-standard, Standard Upgrade>> instructions.
+一旦重建索引完成了，就可以遵循<<upgrade-standard, 标准升级>>的指引继续升级。
+

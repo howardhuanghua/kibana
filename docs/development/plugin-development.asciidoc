@@ -1,9 +1,9 @@
 [[plugin-development]]
-== Plugin Development
+== 插件开发
 
 [IMPORTANT]
 ==============================================
-The Kibana plugin interfaces are in a state of constant development.  We cannot provide backwards compatibility for plugins due to the high rate of change.  Kibana enforces that the installed plugins match the version of Kibana itself.  Plugin developers will have to release a new version of their plugin for each new Kibana release as a result.
+Kibana 插件接口在不断的发展变化。由于插件更新很快，因此很难向后兼容。Kibana 强制要求安装的插件版本必须和 Kibana 版本一致。插件开发者必须为每个新的 Kibana 版本发布新的插件版本。
 ==============================================
 
 * <<development-plugin-resources>>

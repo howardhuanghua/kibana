@@ -1,14 +1,13 @@
 [[multi-requests]]
-== Multiple Requests Support
+== 多请求支持
 
-The Console editor allows writing multiple requests below each other. As shown in the <<console-kibana>> section, you
-can submit a request to Elasticsearch by positioning the cursor and using the <<action_menu,Action Menu>>. Similarly
-you can select multiple requests in one go:
+控制台编辑器允许在彼此之下写多个请求，像在<<console-kibana>>章节展示中那样，您可以通过定位光标并使用<<action_menu,动作菜单>>向 Elasticsearch 提交请求。同样的您可以一次选择多个请求：
 
-.Selecting Multiple Requests
-image::images/multiple_requests.png[Multiple Requests]
 
-Console will send the request one by one to Elasticsearch and show the output on the right pane as Elasticsearch responds.
-This is very handy when debugging an issue or trying query combinations in multiple scenarios.
+.选择多个请求
+image::images/multiple_requests.png[多请求]
 
-Selecting multiple requests also allows you to auto format and copy them as cURL in one go.
+控制台会依次提交请求到 Elasticsearch ，并将 Elasticsearch 返回的结果显示在右边窗口。这在调试问题或在多个场景中尝试查询组合时会非常方便。
+
+选择多个请求还允许您自动格式化并将其复制为 cURL 命令。
+

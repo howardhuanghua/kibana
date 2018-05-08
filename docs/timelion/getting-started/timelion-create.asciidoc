@@ -1,11 +1,11 @@
 [[timelion-create]]
-=== Creating time series visualizations
+=== 创建基于时间序列的可视化控件
 
-This tutorial will be using the time series data from https://www.elastic.co/guide/en/beats/metricbeat/current/index.html[Metricbeat] to walk you through a number of functions that Timelion offers. To get started, download Metricbeat and follow the https://www.elastic.co/downloads/beats/metricbeat[instructions here] to start ingesting the data locally.
+本教程会使用来自 https://www.elastic.co/guide/en/beats/metricbeat/current/index.html[Metricbeat] 的时间序列数据为您演示 Timelion 所能提供的功能。您可以先下载 Metricbeat 并根据https://www.elastic.co/downloads/beats/metricbeat[这个说明]在本地抽取数据。
 
-The first visualization you'll create will compare the real-time percentage of CPU time spent in user space to the results offset by one hour. In order to create this visualization, we’ll need to create two Timelion expressions. One with the real-time average of `system.cpu.user.pct` and another with the average offset by one hour.
+第一个可视化控件将会对比系统用户空间 CPU 实时使用百分比和其每小时的平均偏移量。为了创建这个控件，我们需要创建两个 Timelion 表达式。第一个是实时的 `system.cpu.user.pct` 平均值，第二个是每小时的平均偏移量。
 
-To start, you will need to define an `index`, `timefield` and `metric` in the first expression. Go ahead and enter the below expression into the Timelion query bar.
+您需要在第一个表达式中定义 `index` 、 `timefield` 和 `metric` 。然后紧接着在 Timelion 查询框中输入如下表达式：
 
 [source,text]
 ----------------------------------
@@ -15,7 +15,7 @@ To start, you will need to define an `index`, `timefield` and `metric` in the fi
 image::images/timelion-create01.png[]
 {nbsp}
 
-Now you need to add another series with data from the previous hour for comparison. To do so, you'll have to add an `offset` arguement to the `.es()` function. `offset` will offset the series retrieval by a date expression. For this example, you'll want to offset the data back one hour and will be using the date expression `-1h`. Using a comma to separate the two series, enter the following expression into the Timelion query bar:
+现在您需要添加前一个小时的数据用来对比。您需要添加一个 `offset` 参数到 `.es()` 函数。 `offset` 将会利用表达式来指定时间序列偏移量。举个例子，如果您想让时间偏移一个小时那么将会使用时间表达式 `-1h` 。 使用逗号分隔两个时间序列表达式，例如在 Timelion 查询框中输入如下表达式：
 
 [source,text]
 ----------------------------------
@@ -25,7 +25,9 @@ Now you need to add another series with data from the previous hour for comparis
 image::images/timelion-create02.png[]
 {nbsp}
 
-It’s a bit hard to differentiate the two series. Customize the labels in order to easily distinguish them. You can always append the `.label()` function to any expression to add a custom label. Enter the below expression into the Timelion query bar to customize your labels:
+图形上有点难区分上述两个序列表达式。我们可以通过给每个序列自定义标签来区分它们。您可以在任何一个序列后面添加 `.label()` 表达式来自定义标签。我们来看看如下自定义标签的例子：
+
+
 [source,text]
 ----------------------------------
 .es(offset=-1h,index=metricbeat-*, timefield='@timestamp', metric='avg:system.cpu.user.pct').label('last hour'), .es(index=metricbeat-*, timefield='@timestamp', metric='avg:system.cpu.user.pct').label('current hour')
@@ -34,4 +36,4 @@ It’s a bit hard to differentiate the two series. Customize the labels in order
 image::images/timelion-create03.png[]
 {nbsp}
 
-Save the entire Timelion sheet as _Metricbeat Example_. As a best practice, you should be saving any significant changes made to this sheet as you progress through this tutorial.
+保存整个 Timelion 表格为 _Metricbeat Example_ 。Timelion 是一个非常强大的基于时间序列的控件，您可以对本教程中的一些关键点多加练习来熟悉 Timelion。

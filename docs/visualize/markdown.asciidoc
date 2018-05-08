@@ -1,7 +1,5 @@
 [[markdown-widget]]
-== Markdown Widget
+== Markdown 控件
 
-The Markdown widget is a text entry field that accepts GitHub-flavored Markdown text. Kibana renders the text you enter
-in this field and displays the results on the dashboard. You can click the *Help* link to go to the
-https://help.github.com/articles/github-flavored-markdown/[help page] for GitHub flavored Markdown. Click *Apply* to
-display the rendered text in the Preview pane or *Discard* to revert to a previous version.
+Markdown 控件是一个文本输入字段，支持 Github 风格的 Markdown 文本。Kibana 会渲染输入到该字段的文本，并把结果展示在 dashboard 上。点击 *Help* 链接可以跳转到 Github 风格 Markdown 的 https://help.github.com/articles/github-flavored-markdown/[帮助页面]，点击 *Apply* 在预览窗格中显示渲染文本，或点击 *Discard* 回退到之前的版本。
+

@@ -1,58 +1,51 @@
 [[managing-saved-objects]]
-== Managing Saved Searches, Visualizations, and Dashboards
+== 管理保存的搜索、可视化组件和仪表板
 
-You can view, edit, and delete saved searches, visualizations, and dashboards from *Settings > Objects*. You can also
-export or import sets of searches, visualizations, and dashboards.
+您可以在 *设置 > 对象* 中查看、编辑和删除保存的搜索、可视化组件以及仪表板。您也可以导入或者导出搜索、可视化组件和仪表板的集合。
 
-Viewing a saved object displays the selected item in the *Discover*, *Visualize*, or *Dashboard* page. To view a saved
-object:
+保存的对象会显示在 *发现* 、*可视化组件* 或者 *仪表板* 页面的待选列表中。要查看保存的对象：
 
-. Go to *Settings > Objects*.
-. Select the object you want to view.
-. Click the *View* button.
+. 进入 *设置 > 对象* 。
+. 选择您想要查看的对象。
+. 点击 *查看* 按钮。
 
-Editing a saved object enables you to directly modify the object definition. You can change the name of the object, add
-a description, and modify the JSON that defines the object's properties.
+编辑一个保存的对象能够让您直接修改对象的定义。您可以改变对象的名称、添加说明并修改定义对象属性的 JSON 。
 
-If you attempt to access an object whose index has been deleted, Kibana displays its Edit Object page. You can:
+如果您试图访问一个对象，但是其关联的索引已经被删除，Kibana 将显示其“编辑对象”页面。您可以：
 
-* Recreate the index so you can continue using the object.
-* Delete the object and recreate it using a different index.
-* Change the index name referenced in the object's `kibanaSavedObjectMeta.searchSourceJSON` to point to an existing
-index pattern. This is useful if the index you were working with has been renamed.
+* 重新创建索引，以便您可以继续使用该对象。
+* 删除该对象并使用不同的索引重新创建它。
+* 修改该对象的 `kibanaSavedObjectMeta.searchSourceJSON` 属性，将其引用的索引名称更改为指向一个现存的索引模式。如果您正在使用的索引被重命名，这种方法就非常适用。
 
-WARNING: No validation is performed for object properties. Submitting invalid changes will render the object unusable.
-Generally, you should use the *Discover*, *Visualize*, or *Dashboard* pages to create new objects instead of directly
-editing existing ones.
+WARNING: 对象属性的修改是没有校验的，提交无效更改将会导致对象不可用。通常您应该使用 *发现* 、 *可视化组件* 或者 *仪表板* 页面来创建新的对象，而不是直接编辑现有的对象。
 
-To edit a saved object:
+要编辑一个保存的对象：
 
-. Go to *Settings > Objects*.
-. Select the object you want to edit.
-. Click the *Edit* button.
-. Make your changes to the object definition.
-. Click the *Save Object* button.
+. 进入 *设置 > 对象* 。
+. 选择您想要编辑的对象。
+. 点击 *编辑* 按钮。
+. 修改对象的定义。
+. 点击 *保存对象* 按钮。
 
-To delete a saved object:
+要删除一个保存的对象：
 
-. Go to *Settings > Objects*.
-. Select the object you want to delete.
-. Click the *Delete* button.
-. Confirm that you really want to delete the object.
+. 进入 *设置 > 对象* 。
+. 选择您想要删除的对象。
+. 点击 *删除* 按钮。
+. 确认您要删除该对象。
 
-To export a set of objects:
+要导出对象的集合：
 
-. Go to *Settings > Objects*.
-. Select the type of object you want to export. You can export a set of dashboards, searches, or visualizations.
-. Click the selection box for the objects you want to export, or click the *Select All* box.
-. Click *Export* to select a location to write the exported JSON.
+. 进入 *设置 > 对象* 。
+. 选择要导出的对象的类型。您可以导出一组仪表板、搜索或可视化组件。
+. 选择您想要导出的对象的选择框，或者点击 *选择全部* 。
+. 点击 *导出* 然后选择要导出 JSON 数据的存储位置。
 
-WARNING: Exported dashboards do not include their associated index patterns. Re-create the index patterns manually before
-importing saved dashboards to a Kibana instance running on another Elasticsearch cluster.
+WARNING: 导出的仪表板并不包含其关联的索引模式。要将保存的仪表板导入运行在另一个 Elasticsearch 集群上的 Kibana 实例，需要提前手动重新创建索引模式。
 
-To import a set of objects:
+要导入对象的集合：
 
-. Go to *Settings > Objects*.
-. Click *Import* to navigate to the JSON file representing the set of objects to import.
-. Click *Open* after selecting the JSON file.
-. If any objects in the set would overwrite objects already present in Kibana, confirm the overwrite.
+. 进入 *设置 > 对象* 。
+. 点击 *导入* ，然后导航到存有要导入对象集合的 JSON 文件所在位置。
+. 选择 JSON 文件后点击 *打开* 。
+. 如果集合中的对象有可能会覆盖 kibana 中已经存在的对象，需要确认是否覆盖。

@@ -1,71 +1,53 @@
 [[visualize]]
-= Visualize
+= 可视化
 
 [partintro]
 --
-_Visualize_ enables you to create visualizations of the data in your
-Elasticsearch indices. You can then build <<dashboard, dashboards>> that
-display related visualizations.
+_可视化 (Visualize)_ 功能可以为您的 Elasticsearch 数据创建可视化控件。之后，您就可以创建<<dashboard, 仪表盘>>将这些可视化控件整合到一起展示。
 
-Kibana visualizations are based on Elasticsearch queries. By using a
-series of Elasticsearch {es-ref}search-aggregations.html[aggregations]
-to extract and process your data, you can create charts that show
-you the trends, spikes, and dips you need to know about.
+Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasticsearch {es-ref}search-aggregations.html[查询聚合]功能处理数据，然后利用一些图表来呈现您关心的数据趋势分布。
 
-You can create visualizations from a search saved from <<discover, Discover>>
-or start with a new search query.
+您可以基于在 <<discover, Discover>> 页面保存的查询或者新建一个查询来创建可视化控件。
 --
 
 [[createvis]]
-== Creating a Visualization
+== 创建可视化视图 
 
-To create a visualization:
+要创建可视化视图：
 
-. Click on *Visualize* in the side navigation.
-. Click the *Create new visualization* button or the **+** button.
-. Choose the visualization type:
+. 点击左侧导航栏的 *Visualize* 。
+. 点击 *Create new visualization* 按钮或 **+** 按钮。
+. 选择视图类型：
 +
-* *Basic charts*
+* *基础图形*
 [horizontal]
-<<xy-chart,Line&comma; Area and Bar charts>>:: Compare different series in X/Y charts.
-<<heatmap-chart,Heat maps>>:: Shade cells within a matrix.
-<<pie-chart,Pie chart>>:: Display each source's contribution to a total.
-* *Data*
+<<xy-chart,Line&comma; Area and Bar charts>>:: 在X/Y图中比较两个不同的序列。
+<<heatmap-chart,Heat maps>>:: 使用矩阵的渐变单元格。
+<<pie-chart,Pie chart>>:: 显示每个来源的占比。
+* *数据*
 [horizontal]
-<<data-table,Data table>>:: Display the raw data of a composed aggregation.
-<<metric-chart,Metric>>:: Display a single number.
-* *Maps*
+<<data-table,Data table>>:: 显示一个组合聚合的原始数据。
+<<metric-chart,Metric>>:: 显示单个数字。
+* *地图*
 [horizontal]
-<<tilemap,Coordinate map>>:: Associate the results of an aggregation with geographic
-locations.
-* *Time Series*
+<<tilemap,Coordinate map>>:: 把一个聚合结果关联到地理位置。
+* *时间序列*
 [horizontal]
-<<timelion-getting-started,Timelion>>:: Compute and combine data from multiple time series
-data sets.
-<<time-series-visual-builder,Time Series Visual Builder>>:: Visualize time series data using pipeline aggregations.
-* *Other*
+<<timelion-getting-started,Timelion>>:: 计算且合并多个时间序列数据集。
+<<time-series-visual-builder,Time Series Visual Builder>>:: 使用管道聚合显示时间序列数据。
+* *其他* 
 [horizontal]
-<<tagcloud-chart,Tag cloud>>:: Display words as a cloud in which the size of the word correspond to its importance
-<<markdown-widget,Markdown widget>>:: Display free-form information or
-instructions.
-. Specify a search query to retrieve the data for your visualization:
-** To enter new search criteria, select the index pattern for the indices that
-contain the data you want to visualize. This opens the visualization builder
-with a wildcard query that matches all of the documents in the selected
-indices.
-** To build a visualization from a saved search, click the name of the saved
-search you want to use. This opens the visualization builder and loads the
-selected query.
+<<tagcloud-chart,Tag cloud>>:: 显示标签云，每个标签的字体大小表示其重要性。
+<<markdown-widget,Markdown widget>>:: 显示自由格式信息或说明。
+. 指定一个查询，为视图获取数据：
+** 想要输入新的搜索条件，只需为包含想要可视化数据的索引库选择索引模式。这将打开一个可视化视图编辑器，并关联一个匹配所选索引库里所有文档的通配符查询。
+** 想要从一个已有的搜索来构建一个可视化视图，只需点击想使用的已有查询名称即可。这将打开一个视图编辑器并加载所选的查询。
 +
-NOTE: When you build a visualization from a saved search, any subsequent
-modifications to the saved search are automatically reflected in the
-visualization. To disable automatic updates, you can disconnect a visualization
-from the saved search.
+注意：当从一个已有的搜索来构建可视化视图时，随后对已有查询的任何修改都会自动反馈在视图中。想要禁止自动更新的话，需要把视图从已保存的搜索断开连接。
 
-. In the visualization builder, choose the metric aggregation for the
-visualization's Y axis:
+. 在视图编辑器中为视图的Y轴选择指标聚合：
 
-* *Metric Aggregations*:
+* *指标聚合* ：
 
 * {es-ref}search-aggregations-metrics-valuecount-aggregation.html[count]
 * {es-ref}search-aggregations-metrics-avg-aggregation.html[average]
@@ -81,7 +63,7 @@ visualization's Y axis:
 * {es-ref}search-aggregations-metrics-geocentroid-aggregation.html[geo centroid]
 
 
-* *Parent Pipeline Aggregations*:
+* *父类管道聚合* ：
 
 * {es-ref}search-aggregations-pipeline-derivative-aggregation.html[derivative]
 * {es-ref}search-aggregations-pipeline-cumulative-sum-aggregation.html[cumulative sum]
@@ -89,7 +71,7 @@ visualization's Y axis:
 * {es-ref}search-aggregations-pipeline-serialdiff-aggregation.html[serial diff]
 
 
-* *Sibling Pipeline Aggregations*:
+* *兄弟管道聚合* ：
 
 * {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[average bucket]
 * {es-ref}search-aggregations-pipeline-sum-bucket-aggregation.html[sum bucket]
@@ -97,7 +79,7 @@ visualization's Y axis:
 * {es-ref}search-aggregations-pipeline-max-bucket-aggregation.html[max bucket]
 
 
-. For the visualizations X axis, select a bucket aggregation:
+. 为视图X轴选择一个桶聚合：
 +
 * {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[date histogram]
 * {es-ref}search-aggregations-bucket-range-aggregation.html[range]
@@ -105,34 +87,21 @@ visualization's Y axis:
 * {es-ref}search-aggregations-bucket-filters-aggregation.html[filters]
 * {es-ref}search-aggregations-bucket-significantterms-aggregation.html[significant terms]
 
-For example, if you're indexing Apache server logs, you could build bar chart
-that shows the distribution of incoming requests by geographic location by
-specifying a terms aggregation on the `geo.src` field:
+比如，如果正在索引 Apache 服务器日志，就可以构建一个条形图，通过指定 `geo.src` 字段上的一个 term 聚合，来展示地理位置的请求分布：
 
 image::images/bar-terms-agg.jpg[]
 
-The y-axis shows the number of requests received from each country, and the
-countries are displayed across the x-axis.
+Y轴表示来自每个国家的请求数量，而X轴则表示要显示的国家。
 
-Bar, line, or area chart visualizations use _metrics_ for the y-axis and
-_buckets_ for the x-axis. Buckets are analogous to SQL `GROUP BY`
-statements. Pie charts, use the metric for the slice size and the bucket
-for the number of slices.
+图、线或区域图的可视化都是使用 _度量_ 指标作为Y轴，使用 _桶_ 作为X轴。桶类似于SQL中的 `GROUP BY` 语句。Pie 图中使用分片大小作为指标，分片数量作为桶。
 
-You can futher break down the data by specifying sub aggregations. The first
-aggregation determines the data set for any subsequent aggregations. Sub
-aggregations are applied in order--you can drag the aggregations to change the
-order in which they're applied.
+还可以进一步根据指定的子聚合来划分数据。第一个聚合决定任何子序列聚合的数据集。子聚合是有顺序的，可以通过拖拽聚合来改变。
 
-For example, you could add a terms sub aggregation on the `geo.dest` field to
-the Country of Origin bar chart to see the locations those requests were
-targeting.
+比如，可以在 `geo.dest` 字段增加一个 term 子聚合到原始国家条形图，来查看这些请求对应的位置。
 
 image::images/bar-terms-subagg.jpg[]
 
-For more information about working with sub aggregations, see
-https://www.elastic.co/blog/kibana-aggregation-execution-order-and-you[Kibana,
-Aggregation Execution Order, and You].
+更多关于子聚合的内容，请参考这篇博文 https://www.elastic.co/blog/kibana-aggregation-execution-order-and-you[Kibana, Aggregation Execution Order, and You]。
 
 include::visualize/xychart.asciidoc[]
 
@@ -153,3 +122,4 @@ include::visualize/tagcloud.asciidoc[]
 include::visualize/heatmap.asciidoc[]
 
 include::visualize/visualization-raw-data.asciidoc[]
+

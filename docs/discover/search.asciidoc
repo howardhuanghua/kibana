@@ -1,104 +1,70 @@
 [[search]]
-== Searching Your Data
-You can search the indices that match the current index pattern by entering
-your search criteria in the Query bar. You can perform a simple text search,
-use the Lucene https://lucene.apache.org/core/2_9_4/queryparsersyntax.html[
-query syntax], or use the full JSON-based {es-ref}query-dsl.html[Elasticsearch
-Query DSL].
+== 搜索您的数据
+通过在搜索栏输入搜索条件，您可以在匹配当前索引模式的索引中进行搜索。您可以进行简单的文本查询，或使用 https://lucene.apache.org/core/2_9_4/queryparsersyntax.html[Lucene 语法]，或使用基于 JSON 的 {es-ref}query-dsl.html[Elasticsearch
+查询 DSL] 。
 
-When you submit a search request, the histogram, Documents table, and Fields
-list are updated to reflect the search results. The total number of hits
-(matching documents) is shown in the toolbar. The Documents table shows the
-first five hundred hits. By default, the hits are listed in reverse
-chronological order, with the newest documents shown first. You can reverse
-the sort order by clicking the Time column header. You can also sort the table
-by the values in any indexed field. For more information, see <<sorting,
-Sorting the Documents Table>>.
+提交一次搜索请求后，直方图、文档列表、字段列表会按新的搜索结果来展示。工具栏上会展示命中的文档数量。文档列表会展示前5条命中的文档。默认情况下，文档列表会按时间倒序进行排列，最新的文档显示在最上面。您可以点击时间字段的表头来调整顺序。您可以基于任何索引字段来指定列表的顺序。可以参考 <<sorting,
+Sorting the Documents Table>> 获取更多信息。
 
-To search your data, enter your search criteria in the Query bar and
-press *Enter* or click *Search* image:images/search-button.jpg[] to submit
-the request to Elasticsearch.
+在搜索栏输入您的搜索条件，然后回车或点击 *Search* image:images/search-button.jpg[] 来向 Elasticsearch 提交搜索请求。
 
-* To perform a free text search, simply enter a text string. For example, if
-you're searching web server logs, you could enter `safari` to search all
-fields for the term `safari`.
+* 直接输入文本字符串来进行简单文本搜索。例如，查询 Web 服务器日志的时候输入 `safari` 来搜索所有字段中包含词条 `safari` 的文档。
 
-* To search for a value in a specific field, prefix the value with the name
-of the field. For example, you could enter `status:200` to find all of
-the entries that contain the value `200` in the `status` field.
+* 可以用字段名作为前缀来根据指定字段进行搜索。例如，输入 `status:200` 来搜索字段 `status` 中包含词条`200` 的文档。
 
-* To search for a range of values, you can use the bracketed range syntax,
-`[START_VALUE TO END_VALUE]`. For example, to find entries that have 4xx
-status codes, you could enter `status:[400 TO 499]`.
+* 可以通过中括号指定范围搜索，
+`[START_VALUE TO END_VALUE]` 。例如，搜索状态为 4xx 的条目，您可以输入 `status:[400 TO 499]` 。
 
-* To specify more complex search criteria, you can use the Boolean operators
-`AND`, `OR`, and `NOT`. For example, to find entries that have 4xx status
-codes and have an extension of `php` or `html`, you could enter `status:[400 TO
-499] AND (extension:php OR extension:html)`.
+* 您可以通过布尔操作符 `AND` 、 `OR` 和 `NOT` 来指定更多的搜索条件。例如，搜索状态为 4xx 而且扩展名为 `php` 或 `html` 的条目，您可以输入 `status:[400 TO
+499] AND (extension:php OR extension:html)` 。
 
-NOTE: These examples use the Lucene query syntax. You can also submit queries
-using the Elasticsearch Query DSL. For examples, see 
-{es-ref}query-dsl-query-string-query.html#query-string-syntax[query string syntax]
-in the Elasticsearch Reference.
+NOTE: 这些例子使用 Lucene 语法。您也可以通过 Elasticsearch 查询 DSL 来提交查询请求。请参考 Elasticsearch 手册中的 {es-ref}query-dsl-query-string-query.html#query-string-syntax[query string syntax] 。
 
 [float]
 [[save-search]]
-=== Saving a Search
-Saving searches enables you to reload them into Discover and use them as the basis
-for <<visualize, visualizations>>. Saving a search saves both the search query string
-and the currently selected index pattern.
+=== 保存搜索
+搜索保存后可以在下次使用数据探索的时候被重新载入并作为<<visualize, 可视化>>的基础条件。保存搜索的时候既保存了查询字符串，也保存了当前选择的索引模式。
 
-To save the current search:
+保存当前的搜索:
 
-. Click *Save* in the Kibana toolbar.
-. Enter a name for the search and click *Save*.
+. 点击 Kibana 工具栏的 *Save* 。
+. 输入搜索的名称然后点击 *Save* 。
 
-You can import, export and delete saved searches from *Management/Kibana/Saved Objects*. 
+您可以在 *Management/Kibana/Saved Objects* 导入、导出或删除已经保存的搜索。
 
 [float]
 [[load-search]]
-=== Opening a Saved Search
-To load a saved search into Discover:
+=== 打开已经保存的搜索
+在搜索栏载入已经保存的搜索：
 
-. Click *Open* in the Kibana toolbar.
-. Select the search you want to open.
+. 在 Kibana 工具栏点击 *Open* 。
+. 选择您要打开的搜索。
 
-If the saved search is associated with a different index pattern than is currently
-selected, opening the saved search also changes the selected index pattern.
+如果打开的搜索是关联到非当前索引模式的，打开这个搜索的同时会同时改变选择的索引模式。
 
 [float]
 [[select-pattern]]
-=== Changing Which Indices You're Searching
-When you submit a search request, the indices that match the currently-selected
-index pattern are searched. The current index pattern is shown below the toolbar.
-To change which indices you are searching, click the index pattern and select a
-different index pattern. 
+=== 更改要搜索的索引
+提交一个搜索请求后，会在匹配当前索引模式的索引中进行搜索。当前的模式会展示在工具栏上。如果要改变需要搜索的索引模式，请点击这个索引模式然后选择另外一个。
 
-For more information about index patterns, see <<settings-create-pattern,
-Creating an Index Pattern>>.
+参考 <<settings-create-pattern,
+创建索引模式>> 获取更多有关搜索模式的信息。
 
 [float]
 [[autorefresh]]
-=== Refreshing the Search Results
-As more documents are added to the indices you're searching, the search results
-shown in Discover and used to display visualizations get stale. You can
-configure a refresh interval to periodically resubmit your searches to
-retrieve the latest results.  
+=== 刷新搜索结果
+随着越来越多的文档被加入您要搜索的索引中，视图中展示的搜索结果会变得越陈旧。您可以设置刷新频率来周期性的提交搜索请求，以获取最新的结果。  
 
-To enable auto refresh:
+开启自动刷新：
 
-. Click the *Time Picker* image:images/time-picker.jpg[Time Picker] in the
-Kibana toolbar.
-. Click *Auto refresh*.
-. Choose a refresh interval from the list.
+. 点击 Kibana 工具栏中的 *Time Picker* image:images/time-picker.jpg[Time Picker] 。
+. 点击 *Auto refresh* 。 
+. 在列表中选择刷新频率。
 +
 image::images/autorefresh-intervals.png[]
 
-When auto refresh is enabled, the refresh interval is displayed next to the
-Time Picker, along with a Pause button. To temporarily disable auto refresh,
-click *Pause*.
+自动刷新开启后，刷新频率会和一个 Pause 按钮一起展示在 Time Picker 旁边。点击 *Pause* 可以临时性的暂停自动刷新。
 
-NOTE: If auto refresh is not enabled, you can manually refresh visualizations
-by clicking *Refresh*.
+NOTE: 如果自动刷新没有打开，您可以手动点击 *Refresh* 来刷新视图。
 
 

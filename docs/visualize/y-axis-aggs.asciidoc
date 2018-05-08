@@ -1,58 +1,39 @@
-Metric Aggregations:
+指标聚合：
 
-*Count*:: The {es-ref}search-aggregations-metrics-valuecount-aggregation.html[_count_] aggregation returns a raw count of
-the elements in the selected index pattern.
-*Average*:: This aggregation returns the {es-ref}search-aggregations-metrics-avg-aggregation.html[_average_] of a numeric
-field. Select a field from the drop-down.
-*Sum*:: The {es-ref}search-aggregations-metrics-sum-aggregation.html[_sum_] aggregation returns the total sum of a numeric
-field. Select a field from the drop-down.
-*Min*:: The {es-ref}search-aggregations-metrics-min-aggregation.html[_min_] aggregation returns the minimum value of a
-numeric field. Select a field from the drop-down.
-*Max*:: The {es-ref}search-aggregations-metrics-max-aggregation.html[_max_] aggregation returns the maximum value of a
-numeric field. Select a field from the drop-down.
-*Unique Count*:: The {es-ref}search-aggregations-metrics-cardinality-aggregation.html[_cardinality_] aggregation returns
-the number of unique values in a field. Select a field from the drop-down.
-*Standard Deviation*:: The {es-ref}search-aggregations-metrics-extendedstats-aggregation.html[_extended stats_]
-aggregation returns the standard deviation of data in a numeric field. Select a field from the drop-down.
-*Percentiles*:: The {es-ref}search-aggregations-metrics-percentile-aggregation.html[_percentile_] aggregation divides the
-values in a numeric field into percentile bands that you specify. Select a field from the drop-down, then specify one
-or more ranges in the *Percentiles* fields. Click the *X* to remove a percentile field. Click *+ Add* to add a
-percentile field.
-*Percentile Rank*:: The {es-ref}search-aggregations-metrics-percentile-rank-aggregation.html[_percentile ranks_]
-aggregation returns the percentile rankings for the values in the numeric field you specify. Select a numeric field
-from the drop-down, then specify one or more percentile rank values in the *Values* fields. Click the *X* to remove a
-values field. Click *+Add* to add a values field.
+*Count*:: {es-ref}search-aggregations-metrics-valuecount-aggregation.html[_计数_] 聚合返回所选索引模式中元素的原始计数。
+*Average*:: 该聚合返回数字字段的{es-ref}search-aggregations-metrics-avg-aggregation.html[_平均值_] 。从下拉菜单中选择一个字段。
+*Sum*:: {es-ref}search-aggregations-metrics-sum-aggregation.html[_总和_] 聚合返回数字字段的总和。从下拉菜单中选择一个字段。
+*Min*:: {es-ref}search-aggregations-metrics-min-aggregation.html[_最小值_] 聚合返回数字字段的最小值。从下拉菜单中选择一个字段。
+*Max*:: {es-ref}search-aggregations-metrics-max-aggregation.html[_最大值_] 聚合返回数字字段的最大值。从下拉菜单中选择一个字段。
+*Unique Count*:: {es-ref}search-aggregations-metrics-cardinality-aggregation.html[_基数_] 聚合返回字段中唯一值的数量。从下拉菜单中选择一个字段。
+*Standard Deviation*:: {es-ref}search-aggregations-metrics-extendedstats-aggregation.html[_扩展统计_]
+聚合返回数字字段中数据的标准偏差。从下拉菜单中选择一个字段。
+*Percentiles*:: {es-ref}search-aggregations-metrics-percentile-aggregation.html[_百分数_] 聚合将数字字段中的值分成您指定的百分数区间。从下拉列表中选择一个字段，然后在 *Percentiles* 输入域中指定一个或多个范围。点击 *X* 删除百分数字段。点击 *+ Add* 添加百分数字段。
+*Percentile Rank*:: {es-ref}search-aggregations-metrics-percentile-rank-aggregation.html[_百分位等级_]
+聚合返回指定的数值字段中的值的百分位等级。从下拉菜单中选择一个数字字段，然后在 *Values* 输入域中指定一个或多个百分比等级值。点击 *X* 删除值字段。点击 *+ Add* 添加值字段。
 
-Parent Pipeline Aggregations:
+父级管道聚合：
 
-For each of the parent pipeline aggregations you have to define the metric for which the aggregation is calculated. 
-That could be one of your existing metrics or a new one. You can also nest this aggregations 
-(for example to produce 3rd derivative)
+对于每个父管道聚合，您必须定义用于计算聚合的指标。这可能是您现有的指标之一或新的指标。您也可以嵌套这些聚合（例如产生3阶导数）。
 
-*Derivative*:: The {es-ref}search-aggregations-pipeline-derivative-aggregation.html[_derivative_] aggregation calculates
-the derivative of specific metrics.
-*Cumulative Sum*:: The {es-ref}search-aggregations-pipeline-cumulative-sum-aggregation.html[_cumulative sum_] aggregation 
-calculates the cumulative sum of a specified metric in a parent histogram
-*Moving Average*:: The {es-ref}search-aggregations-pipeline-movavg-aggregation.html[_moving average_] aggregation  will 
-slide a window across the data and emit the average value of that window
-*Serial Diff*:: The {es-ref}search-aggregations-pipeline-serialdiff-aggregation.html[_serial differencing_] is a technique 
-where values in a time series are subtracted from itself at different time lags or period
+*Derivative*:: {es-ref}search-aggregations-pipeline-derivative-aggregation.html[_导数_] 聚合计算特定指标的导数。
+*Cumulative Sum*:: {es-ref}search-aggregations-pipeline-cumulative-sum-aggregation.html[_累计总和_] 聚合计算父直方图中指定指标的累计总和。
+*Moving Average*:: {es-ref}search-aggregations-pipeline-movavg-aggregation.html[_移动平均值_] 聚合将滑动数据窗口并发出该窗口的平均值。
+*Serial Diff*:: {es-ref}search-aggregations-pipeline-serialdiff-aggregation.html[_串行差分_] 是一种时间序列中的值在不同时间滞后或周期内从自身减去的技术。
 
-Sibling Pipeline Aggregations:
+同级管道聚合：
 
-Just like with parent pipeline aggregations you need to provide a metric for which to calculate the sibling aggregation.
-On top of that you also need to provide a bucket aggregation which will define the buckets on which the sibling
-aggregation will run
+就像使用父级管道聚合一样，您需要提供一个用于计算同级聚合的指标。除此之外，还需要提供一个桶聚合，它将定义同级聚合将在其中运行的桶。
 
-*Average Bucket*:: The {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_avg bucket_] 
-calculates the (mean) average value of a specified metric in a sibling aggregation
-*Sum Bucket*:: The {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_sum bucket_] 
-calculates the sum of values of a specified metric in a sibling aggregation
-*Min Bucket*:: The {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_min bucket_] 
-calculates the minimum value of a specified metric in a sibling aggregation
-*Max Bucket*:: The {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_max bucket_] 
-calculates the maximum value of a specified metric in a sibling aggregation
+*Average Bucket*:: {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_桶平均值_] 
+计算同级聚合中指定指标的（中数）平均值
+*Sum Bucket*:: {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_桶总和_] 
+计算同级聚合中指定指标值的总和
+*Min Bucket*:: {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_桶最小值_] 
+计算同级聚合中指定指标的最小值
+*Max Bucket*:: {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[_桶最大值_] 
+计算同级聚合中指定指标的最大值
 
-You can add an aggregation by clicking the *+ Add Metrics* button.
+您可以通过单击 *+ Add Metrics* 按钮来添加聚合。
 
-Enter a string in the *Custom Label* field to change the display label.
+在 *Custom Label* 输入域中输入字符串以更改显示标签。

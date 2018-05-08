@@ -1,165 +1,140 @@
 [[dashboard]]
-= Dashboard
+= 仪表盘
+
 
 [partintro]
 --
-A Kibana _dashboard_ displays a collection of saved visualizations.
 
-.Sample dashboard.
+Kibana _仪表盘（Dashboard）_ 展示保存的可视化结果集合。
+
+.简单的仪表盘
 image:images/tutorial-dashboard.png[Example dashboard]
 
-In edit mode you can arrange and resize the visualizations as needed and save dashboards so
-they be reloaded and shared.
+在编辑模式下您可以根据需要安排和调整可视化结果集并保存仪表盘，这样它们就会被重新加载且可以共享。
 
-.Edit mode
+.编辑模式
 image:images/Dashboard-Tutorial-Edit-Mode.png[Example dashboard in edit mode]
 --
 
 [[dashboard-getting-started]]
-== Building a Dashboard
+== 创建一个仪表盘
 
-To build a dashboard:
+如何创建一个仪表盘：
 
-. Click *Dashboard* in the side navigation. If you haven't previously viewed a
-dashboard, Kibana displays a landing page where you can click *+*.
-Otherwise, click the *Dashboard* breadcrumb to navigate back to the landing page.
+. 点击侧面导航中的 *Dashboard* 。您如果之前没有浏览过仪表盘，Kibana 会显示一个登陆页，在这个页面您可以点击 *+* 。如果没有这个页面，点击 *Dashboard* 返回登陆页。
 +
 image:images/Dashboard-Landing-Page.png[Dashboard Landing Page]
 
 [[adding-visualizations-to-a-dashboard]]
-. To add a visualization to the dashboard, click *Edit* mode.
-Brand new dashboards will be in *Edit* mode automatically.
+. 想添加可视化结果到仪表盘，点击 *Edit* 进入编辑模式。全新的仪表盘将自动处于编辑模式。
 +
 image:images/Dashboard-View-Mode.png[Dashboard View Mode]
 
-. Once in Edit mode, click *Add* and select the
-visualization. If you have a large number of visualizations, you can enter a
-*Filter* string to filter the list.
+. 一旦进入编辑模式，点击 *Add* 并选择一个可视化结果。如果您有很多可视化结果，您可以敲入 *过滤条件* 字符串来过滤这个列表。
 +
 image:images/Dashboard-Edit-Mode.png[Dashboard Edit Mode]
 +
-Kibana displays the selected visualization  in a container on the dashboard.
-If you see a message that the container is too small, you can
-<<resizing-containers,resize the visualization>>.
+Kibana 在仪表盘容器中展示选中的可视化结果。如果您觉得容器展示的信息太小，您可以<<resizing-containers,调整容器大小>>。
 +
-NOTE: By default, Kibana dashboards use a light color theme. To use a dark color theme,
-click *Options* and select *Use dark theme*. To change the default theme, go
-to *Management/Kibana/Advanced Settings* and set `dashboard:defaultDarkTheme`
-to `true`.
+NOTE: 默认情况下，Kibana 仪表盘使用浅色主题。 想使用深色主题，点击 *Options* 并选择 *Use dark theme* 。想修改默认主题，到 *Management/Kibana/Advanced Settings* 并设置 `dashboard:defaultDarkTheme` 为 `true` 。
+
 
 [[saving-dashboards]]
-. When you're done adding and arranging visualizations, click *Save* to save the 
-dashboard:
-.. Enter a name for the dashboard. 
-.. To store the time period specified in the time filter with the dashboard, select
-*Store time with dashboard*. 
-.. Click the *Save* button to store it as a Kibana saved object.
+. 当您完成添加并整理好可视化结果后，点击 *Save* 来保存到仪表盘：
+.. 为仪表盘取一个名字。
+.. 要使用仪表盘存储时间过滤器中指定的时间段，请选择 *Store time with dashboard* 。
+.. 点击 *Save* 按钮保存为 Kibana 保存项。
 
 [float]
 [[customizing-your-dashboard]]
-=== Arranging Dashboard Elements
+=== 安排仪表盘元素
 
-In *Edit Mode*, visualizations in your dashboard are stored in resizable, moveable containers.
+编辑模式下，仪表盘中的可视化结果保存在一个可移动的且可调整大小的容器中。
 
 [float]
 [[moving-containers]]
-==== Moving Visualizations
+==== 移动可视化结果
 
-To reposition a visualization:
+重新定位可视化结果：
 
-. Hover over it to display the container controls.
-. Click and hold the *Move* button in the upper right corner of the container.
-. Drag the container to its new position. 
-. Release the *Move* button.
+. 鼠标悬停上方以显示容器控件。
+. 点击并长按容器右上角的移动按钮。
+. 将容器拖到新的位置。
+. 释放 *Move* 按钮。
 
 [float]
 [[resizing-containers]]
-==== Resizing Visualizations
+==== 调整可视化结果的大小
 
-To resize a visualization:
+调整可视化结果的大小：
 
-. Hover over it to display the container controls.
-. Click and hold the *Resize* button in the bottom right corner of the container.
-. Drag to change the dimensions of the container. 
-. Release the *Resize* button.
+. 鼠标悬停上方以显示容器控件。
+. 点击且长按容器右下角的 *Move* 按钮。
+. 拖动以更改容器的尺寸。
+. 释放 *Move* 按钮。
 
 [float]
 [[removing-containers]]
-==== Removing Visualizations
+==== 删除可视化结果
 
-To remove a visualization from the dashboard:
 
-. Hover over it to display the container controls.
-. Click the *Delete* button in the upper right corner of the container.
-+
-NOTE: Removing a visualization from a dashboard does _not_ delete the
-saved visualization.
+从仪表盘中移除一个可视化结果：
+
+. 鼠标悬停上方以显示容器控件。
+. 点击右上角 *Delete* 按钮。
+
+
+NOTE: 从仪表板删除可视化结果 _不会_ 删除保存可视化结果。
 
 [float]
 [[viewing-detailed-information]]
-=== Viewing Visualization Data
+=== 查看可视化数据
 
-To display the raw data behind a visualization:
+显示可视化背后的原始数据：
 
-. Hover over it to display the container controls.
-. Click the *Expand* button in the lower left corner of the container.
-This displays a table that contains the underlying data. You can also view
-the raw Elasticsearch request and response in JSON and the request statistics.
-The request statistics show the query duration, request duration, total number
-of matching records, and the index (or index pattern) that was searched.
+. 鼠标悬停上方以显示容器控件。
+. 点击容器左下角的 *Expand* 按钮，这里会显示包含基础数据的表格。您也可以查看原始 的 JSON 格式的 Elasticsearch 请求和响应以及请求统计信息。请求统计信息显示查询持续时间、请求持续时间、匹配记录总数以及搜索的索引（或索引正则）。
+
 +
 image:images/NYCTA-Table.jpg[]
 
-To export the data behind the visualization as a comma-separated-values
-(CSV) file, click the *Raw* or *Formatted* link at the bottom of the data 
-Table. *Raw* exports the data as it is stored in Elasticsearch. *Formatted*
-exports the results of any applicable Kibana <<managing-fields,field
-formatters>>.
+将可视化数据以逗号分割值的形式导成（cvs）文件，点击数据表底部的 *Raw* 或者 *Formatted* 链接。 *Raw* 导出 Elasticsearch 存储格式的数据。 *Formatted* 导出格式化好的数据，详情参考<<managing-fields,field formatters>>。
 
-To return to the visualization, click the *Collapse* button in the lower left
-corner of the container.
+点击容器左下角的 *Collapse* 按钮返回可视化结果。
 
 [float]
 [[changing-the-visualization]]
-=== Modifying a Visualization
+=== 修改可视化结果
 
-To open a visualization in the Visualization Editor:
+在可视化编辑器中打开可视化结果：
 
-. Enter Edit Mode.
-. Hover over it to display the container controls.
-. Click the *Edit* button in the upper right corner of the container.
+. 进入编辑模式。
+. 鼠标悬停上方以显示容器控件。
+. 点击容器右上角的 *Edit* 按钮。
 
 
 [[loading-a-saved-dashboard]]
-== Loading a Dashboard
+== 加载仪表盘
 
-To open a saved dashboard:
+如何打开一个保存的仪表盘：
 
-. Click *Dashboard* in the side navigation. 
-. Click *Open* and select a dashboard. If you have a large number of
-dashboards, you can enter a *Filter* string to filter the list. 
+. 点击侧边导航栏中的 *Dashboard* 。
+. 选中一个仪表盘并点击 *Open* 。如果您有很多仪表盘，您可以敲入 *Filter* 字符串来过滤仪表盘列表。
 +
-TIP: To import, export, and delete dashboards, click the *Manage Dashboards* link
-to open *Management/Kibana/Saved Objects/Dashboards*. 
+TIP: 导入、导出和删除仪表盘，点击管理仪表盘链接打开 *Management/Kibana/Saved Objects/Dashboards* 。
 
 [[sharing-dashboards]]
-== Sharing a Dashboard
+== 共享仪表盘
 
-You can either share a direct link to a Kibana dashboard with another user,
-or embed the dashboard in a web page. Users must have Kibana access
-to view embedded dashboards.
+您也可以向其他用户共享一个 Kibana 仪表盘的链接，或者将仪表盘嵌入到网页中。用户必须具有 Kibana 权限才能访问嵌入的仪表盘。
+
 
 [[embedding-dashboards]]
-To share a dashboard:
+如何分享一个仪表盘：
 
-. Click *Dashboard* in the side navigation. 
-. Open the dashboard you want to share.
-. Click  *Share*.
-. Copy the link you want to share or the iframe you want to embed. You can 
-share the live dashboard or a static snapshot of the current point in time. 
+. 点击侧边导航栏中的 *Dashboard* 。
+. 打开您想共享的仪表盘。
+. 点击 *Share* 。
+. 复制您想分享的链接或者您想嵌套的 iframe。您可以分享动态仪表盘或者当前时间点的静态快照。
 +
-TIP: When sharing a link to a dashboard snapshot, use the *Short URL*. Snapshot
-URLs are long and can be problematic for Internet Explorer users and other
-tools.
-
-
+TIP: 当共享仪表盘快照链接的时候，请使用 *Short URL* 。 快照 URLs 很长会给 IE 用户或者其他工具带来麻烦。

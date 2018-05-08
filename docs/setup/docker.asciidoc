@@ -1,16 +1,11 @@
 [[docker]]
-== Running Kibana on Docker
-Docker images for Kibana are available from the Elastic Docker registry.
-The images are shipped with https://www.elastic.co/products/x-pack[X-Pack]
-installed.
+== Docker 容器中运行 Kibana
+Kibana 的 Docker 镜像可以从 Elastic 官网上的 Docker 镜像仓库获取。该镜像是随 https://www.elastic.co/products/x-pack[X-Pack] 一起打包的。
 
-NOTE: https://www.elastic.co/guide/en/x-pack/current/index.html[X-Pack] is
-pre-installed in this image. With X-Pack installed, Kibana expects to
-connect to an Elasticsearch cluster that is also runnning X-Pack.
+NOTE: https://www.elastic.co/guide/en/x-pack/current/index.html[X-Pack] 在这个 image 中是预装好的。安装了 X-Pack，Kibana 会去连接同样带有 X-Pack 的 Elasticsearch 集群。
 
-=== Pulling the image
-Obtaining Kibana for Docker is as simple as issuing a +docker pull+ command
-against the Elastic Docker registry.
+=== 获取镜像
+向 Elastic Docker 仓库发送一条 +docker pull+ 命令就可以获取 Kibana Docker 镜像。
 
 ifeval::["{release-state}"=="unreleased"]
 
@@ -21,8 +16,7 @@ endif::[]
 
 ifeval::["{release-state}"!="unreleased"]
 
-The Docker image for Kibana {version} can be retrieved with the following
-command:
+命令如下:
 
 ["source","sh",subs="attributes"]
 --------------------------------------------
@@ -31,17 +25,14 @@ docker pull {docker-image}
 
 endif::[]
 
-=== Configuring Kibana on Docker
+=== 配置 Docker 中的 Kibana 
 
-The Docker image provides several methods for configuring Kibana. The conventional
-approach is to provide a `kibana.yml` file as described in <<settings>>, but it's
-also possible to use environment variables to define settings.
+Docker 镜像提供了几种方法来配置 Kibana。传统的方法是给出一个 <<settings>> 中描述的配置文件 `kibana.yml` ，也可以使用环境变量来定义设置项。
 
 [[docker-bind-mount-config]]
-==== Bind-mounted configuration
+==== 绑定配置
 
-One way to configure Kibana on Docker is to provide `kibana.yml` via bind-mounting.
-With +docker-compose+, the bind-mount can be specified like this:
+一种配置 Docker 中 Kibana 的方法是通过绑定配置文件 `kibana.yml` 。使用 +docker-compose+ 工具，向下面这样绑定：
 
 ["source","yaml",subs="attributes"]
 --------------------------------------------
@@ -53,12 +44,11 @@ services:
 --------------------------------------------
 
 [[docker-env-config]]
-==== Environment variable configuration
+==== 环境变量设置
 
-Under Docker, Kibana can be configured via environment variables. The following
-mappings are available:
+在 Docker 中，Kibana 可以通过环境变量的方法设置。环境变量如下：
 
-.Docker Environment Variables
+.Docker 环境变量
 [horizontal]
 **Environment Variable**:: **Kibana Setting**
 `ELASTICSEARCH_CUSTOMHEADERS`:: `elasticsearch.customHeaders`
@@ -107,7 +97,7 @@ mappings are available:
 `XPACK_SECURITY_SECURECOOKIES`:: `xpack.security.secureCookies`
 `XPACK_SECURITY_SESSIONTIMEOUT`:: `xpack.security.sessionTimeout`
 
-These variables can be set with +docker-compose+ like this:
+这些变量可以像下面这样，用 +docker-compose+ 设置：
 
 ["source","yaml",subs="attributes"]
 ----------------------------------------------------------
@@ -119,10 +109,10 @@ services:
       ELASTICSEARCH_URL: http://elasticsearch.example.org
 ----------------------------------------------------------
 
-Environment variables take precedence over settings configured in `kibana.yml`.
+优先使用环境变量，然后是配置文件 `kibana.yml` 中的配置项。
 
-==== Docker defaults
-The following settings have different default values when using the Docker image:
+==== Docker 默认值
+使用 Docker 时，下面的配置项有不同的默认值 ：
 
 [horizontal]
 `server.host`:: `"0"`
@@ -131,6 +121,5 @@ The following settings have different default values when using the Docker image
 `elasticsearch.password`:: `changeme`
 `xpack.monitoring.ui.container.elasticsearch.enabled`:: `true`
 
-These settings are defined in the default `kibana.yml`. They can be overridden
-with a <<docker-bind-mount-config,custom `kibana.yml`>> or via
-<<docker-env-config,environment variables>>.
+这些配置项的默认值在 `kibana.yml` 中设置。可以通过 <<docker-bind-mount-config, 自定义 `kibana.yml`>> 或者 <<docker-env-config, 环境变量>>覆盖这些默认值。
+

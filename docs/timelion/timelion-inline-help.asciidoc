@@ -1,8 +1,8 @@
 [[timelion-inline-help]]
-== Inline Help and Documentation
+== 内嵌的帮助文档
 
-Can't remember a function or searching for a new one? You can always reference the inline help and documentation in Timelion.
+记不住一些函数或者搜索方法？随时可以参考 Timelion 内嵌的帮助文档。
 
-Documentation for the Timelion expression language is built-in. Click `Docs` in the top menu to view the available functions and access the inline reference. As you start to enter functions in the query bar, Timelion will display the relevant arguments in real time.
+Timelion 表达式语言是嵌入式的。点击页面顶部的 `Docs` 菜单查看可用函数和详细内嵌手册。在查询命令行中输入函数， Timelion 就会实时显示参数提示。
 
 image::images/timelion-arg-help.jpg["Timelion inline help"]

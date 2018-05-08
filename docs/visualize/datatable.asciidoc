@@ -1,74 +1,57 @@
 [[data-table]]
-== Data Table
+== 数据表
 
 include::y-axis-aggs.asciidoc[]
 
-The rows of the data table are called _buckets_. You can define buckets to split the table into rows or to split
-the table into additional tables.
+数据表的行叫做 _桶_ 。可以通过定义桶把表格划分为多行或者拆分表格到另外的表中。
 
-Each bucket type supports the following aggregations:
+每个桶类型支持以下聚合：
 
-*Date Histogram*:: A {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[_date histogram_] is built from a
-numeric field and organized by date. You can specify a time frame for the intervals in seconds, minutes, hours, days,
-weeks, months, or years. You can also specify a custom interval frame by selecting *Custom* as the interval and
-specifying a number and a time unit in the text field. Custom interval time units are *s* for seconds, *m* for minutes,
-*h* for hours, *d* for days, *w* for weeks, and *y* for years. Different units support different levels of precision,
-down to one second.
-*Histogram*:: A standard {es-ref}search-aggregations-bucket-histogram-aggregation.html[_histogram_] is built from a
-numeric field. Specify an integer interval for this field. Select the *Show empty buckets* checkbox to include empty
-intervals in the histogram.
-*Range*:: With a {es-ref}search-aggregations-bucket-range-aggregation.html[_range_] aggregation, you can specify ranges
-of values for a numeric field. Click *Add Range* to add a set of range endpoints. Click the red *(x)* symbol to remove
-a range.
-*Date Range*:: A {es-ref}search-aggregations-bucket-daterange-aggregation.html[_date range_] aggregation reports values
-that are within a range of dates that you specify. You can specify the ranges for the dates using
-{es-ref}common-options.html#date-math[_date math_] expressions. Click *Add Range* to add a set of range endpoints.
-Click the red *(/)* symbol to remove a range.
-*IPv4 Range*:: The {es-ref}search-aggregations-bucket-iprange-aggregation.html[_IPv4 range_] aggregation enables you to
-specify ranges of IPv4 addresses. Click *Add Range* to add a set of range endpoints. Click the red *(/)* symbol to
-remove a range.
-*Terms*:: A {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] aggregation enables you to specify the top
-or bottom _n_ elements of a  given field to display, ordered by count or a custom metric.
-*Filters*:: You can specify a set of {es-ref}search-aggregations-bucket-filters-aggregation.html[_filters_] for the data.
-You can specify a filter as a query string or in JSON format, just as in the Discover search bar. Click *Add Filter* to
-add another filter. Click the image:images/labelbutton.png[] *label* button to open the label field, where you can type
-in a name to display on the visualization.
-*Significant Terms*:: Displays the results of the experimental
-{es-ref}search-aggregations-bucket-significantterms-aggregation.html[_significant terms_] aggregation. The value of the
-*Size* parameter defines the number of entries this aggregation returns.
-*Geohash*:: The {es-ref}search-aggregations-bucket-geohashgrid-aggregation.html[_geohash_] aggregation displays points
-based on the geohash coordinates.
+*Date Histogram*:: 一个 {es-ref}search-aggregations-bucket-datehistogram-aggregation.html[_date histogram_] 从一个数值型字段构建，并按日期组织。可以为间隔指定一个按秒、分钟、小时、天、周、月或年的时间段。也可以指定一个自定义的时间区间，只需选择 *Custom* 作为间隔，并在文本字段中指定一个数字和一个时间单位即可。对于自定义间隔时间单位，*s* 表示秒， *m* 表示分钟，*h* 表示小时， *d* 表示天， *w* 表示周， *y* 表示年。不同单位支持不同的精度级别，最低为一秒。
 
-Once you've specified a bucket type aggregation, you can define sub-buckets to refine the visualization. Click
-*+ Add sub-buckets* to define a sub-bucket, then choose *Split Rows* or *Split Table*, then select an
-aggregation from the list of types.
+*Histogram*:: 一个标准的 {es-ref}search-aggregations-bucket-histogram-aggregation.html[_histogram_] 从一个数值型字段构建，并为该字段指定一个整数类型的间隔，选择 *Show empty buckets* 复选框可在直方图中包括空的间隔。
 
-You can use the up or down arrows to the right of the aggregation's type to change the aggregation's priority.
+*Range*:: 通过一个 {es-ref}search-aggregations-bucket-range-aggregation.html[_range_] 聚合，可以为一个数值型字段指定值的范围。点击 *Add Range* 增加一个范围聚合，点击红色的 *(x)* 符号来删除一个范围。
 
-Enter a string in the *Custom Label* field to change the display label.
+*Date Range*:: {es-ref}search-aggregations-bucket-daterange-aggregation.html[_date range_] 聚合展示在指定日期范围内的值。可通过 {es-ref}common-options.html#date-math[_date math_] 表达式来指定日期范围。
 
-You can click the *Advanced* link to display more customization options for your metrics or bucket aggregation:
+*IPv4 Range*:: {es-ref}search-aggregations-bucket-iprange-aggregation.html[_IPv4 range_] 聚合支持指定IPV4地址范围。点击 *Add Range* 增加一组范围端点，点击红色的  *(/)* 符号移除范围。
 
-*Exclude Pattern*:: Specify a pattern in this field to exclude from the results.
-*Include Pattern*:: Specify a pattern in this field to include in the results.
-*JSON Input*:: A text field where you can add specific JSON-formatted properties to merge with the aggregation
-definition, as in the following example:
+*Terms*:: {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] 聚合支持指定一个给定字段的头部或尾部 _n_ 个元素来显示，并通过数量或自定义指标排序。
+
+*Filters*:: 可以为数据指定一系列 {es-ref}search-aggregations-bucket-filters-aggregation.html[_filters_] 。支持通过一个查询串或者 JSON 格式来指定一个过滤器，就像在 Discover 搜索框中一样。点击 *Add Filter* 来增加另一个过滤器。点击 image:images/labelbutton.png[] *label* 按钮打开标签字段，输入一个可显示在视图中的名称。
+
+*Significant Terms*:: 显示试验 {es-ref}search-aggregations-bucket-significantterms-aggregation.html[_significant terms_] 聚合的结果。 *Size* 参数的值定义该聚合返回的实体数量。
+
+*Geohash*:: {es-ref}search-aggregations-bucket-geohashgrid-aggregation.html[_geohash_] 聚合根据 geohash 坐标来显示点。
+
+一旦指定了一个桶类型的聚合，就可以定义子桶来优化视图。点击 *+ Add sub-buckets* 来定义一个子桶，然后选择 *Split Rows*  或 *Split Table* ，再从类型列表中选择一种聚合。
+
+可以使用向上或向下键翻到合适的聚合类型，以更改聚合优先级。
+
+在 *Custom Label* 字段中输入一个字符串来修改显示标签。
+
+可以点击 *Advanced* 链接显示指标或桶聚合的更多自定义选项：
+
+*Exclude Pattern*:: 从结果中排除该字段指定的模式。
+*Include Pattern*:: 在结果中包括该字段所指定的模式。
+*JSON Input*:: 一个文本字段，可以通过加入指定的 JSON 格式属性与聚合定义合并，示例如下：
 
 [source,shell]
 { "script" : "doc['grade'].value * 1.2" }
 
-NOTE: In Elasticsearch releases 1.4.3 and later, this functionality requires you to enable
-{es-ref}modules-scripting.html[dynamic Groovy scripting].
+NOTE: 在Elasticsearch 1.4.3及更新的版本中，此功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting]。
 
-The availability of these options varies depending on the aggregation you choose.
+这些选项是否可用取决于所选的聚合。
 
-Select the *Options* tab to change the following aspects of the table:
+选择 *Options* 标签来改变表格的下列方面：
 
-*Per Page*:: This field controls the pagination of the table. The default value is ten rows per page.
+*Per Page*:: 该字段控制表格的分页，默认每页10行。
 
-Checkboxes are available to enable and disable the following behaviors:
+复选框用于打开或关闭下列行为：
 
-*Show metrics for every bucket/level*:: Check this box to display the intermediate results for each bucket aggregation.
-*Show partial rows*:: Check this box to display a row even when there is no result.
+*Show metrics for every bucket/level*:: 勾选该选项，将为每个 bucket 聚合显示中间结果。
+*Show partial rows*:: 勾选该选项，即使没有结果也会显示一行。
 
-NOTE: Enabling these behaviors may have a substantial effect on performance.
+NOTE: 支持这些行为可能对性能会有较大影响。
+

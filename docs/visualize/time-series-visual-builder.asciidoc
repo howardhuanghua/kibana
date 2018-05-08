@@ -1,214 +1,169 @@
 [[time-series-visual-builder]]
-== Time Series Visual Builder
+== 时间序列可视化生成器
 
-*Experimental Feature*
+*试验特性*
 
-Time Series Visual Builder is a time series data visualizer with an emphasis
-on allowing you to use the full power of Elasticsearch aggregation framework.
-Time Series Visual Builder allows you to combine an infinite number of
-aggregations and pipeline aggregations to display complex data in a meaningful way.
+时间序列可视化生成器是一个时间序列数据可视化工具，重点在于允许您使用 Elasticsearch 聚合框架的全部功能。时间序列可视化生成器允许您组合无限数量的聚合和管道聚合，以有意义的方式显示复杂的数据。
 
 image:images/tsvb-screenshot.png["Time Series Visual Builder Interface"]
 
-=== Featured Visualizations
+=== 特色可视化
 
-Time Series Visual Build comes with 5 different visualization types. You can
-switch between each visualization type using the tabbed picker at the top of the
-interface.
+时间序列可视化构建包含5种不同的可视化类型。您可以使用界面顶部的选项卡式选取器在每种可视化类型之间切换。
 
 
-==== Time Series
+==== 时间序列
 
-A histogram visualization that supports area, line, bar, and steps along with
-multiple y-axis. You can fully customize the colors, points, line thickness
-and fill opacity. This visualization also supports time shifting to compare two
-time periods. This visualization also supports annotations which can be loaded from
-a seperate index based on a query.
+直方图可视化，支持具有多个 y 轴的区域图、线形图、条形图和步骤图。您可以完全自定义颜色、点、线条粗细和填充不透明度。该可视化还支持时间偏移来比较两个时间段。该可视化还支持注解（annotations），该注解可以基于查询从单独的索引加载。
 
 image:images/tsvb-timeseries.png["Time Series Visualization"]
 
 
-==== Metric
+==== 指标
 
-A visualization for displaying the latest number in a series. This visualization
-supports 2 metrics; a primary metric and a secondary metric. The labels and
-backgrounds can be fully customizable based on a set of rules.
+用于显示系列中最新数值的可视化。该可视化支持2个指标：主要指标和次要指标。标签和背景可以根据一组规则完全自定义。
 
 image:images/tsvb-metric.png["Metric Visualization"]
 
 
 ==== Top N
 
-This is a horizontal bar chart where the y-axis is based on a series of metrics
-and the x-axis is the latest value in those series; sorted in descending order.
-The color of the bars are fully customizable based on set of rules.
+这是一个水平条形图，其中 y 轴是基于一个系列的指标，x 轴是这些系列中的最新值，按降序排列。条形的颜色可以根据一组规则完全自定义。
 
 image:images/tsvb-top-n.png["Top N Visualization"]
 
 
-==== Gauge
+==== 测量仪（Gauge）
 
-This is a single value gauge visualization based on the latest value in a series.
-The face of the gauge can either be a half-circle gauge or full-circle. You
-can customize the thicknesses of the inner and outer lines to achieve a desired
-design aesthetic. The color of the gauge and the text are fully customizable based
-on a set of rules.
+这是基于系列中最新值的单值计量可视化。测量仪的面貌可以是半圆表或全圆表。您可以自定义内线和外线的厚度以达到所需的设计美学效果。测量仪和文本的颜色可根据一组规则完全自定义。
 
 image:images/tsvb-gauge.png["Gauge Visualization"]
 
 
 ==== Markdown
 
-This visualization allows you to enter Markdown text and embed Mustache
-template syntax to customize the Markdown with data based on a set of series.
-This visualization also supports HTML markup along with the ability to define
-a custom stylesheet.
+此可视化允许您输入 Markdown 文本并嵌入 Mustache 模板语法，以基于一组系列数据自定义 Markdown。该可视化还支持 HTML 标记以及自定义样式表的功能。
 
 image:images/tsvb-markdown.png["Markdown Visualization"]
 
 
-=== Interface Overview
+=== 界面概述
 
-The user interface for each visualization is compose of a "Data" tab and "Panel
-Options". The only exception to that is the Time Series and Markdown visualizations;
-the Time Series has a third tab for annotations and the Markdown has a third tab for
-the editor.
+每个可视化的用户界面由 *Data* 标签页和 *Pannel Options* 组成。唯一例外的是时间序列和 Markdown 可视化，时间序列具有用于 Annotations 的第三个标签页，Markdown 具有用于编辑器的第三个标签页。
 
-==== Data Tab
+==== 数据标签页
 
-The data tab is used for configuring the series for each visualization. This tab
-allows you to add multiple series, depending on what the visualization
-supports, with multiple aggregations composed together to create a single metric.
-Here is a breakdown of the significant components of the data tab UI.
+数据标签页用于配置每个可视化的序列。此选项卡允许您根据可视化支持的内容添加多个序列，并将多个聚合组合在一起以创建单个指标。以下是数据标签页 UI 重要组件的细分。
 
-===== Series Label and Color
+===== 序列标签和颜色
 
-Each series supports a label which will be used for legends and titles depending on
-which visualization type is selected. For series that are grouped by a term, you
-can specify a mustache variable of `{{key}}` to substitute the term. For most
-visualizations you can also choose a color by clicking on the swatch, this will display
-the color picker.
+每个序列都支持一个标签，该标签将用于图例和标题，具体取决于所选的可视化类型。对于按词项分组的序列，可以指定 `{{key}}` 的 mustache 变量以替换该词项。对于大多数可视化，您还可以通过点击色板打开颜色选择器选择一种颜色。
 
 image:images/tsvb-data-tab-label.png["Label Example"]
 
-===== Metrics
+===== 指标
 
-Each series supports multiple metrics (aggregations); the last metric (aggregation)
-is the value that will be displayed for the series, this is indicated with the "eye"
-icon to the left of the metric. Metrics can be composed using pipeline aggregations.
-A common use case is to create a metric with a "max" aggregation then create a "derivative"
-metric and choose the previous "max" metric as the source; this will create a rate.
+每个序列支持多个指标（聚合）; 最后一个指标（聚合）是将为该序列显示的值，用指标左侧的“眼睛”图标表示。指标可以使用管道聚合进行组合。一个常见的用例是创建一个带有“最大值”聚合的指标，然后创建一个“导数”指标，并选择之前的“最大值”指标作为源，这将会创造一个比率。
 
 image:images/tsvb-data-tab-derivative-example.png["Derivative Example"]
 
-===== Series Options
+===== 序列选项
 
-Each series also supports a set of options which are dependent on the type of
-visualizations you have selected. Universal across each visualization type
-you can configure:
+每个系列还支持一组选项，这些选项取决于您选择的可视化类型。每个可视化类型通用的配置项有：
 
-* Data format
-* Time range offset
-* Index pattern, timestamp, and interval override
+* 数据格式
+* 时间范围偏移
+* 索引模式、时间戳和区间覆盖
 
 
 image:images/tsvb-data-tab-series-options.png["Default Series Options"]
 
-For the Time Series visualization you can also configure:
+对于时间序列可视化，您还可以配置：
 
-* Chart type
-* Options for each chart type
-* Legend Visibility
-* Y-Axis options
-* Split color theme
+* 图表类型
+* 每种图表类型的选项
+* 图例可见性
+* Y 轴选项
+* 分色主题
 
 image:images/tsvb-data-tab-series-options-time-series.png["Time Series Series Options"]
 
-===== Group By Controls
+===== 分组控件
 
-At the bottom of the metrics there is a set of "Group By" controls that allows you
-to specify how the series should be grouped or split. There are four choices:
+在指标的底部有一组“分组依据”控件，允许您指定该序列应该如何分组或拆分。有四种选择：
 
-* Everything
-* Filter (single)
-* Filters (multiple with configurable colors)
-* Terms
+* 所有
+* 过滤器（单个）
+* 过滤器（可配置颜色的多个）
+* 词项
 
-By default the series is grouped by everything.
+默认情况下，系列按照所有进行分组。
 
-==== Panel Options Tab
+==== 面板选项标签页
 
-The panel options tab is used for configuring the entire panel; the set of options
-available is dependent on which visualization you have selected. Below is a list
-of the options available per visualization:
+面板选项标签页用于配置整个面板，可用选项集取决于您选择的可视化。以下是每个可视化可用的选项列表：
 
-*Time Series*
+*时间序列*
 
-* Index pattern, timestamp, and Interval
-* Y-Axis min and max
-* Y-Axis position
-* Background color
-* Legend visibility
-* Legend position
-* Panel filter
+* 索引模式、时间戳和区间
+* Y 轴最小值和最大值
+* Y 轴位置
+* 背景颜色
+* 图例可见性
+* 图例位置
+* 面板过滤器
 
-*Metric*
+*指标*
 
-* Index pattern, timestamp, and interval
-* Panel filter
-* Color rules for background and primary value
+* 索引模式、时间戳和区间
+* 面板过滤器
+* 背景和主要值的颜色规则
 
 *Top N*
 
-* Index pattern, timestamp, and interval
-* Panel filter
-* Background color
-* Item URL
-* Color rules for bar colors
+* 索引模式、时间戳和区间
+* 面板过滤器
+* 背景颜色
+* 项目 URL
+* 条形的颜色规则
 
-*Gauge*
+*测量仪*
 
-* Index pattern, timestamp, and interval
-* Panel filter
-* Background color
-* Gauge max
-* Gauge style
-* Inner gauge color
-* Inner gauge width
-* Gauge line width
-* Color rules for gauge line
+* 索引模式、时间戳和区间
+* 面板过滤器
+* 背景颜色
+* 测量仪最大值
+* 测量仪样式
+* 内规颜色
+* 内规宽度
+* 规线宽
+* 规线颜色规则
 
 *Markdown*
 
-* Index pattern, timestamp, and interval
-* Panel filter
-* Background color
-* Scroll bar visibility
-* Vertical alignment of content
-* Custom Panel CSS with support for Less syntax
+* 索引模式、时间戳和区间
+* 面板过滤器
+* 背景颜色
+* 滚动条可见性
+* 内容垂直对齐
+* 自定义面板 CSS 支持 Less 语法
 
-==== Annotations Tab
+==== Annotations 标签页
 
-The annotations tab is used for adding annotation data sources to the Time Series
-Visualization. You can configure the following options:
+注解标签页用于将注解数据源添加到时间序列可视化中。您可以配置以下选项：
 
-* Index pattern and time field
-* Annotation color
-* Annotation icon
-* Fields to include in message
-* Format of message
-* Filtering options at the panel and global level
+* 索引模式和时间字段
+* 注解颜色
+* 注解图标
+* 包含在消息中的字段
+* 消息的格式
+* 面板和全局级别的过滤选项
 
 image:images/tsvb-annotations.png["Annotation Tab"]
 
-==== Markdown Tab
+==== Markdown 选项卡
 
-The markdown tab is used for editing the source for the Markdown visualization.
-The user interface has an editor on the left side and the available variables from
-the data tab on the right side. You can click on the variable names to insert
-the mustache template variable into the markdown at the cursor position. The mustache
-syntax uses the Handlebar.js processor which is an extended version of the Mustache
-template language.
+Markdown 标签页用于编辑 Markdown 可视化的源代码。用户界面左侧有一个编辑器，右侧有数据标签页中的可用变量。您可以单击变量名称将 Mustache 模板变量插入到光标位置的标记中。Mustache 语法使用 Handlebar.js 处理器，它是 Mustache 模板语言的扩展版本。
 
 image:images/tsvb-markdown-tab.png["Markdown Tab"]
 

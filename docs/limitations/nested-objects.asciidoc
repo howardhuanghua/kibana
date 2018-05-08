@@ -1,11 +1,9 @@
 [[nested-objects]]
-== Nested Objects
+== 嵌套字段
 
-Kibana cannot perform aggregations across fields that contain nested objects. 
-It also cannot search on nested objects when Lucene Query Syntax is used in
-the query bar.
+Kibana 不能执行带嵌套字段（nested objects）的聚合操作。再查询框中执行 Lucene 查询语句的时候也不能有嵌套对象。
 
 [IMPORTANT]
 ==============================================
-Using `include_in_parent` or `copy_to` as a workaround is not supported and may stop functioning in future releases.
+使用 `include_in_parent` 和 `copy_to` 属性作为临时解决方案已经不再支持了。
 ==============================================

@@ -1,10 +1,6 @@
 [[upgrade-new-install]]
-=== New Installation
+=== 全新安装
 
-Kibana 4.0 introduced a major architectural overhaul. As a result, the
-underlying `.kibana` schema changed so significantly that upgrading from Kibana
-3.x requires recreating all visualizations, dashboards, etc.
+Kibana 4.0 进行了一次重要的架构重构，导致底层的 `.kibana` 索引模式改变很大，以至于从 Kibana 3.x 升级需要重建所有的视图、仪表盘等。
 
-If you're upgrading from 3.x, please follow the
-<<install,installation instructions>> to install Kibana from scratch, and then
-manually recreate your searches, visualizations, and dashboards.
+如果您需要从 3.x 升级，请遵循<<install, 安装指引>>来安装 Kibana，然后手动重建查询、视图和仪表盘。

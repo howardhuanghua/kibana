@@ -1,47 +1,34 @@
 [[document-context]]
-== Viewing Document Context
+== 查看文档上下文
 
-For certain applications it can be useful to inspect a window of documents 
-surrounding a specific event. The context view enables you to do just that for
-index patterns that are configured to contain time-based events.
+对于某些应用程序来说，窗口查看围绕特定主题的多个文档是很有用的。上下文视图能够帮助设置包含时序性事件的索引模式。
 
-To show the context surrounding an anchor document, click the *Expand* button 
-image:images/ExpandButton.jpg[Expand Button] to the left of the document's 
-table entry and then click the *View surrounding documents* link.
+想要显示与锚文档相关的上下文，点击文档表条目左侧的 *Expand* 按钮
+image:images/ExpandButton.jpg[Expand Button] ，然后点击 *View surrounding documents* 链接。
 
 image::images/Expanded-Document.png[Expanded Document]
 {nbsp}
 
-The context view displays a number of documents before and after the anchor 
-document. The anchor document itself is highlighted in blue. The view is sorted 
-by the time field specified in the index pattern configuration and uses the 
-same set of columns as the Discover view the context was opened from.
+上下文视图会显示锚文档前后的多个文档。锚文档会用蓝色突出显示。该视图是根据索引模式配置的时间字段而检索出的结果，并使用 Discover 浏览上下文时打开的组列。
 
 image::images/Discover-ContextView.png[Context View]
 
-NOTE: The number of documents displayed by default can be configured 
-via the `context:defaultSize` setting in <<advanced-options, *Management > 
-Advanced Options*>>.
+NOTE: 默认显示的文档数量可以通过 <<advanced-options, *Management >
+Advanced Options*>> 中的 `context:defaultSize` 设置。
 
-=== Changing the Context Size
+=== 改变上下文数量
 
-You can change the number documents displayed before and after the anchor 
-document independently.
+可以单独改变锚文档前后的文档显示数量。
 
-To increase the number of displayed documents that are newer than the anchor
-document, click the *Load 5 more* button above the document list or enter the 
-desired number into the input box right of the button.
+想要增加比锚文档更新文档的显示数量， 点击文档列表上方的*Load 5 more* 按钮，或者在该按钮右侧的输入框中输入所需的数量。
 
 image::images/Discover-ContextView-SizePicker-Newer.png[]
 {nbsp}
 
-To increase the number of displayed documents that are older than the anchor
-document, click the *Load 5 more* button below the document list or enter the 
-desired number into the input box right of the button.
+想要增加比锚文档更旧文档的显示数量，点击文档列表下方的 *Load 5 more* 按钮，或者在该按钮右侧的输入框中输入所需的数量。
 
 image::images/Discover-ContextView-SizePicker-Older.png[]
 {nbsp}
 
-NOTE: The default number of documents loaded with each button click can be
-configured via the `context:step` setting in <<advanced-options, *Management >
-Advanced Options*>>.
+NOTE: 每次点击按钮默认加载的文档数量能够通过 <<advanced-options, *Management > Advanced Options*>> 中的 `context:step` 配置。
+

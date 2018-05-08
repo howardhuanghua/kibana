@@ -1,87 +1,56 @@
 [[field-filter]]
-== Filtering by Field
-You can filter the search results to display only those documents that contain
-a particular value in a field. You can also create negative filters that
-exclude documents that contain the specified field value.
+== 根据字段过滤
+可以对搜索结果进行过滤，只显示包含特定字段值的文档。也可以创建否定过滤器，排除包含特定字段值的文档。
 
-You add field filters from the Fields list or the Documents table. In addition
-to creating positive and negative filters, the Documents table enables you to
-filter on whether or not a field is present. The applied
-filters are shown below the Query bar. Negative filters are shown in red. 
+从 Fields 表或 Documents 表中选择要添加的字段过滤器。除了可以创建积极字段和消极过滤器外，Documents 表还可以过滤某一字段是否存在。使用过的过滤器会在 Query 栏下方显示。消极过滤器用红色显示。
 
-To add a filter from the Fields list:
+从  Fields 列表中添加一个过滤器：
 
-. Click the name of the field you want to filter on. This displays the top
-five values for that field. 
+. 点击想要过滤的字段名。这里显示了该领域最常用的五个字段值。
 +
 image::images/filter-field.jpg[]
-. To add a positive filter, click the *Positive Filter* button
-image:images/PositiveFilter.jpg[Positive Filter].
-This includes only those documents that contain that value in the field.
-. To add a negative filter, click the *Negative Filter* button
-image:images/NegativeFilter.jpg[Negative Filter].
-This excludes documents that contain that value in the field.
+. 添加积极过滤器，请点击 *Positive Filter* 按钮
+image:images/PositiveFilter.jpg[Positive Filter]。这会只显示包含该字段值的文档。
+. 添加消极过滤器，请点击 *Negative Filter* 按钮
+image:images/NegativeFilter.jpg[Negative Filter]。这会排除包含该字段值的文档。
 
-To add a filter from the Documents table:
+从 Documents 表中添加一个过滤器：
 
-. Expand a document in the Documents table by clicking the *Expand* button
-image:images/ExpandButton.jpg[Expand Button] to the left of the document's
-table entry. 
+. 通过点击文档表条目左侧的 *Expand* 按钮 image:images/ExpandButton.jpg[Expand Button] 展开 Documents 表中的一个文档。
 +
 image::images/Expanded-Document.png[]
-. To add a positive filter, click the *Positive Filter* button
-image:images/PositiveFilter.jpg[Positive Filter Button] to the right of the
-field name. This includes only those documents that contain that value in the
-field.
-. To add a negative filter, click the *Negative Filter* button
-image:images/NegativeFilter.jpg[Negative Filter Button] to the right of the
-field name. This excludes documents that contain that value in the field.
-. To filter on whether or not documents contain the field, click the
-*Exists* button image:images/ExistsButton.jpg[Exists Button] to the right of the
-field name. This includes only those documents that contain the field.
+. 添加积极过滤器，请点击该字段名右侧的 *Positive Filter* 按钮 image:images/PositiveFilter.jpg[Positive Filter Button]。这会只显示包含该字段值的文档。
+. 添加消极过滤器，请点击该字段名右侧的 *Negative Filter* 按钮 image:images/NegativeFilter.jpg[Negative Filter Button]。这会排除包含该字段值的文档。
+. 过滤文档是否包含某一字段，请点击该字段名右侧的 *Exists* 按钮 image:images/ExistsButton.jpg[Exists Button]。这会只显示包含该字段的文档。
 
 [float]
 [[filter-pinning]]
-=== Managing Filters
+=== 管理过滤器
 
-To modify a filter, hover over it and click one of the action buttons.
+修改一个过滤器，请将鼠标置于该过滤器，然后点击某个操作按钮。
 
 image::images/filter-allbuttons.png[]
 
 &nbsp;
 
-image:images/filter-enable.png[] Enable Filter :: Disable the filter without
-removing it. Click again to reenable the filter. Diagonal stripes indicate
-that a filter is disabled.
-image:images/filter-pin.png[] Pin Filter :: Pin the filter. Pinned filters
-persist when you switch contexts in Kibana. For example, you can pin a filter
-in Discover and it remains in place when you switch to Visualize. 
-Note that a filter is based on a particular index field--if the indices being
-searched don't contain the field in a pinned filter, it has no effect. 
-image:images/filter-toggle.png[] Toggle Filter :: Switch from a positive
-filter to a negative filter and vice-versa. 
-image:images/filter-delete.png[] Remove Filter :: Remove the filter.
-image:images/filter-custom.png[] Edit Filter :: <<filter-edit, Edit the 
-filter>> definition.  Enables you to manually update the filter query and
-specify a label for the filter.
+image:images/filter-enable.png[] 启动过滤器 :: 禁用过滤器不会删除过滤器。再次点击会重启过滤器。斜条纹表示过滤器被禁用。
+image:images/filter-pin.png[] 固定过滤器 :: 当把上下文切换为 Kibana 时，被固定的过滤器仍然有效。例如，在 Discover 中固定一个过滤器，若切换至 Visualize，该过滤器仍然存在。请注意，过滤器是基于某个特定的索引字段——如果搜索的索引不包含固定过滤器中的字段，将不会生效。
+image:images/filter-toggle.png[] 切换筛选器 :: 在积极过滤器和消极过滤器之间转换。
+image:images/filter-delete.png[] 移除过滤器:: 移除过滤器。
+image:images/filter-custom.png[] 编辑过滤器 :: <<filter-edit, 编辑过滤器>>定义。可用于手动更新过滤查询和为过滤器指定标签。
 
-To apply a filter action to all of the applied filters, 
-click *Actions* and select the action.
+对所有已应用的过滤器进行一次过滤，点击 *Actions* 并选择过滤指令。
 
 [float]
 [[filter-edit]]
-=== Editing a Filter
-You can edit a filter to directly modify the filter query that is performed
-to filter your search results. This enables you to create more complex
-filters that are based on multiple fields.
+=== 编辑过滤器
+可以编辑一个过滤器对查询结果的过滤查询进行直接调整。这能够创建基于多个字段的更复杂的过滤器。
 
 image::images/filter-custom-json.png[]
 
 &nbsp;
 
-For example, you could use a {es-ref}/query-dsl-bool-query.html[bool query]
-to create a filter for the sample log data that displays the hits that 
-originated from Canada or China that resulted in a 404 error:
+例如，可以使用 {es-ref}/query-dsl-bool-query.html[bool query] 为示例日志数据创建一个过滤器，该日志数据显示的是加拿大或中国导致404错误的匹配记录。
 
 ==========
 [source,json]
@@ -109,3 +78,4 @@ originated from Canada or China that resulted in a 404 error:
   }
 }
 ==========
+

@@ -1,28 +1,29 @@
 [[development-plugin-resources]]
-=== Plugin Resources
+=== 插件资源
 
-Here are some resources that will be helpful for getting started with plugin development
-
-[float]
-==== Our IRC channel
-Many Kibana developers hang out on `irc.freenode.net` in the `#kibana` channel. We *want* to help you with plugin development. Even more than that, we *want your help* in understanding your plugin goals so we can build a great plugin system for you! If you've never used IRC, welcome to the fun. You can get started with the http://webchat.freenode.net/?channels=kibana[Freenode Web Client].
+这里有一些资源可以帮助您开发插件
 
 [float]
-==== Some light reading
-- Our {repo}blob/master/CONTRIBUTING.md[contributing guide] can help you get a development environment going
-- Tim Roes' excellent blog series https://www.timroes.de/2016/02/21/writing-kibana-plugins-custom-applications/[Writing Kibana Plugins]
+==== 我们的 IRC 频道
+很多 Kibana 开发者都在 `#kibana` 频道上的 `irc.freenode.net` 上玩。我们 *想* 帮助您开发插件。更重要的，我们 *想要您的帮助* 来理解您使用插件的目标，借此我们可以为您创建一个更好的插件系统。如果您从来没有用过 IRC，欢迎来玩。您可以从 http://webchat.freenode.net/?channels=kibana[Freenode 网页客户端]开始。
 
 [float]
-==== Videos
-- https://www.elastic.co/elasticon/2015/sf/contributors-guide-to-the-kibana-galaxy[Contributors Guide to the Kibana Galaxy]
-- https://www.elastic.co/elasticon/conf/2016/sf/how-to-build-your-own-kibana-plugins[Kibana Plugin Dev - Elasticon 2016]
+==== 一些有用的文章
+- {repo}blob/master/CONTRIBUTING.md[贡献指南]可以帮助您获得一个开发环境
+- Tim Roes' 系列博客 https://www.timroes.de/2016/02/21/writing-kibana-plugins-custom-applications/[编写 Kibana 插件]
 
 [float]
-==== Plugin Generator
-
-Check out the https://github.com/elastic/generator-kibana-plugin[plugin generator] to kick-start your plugin.
+==== 视频
+- https://www.elastic.co/elasticon/2015/sf/contributors-guide-to-the-kibana-galaxy[Kibana Galaxy 指南]
+- https://www.elastic.co/elasticon/conf/2016/sf/how-to-build-your-own-kibana-plugins[Kibana 插件开发 - Elasticon 2016]
 
 [float]
-==== References in the code
- - {repo}blob/{branch}/src/server/plugins/plugin.js[Plugin class]: What options does the `kibana.Plugin` class accept?
- - <<development-uiexports>>: What type of exports are available?
+==== 插件生成器
+
+下载 https://github.com/elastic/generator-kibana-plugin[插件生成器] 以快速生成您的插件。
+
+[float]
+==== 代码中的引用
+ - {repo}blob/{branch}/src/server/plugins/plugin.js[Plugin class]:  `kibana.Plugin` 类接收哪些选项？
+ - <<development-uiexports>>: 什么类型的导出是可用的？
+

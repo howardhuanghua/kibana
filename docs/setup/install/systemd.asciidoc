@@ -1,7 +1,6 @@
-==== Running Kibana with `systemd`
+==== 使用 `systemd` 运行 Kibana
 
-To configure Kibana to start automatically when the system boots up,
-run the following commands:
+配置 Kibana 开机自动启动，执行以下命令：
 
 [source,sh]
 --------------------------------------------------
@@ -9,7 +8,7 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 --------------------------------------------------
 
-Kibana can be started and stopped as follows:
+Kibana 启动和停止命令如下：
 
 [source,sh]
 --------------------------------------------
@@ -17,6 +16,5 @@ sudo systemctl start kibana.service
 sudo systemctl stop kibana.service
 --------------------------------------------
 
-These commands provide no feedback as to whether Kibana was started
-successfully or not. Instead, this information will be written in the log
-files located in `/var/log/kibana/`.
+这些命令不会提供任何关于 Kibana 是否成功启动的反馈信息。而是将这些信息写入日志文件中，日志文件的位置在 `/var/log/kibana/` 。
+

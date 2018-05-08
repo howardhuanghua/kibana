@@ -1,52 +1,48 @@
 [[managing-fields]]
-== Managing Fields
+== 字段管理
 
-The fields for the index pattern are listed in a table. Click a column header to sort the table by that column. Click
-the *Controls* button in the rightmost column for a given field to edit the field's properties. You can manually set
-the field's format from the *Format* drop-down. Format options vary based on the field's type.
+索引模式中的字段会以列表的方式显示，点击列标题可以按列对表格排序，点击最右边列的 *控制* 按钮可以编辑指定字段的属性。您可以从 *格式* 下拉菜单中手动设置字段的格式。具体格式选项依赖于字段类型。
 
-You can also set the field's popularity value in the *Popularity* text entry box to any desired value. Click the
-*Update Field* button to confirm your changes or *Cancel* to return to the list of fields.
+您也可以在 *流行度* 文本框中设置您需要的该字段的流行度值。点击 *更新字段* 按钮确认更改，或者点击 *取消* 返回字段列表。
 
-Kibana has field formatters for the following field types:
+Kibana 有以下字段类型的格式化：
 
-* <<field-formatters-string, Strings>>
-* <<field-formatters-date, Dates>>
-* <<field-formatters-geopoint, Geopoints>>
-* <<field-formatters-numeric, Numbers>>
+* <<field-formatters-string, 字符串>>
+* <<field-formatters-date, 日期>>
+* <<field-formatters-geopoint, 地理位置>>
+* <<field-formatters-numeric, 数字>>
 
 [[field-formatters-string]]
-=== String Field Formatters
+=== 字符串字段格式化
 
-String fields support the `String` and `Url` formatters.
+字符串字段支持 `String` 和 `Url` 的格式化。
 
 include::field-formatters/string-formatter.asciidoc[]
 
 include::field-formatters/url-formatter.asciidoc[]
 
 [[field-formatters-date]]
-=== Date Field Formatters
+=== 日期字段格式化
 
-Date fields support the `Date`, `Url`, and `String` formatters.
+日期字段支持 `Date` 、 `Url` 和 `String` 格式化。
 
-The `Date` formatter enables you to choose the display format of date stamps using the http://moment.js[moment.js]
-standard format definitions.
+`Date` 格式化能让您使用 http://moment.js[moment.js] 标准格式定义来选择日期的显示格式。
 
 include::field-formatters/string-formatter.asciidoc[]
 
 include::field-formatters/url-formatter.asciidoc[]
 
 [[field-formatters-geopoint]]
-=== Geographic Point Field Formatters
+=== 地理坐标字段格式化
 
-Geographic point fields support the `String` formatter.
+地理坐标字段支持 `String` 格式化。
 
 include::field-formatters/string-formatter.asciidoc[]
 
 [[field-formatters-numeric]]
-=== Numeric Field Formatters
+=== 数字字段格式化
 
-Numeric fields support the `Url`, `Bytes`, `Duration`, `Number`, `Percentage`, `String`, and `Color` formatters.
+数字字段支持 `Url` 、 `Bytes` 、 `Duration` 、 `Number` 、 `Percentage` 、 `String` 和 `Color` 格式化
 
 include::field-formatters/url-formatter.asciidoc[]
 
@@ -56,72 +52,63 @@ include::field-formatters/duration-formatter.asciidoc[]
 
 include::field-formatters/color-formatter.asciidoc[]
 
-The `Bytes`, `Number`, and `Percentage` formatters enable you to choose the display formats of numbers in this field using
-the https://adamwdraper.github.io/Numeral-js/[numeral.js] standard format definitions.
+`Bytes` 、 `Number` 和 `Percentage` 格式化可以让您使用 https://adamwdraper.github.io/Numeral-js/[numeral.js] 标准格式定义来选择此字段中数字的显示格式。
 
 [[scripted-fields]]
-=== Scripted Fields
+=== 脚本化字段
 
-Scripted fields compute data on the fly from the data in your Elasticsearch indices. Scripted field data is shown on
-the Discover tab as part of the document data, and you can use scripted fields in your visualizations.
-Scripted field values are computed at query time so they aren't indexed and cannot be searched.
+脚本化字段是依据 Elasticsearch 索引中的数据即时计算得到的。其作为文档数据的一部分显示在 *发现* 标签页上，您可以将其可视化，但是因为脚本化字段的值是在查询时实时计算产生的，所以它们不能被索引和查询。
 
-NOTE: Kibana cannot query scripted fields.
+NOTE: Kibana 不能查询脚本化字段
 
-WARNING: Computing data on the fly with scripted fields can be very resource intensive and can have a direct impact on
-Kibana's performance. Keep in mind that there's no built-in validation of a scripted field. If your scripts are
-buggy, you'll get exceptions whenever you try to view the dynamically generated data.
+WARNING: 脚本化字段因为实时计算数据，所以有可能非常耗费资源，并对 Kibana 的性能产生直接的影响。请记住，脚本化字段是没有内置校验的。如果脚本有问题，每当您试图去查看动态生成的数据时都会得到异常。
 
-When you define a scripted field in Kibana, you have a choice of scripting languages. Starting with 5.0, the default 
-options are {es-ref}modules-scripting-expression.html[Lucene expressions] and {es-ref}modules-scripting-painless.html[Painless]. 
-While you can use other scripting languages if you enable dynamic scripting for them in Elasticsearch, this is not recommended 
-because they cannot be sufficiently {es-ref}modules-scripting-security.html[sandboxed].
+当您在 Kibana 中定义一个脚本化字段时，您可以选择使用的脚本语言。从 5.0 版本开始，默认的选项是 {es-ref}modules-scripting-expression.html[Lucene  表达式] 和 {es-ref}modules-scripting-painless.html[Painless]。如果您在 Elasticsearch 中启用了其它动态脚本语言，也可以在 Kibana 中使用，但是不建议这样做。因为它们不能确保{es-ref}modules-scripting-security.html[沙箱安全]。
 
-WARNING: Use of Groovy, Javascript, and Python scripting is deprecated starting in Elasticsearch 5.0, and support for those 
-scripting languages will be removed in the future. 
+WARNING: 从 Elasticsearch 5.0 开始，不推荐使用 Groovy、 Javascript 和 Python 脚本，未来的版本中将不再支持这些脚本语言。
 
-You can reference any single value numeric field in your expressions, for example:
+您可以在表达式中引用任何单值的数值字段，例如：
 
 ----
 doc['field_name'].value
 ----
 
-For more background on scripted fields and additional examples, refer to this blog: 
+
+有关脚本化字段和其他范例的更多背景信息，请参阅此博客：
 https://www.elastic.co/blog/using-painless-kibana-scripted-fields[Using Painless in Kibana scripted fields]
 
 [float]
 [[create-scripted-field]]
-=== Creating a Scripted Field
-To create a scripted field:
+=== 创建一个脚本化字段
+要创建校本化字段:
 
-. Go to *Settings > Indices*
-. Select the index pattern you want to add a scripted field to.
-. Go to the pattern's *Scripted Fields* tab.
-. Click *Add Scripted Field*.
-. Enter a name for the scripted field.
-. Enter the expression that you want to use to compute a value on the fly from your index data.
-. Click *Save Scripted Field*.
+. 进入 *设置 > 索引*
+. 选择您要添加脚本化字段的索引模式。
+. 进入模式的 *脚本化字段* 标签页。
+. 点击 *添加脚本化字段* 。
+. 输入脚本化字段的名称。
+. 输入您想要通过索引数据即时计算值的表达式。
+. 点击 *保存脚本化字段* 。
 
-For more information about scripted fields in Elasticsearch, see
-{es-ref}modules-scripting.html[Scripting].
+有关 Elasticsearch 中脚本化字段的更多信息，请参考 {es-ref}modules-scripting.html[Scripting]。
 
 [float]
 [[update-scripted-field]]
-=== Updating a Scripted Field
-To modify a scripted field:
+=== 更新一个脚本化字段
+要编辑一个脚本化字段：
 
-. Go to *Settings > Indices*
-. Click the *Edit* button for the scripted field you want to change.
-. Make your changes and then click *Save Scripted Field* to update the field.
+. 进入 *设置 > 索引* 。
+. 点击您想要修改的脚本化字段的 *编辑* 按钮。
+. 修改并点击 *保存脚本化字段* 以更新字段。
 
-WARNING: Keep in mind that there's no built-in validation of a scripted field. If your scripts are buggy, you'll get
-exceptions whenever you try to view the dynamically generated data.
+WARNING: 请注意，脚本化字段没有内置验证。如果您的脚本有问题，每次当您尝试查看动态生成的数据时，都会遇到异常。
 
 [float]
 [[delete-scripted-field]]
-=== Deleting a Scripted Field
-To delete a scripted field:
+=== 删除一个脚本化字段
+要删除一个脚本化字段：
 
-. Go to *Settings > Indices*
-. Click the *Delete* button for the scripted field you want to remove.
-. Confirm that you really want to delete the field.
+. 进入 *设置 > 索引* 。
+. 点击要删除的脚本化字段的 *删除* 按钮。
+. 确认您确实要删除该字段。
+

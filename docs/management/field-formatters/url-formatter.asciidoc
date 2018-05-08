@@ -1,28 +1,23 @@
-The `Url` field formatter can take on the following types:
+`Url` 字段格式化器支持如下类型：
 
-* The *Link* type turn the contents of the field into an URL.
-* The *Image* type can be used to specify an image directory where a specified image is located.
+* *链接* 类型可以将字段的内容转化为一个 URL 。
+* *图片* 类型可以用于指定一张特定图片所在的图片目录。
 
-You can customize either type of URL field formats with templates. A _URL template_ enables you to add specific values
-to a partial URL. Use the string `{{value}}` to add the contents of the field to a fixed URL.
+您可以用模板来自定义任意类型的 URL 字段格式。一个 _URL 模板_ 可以让您添加特定的值作为 URL 的一部分。使用字符串 `{{value}}` 可以将其值添加到指定的 URL。
 
-For example, when:
+例如，当:
 
-* A field contains a user ID
-* That field uses the `Url` field formatter
-* The URI template is `http://company.net/profiles?user_id={­{value}­}`
+* 一个字段含有一个用户 ID
+* 对该字段使用了 `Url` 字段格式化器
+* URI 模板为 `http://company.net/profiles?user_id={­{value}­}`
 
-The resulting URL replaces `{{value}}` with the user ID from the field.
+生成的 URL 会用来自该字段的用户 ID 替换 `{{value}}` 。
 
-The `{{value}}` template string URL-encodes the contents of the field. When a field encoded into a URL contains
-non-ASCII characters, these characters are replaced with a `%` character and the appropriate hexadecimal code. For
-example, field contents `users/admin` result in the URL template adding `users%2Fadmin`.
+`{{value}}` 模板字符串会对字段内容做 URL 编码。当一个字段编码为 URL 出现非 ASCII 字符时，这些字符会被替换为由 `%` 字符加上相对应的十六进制代码。例如，字段值 `users/admin` 编码到 URL 模板中会变为 `users%2Fadmin` 。
 
-When the formatter type is set to *Image*, the `{{value}}` template string specifies the name of an image at the
-specified URI.
+当格式化器的类型为 *图片* 时， `{{value}}` 模板字符串会被替换为对应 URI 图片的名称。
 
-In order to pass unescaped values directly to the URL, use the `{{rawValue}}` string.
+如果想要将未转义的值直接传递给URL，需要使用 `{{rawValue}}` 字符串。
 
-A _Label Template_ enables you to specify a text string that displays instead of the raw URL. You can use the
-`{{value}}` template string normally in label templates. You can also use the `{{url}}` template string to display
-the formatted URL.
+_标签模板_ 可以让您显示一段文本而不是直接显示 URL，您可以在标签模板中使用普通的模板字符串 `{{value}}` 。也可以使用 `{{url}}` 模板字符串来显示格式化的 URL。
+

@@ -1,21 +1,20 @@
 [[metric-chart]]
-== Metric
+== 指标（Metric）
 
-A metric visualization displays a single number for each aggregation you select:
+一个指标视图为每个查询聚合显示一个单一的数字：
 
 include::y-axis-aggs.asciidoc[]
 
-You can click the *Advanced* link to display more customization options:
+点击 *高级* 链接来显示更多自定义选项：
 
-*JSON Input*:: A text field where you can add specific JSON-formatted properties to merge with the aggregation
-definition, as in the following example:
+*JSON Input*:: 一个文本属性，可以增加指定的 JSON 格式属性来与聚合定义合并，示例如下：
 
 [source,shell]
 { "script" : "doc['grade'].value * 1.2" }
 
-NOTE: In Elasticsearch releases 1.4.3 and later, this functionality requires you to enable
-{es-ref}modules-scripting.html[dynamic Groovy scripting].
+NOTE: 在 Elasticsearch 1.4.3及后续版本中，这个功能需要打开 {es-ref}modules-scripting.html[dynamic Groovy scripting]。
 
-The availability of these options varies depending on the aggregation you choose.
+这些选项是否可用取决于所选择的聚合。
 
-Click the *Options* tab to display the font size slider.
+点击 *Options* 选项卡显示字体大小下拉框。
+
