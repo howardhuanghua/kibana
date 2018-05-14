@@ -5,7 +5,7 @@
 
 [cols="<h,<",options="header",]
 |=======================================================================
-| Type | Purpose
+| 类型 | 用途
 | hacks | 每个应用都需要包含的模块。
 | visTypes | 注册器通过 `ui/registry/vis_types` 提供的模块。
 | fieldFormats | 注册器通过 `ui/registry/field_formats` 提供的模块。

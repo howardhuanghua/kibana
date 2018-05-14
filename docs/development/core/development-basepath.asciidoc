@@ -58,7 +58,7 @@ server.route({
 [float]
 ==== 开发模式中的 BasePathProxy
 
-Kibana 开发服务器自动运行在一个有随机 `server.basePath` 的代理之后。这样，当开发者编写代码时，他们会不断地确认他们的代码是否与 basePath 一起工作。
+Kibana 开发服务器在一个有随机 `server.basePath` 的代理之后自动运行。这样，当开发者编写代码时，他们会不断地确认他们的代码是否与 basePath 一起工作。
 
 为了达到这个效果， `serve` 任务做了如下一些事情：
 
@@ -67,8 +67,8 @@ Kibana 开发服务器自动运行在一个有随机 `server.basePath` 的代理
 
   - 为 `randomBasePath` 挑选一个三位数的值
 
-  - 从 `/{any}/app/{appName}` 重定向到 `/{randomBasePath}/app/{appName}` ，所以刷新会起作用
-  - 代理所有到 Kibana 服务器并以 `/{randomBasePath}/` 开头的请求
+  - 从 `/{any}/app/{appName}` 重定向到 `/{randomBasePath}/app/{appName}` ，从而使刷新起作用
+  - 将以 `/{randomBasePath}/` 开头的所有请求代理到 Kibana 服务器
 
 有时候，在开发环境中代理会产生意想不到的副作用。因此，当需要的时候您可以通过传递 `--no-base-path` 选项到 `serve` 任务或者 `npm start` 以退出代理。
 

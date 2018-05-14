@@ -1,6 +1,6 @@
 [[development-plugin-functional-tests]]
 === 插件功能测试
-插件通过运行 Kibana repo 使用 `FunctionalTestRunner` 。在继续之前，请确认您的 Kibana 开发环境配置正确。
+插件在 Kibana repo 外部运行并使用 `FunctionalTestRunner` 。在继续之前，请确认您的 Kibana 开发环境配置正确。
 
 [float]
 ==== 编写您自己的配置
@@ -19,8 +19,8 @@ import { MyAppPageProvider } from './services/my_app_page;
 // 使用 KIBANA_DIR 环境变量
 const KIBANA_CONFIG_PATH = resolve(process.env.KIBANA_DIR || '../kibana', 'test/functional/config.js');
 
-// 配置文件的默认导出必须是一个配置提供程序
-// 它确保返回带有项目配置值的对象
+// 配置文件的默认导出必须是一个配置提供程序（config provider）
+// 它返回带有项目配置值的对象
 export default async function ({ readConfigFile }) {
 
   // 读取 Kibana 配置文件，这样我们可以使用它的一些服务和 PageObjects
@@ -32,7 +32,7 @@ export default async function ({ readConfigFile }) {
       resolve(__dirname, './my_test_file.js'),
     ],
 
-    // 定义在您的测试中可用的服务和提供者，
+    // 定义在您的测试中可用的服务和提供程序，
     // 否则，只有内置的服务可用
     services: {
       ...kibanaConfig.get('services'),
@@ -65,13 +65,13 @@ export default async function ({ readConfigFile }) {
       directory: resolve(__dirname, './tmp/screenshots'),
     }
 
-    // 更多设置，例如 timeouts、 mochaOpts 等定义在配置模式。参加{blob}src/functional_test_runner/lib/config/schema.js[src/functional_test_runner/lib/config/schema.js]
+    // 更多设置，例如 timeouts、 mochaOpts 等定义在配置模式。参见 {blob}src/functional_test_runner/lib/config/schema.js[src/functional_test_runner/lib/config/schema.js]
   };
 }
 
 -----------
 
-现在可以在 repo 的根目录，运行您插件工程的 `FunctionalTestRunner` 脚本。
+现在可以在 repo 的根目录运行您插件工程的 `FunctionalTestRunner` 脚本。
 
 ["source","shell"]
 -----------
@@ -81,5 +81,5 @@ node ../kibana/scripts/functional_test_runner
 [float]
 ==== 使用 esArchiver
 
-我们正在为这部分准备文档，但目前最好的资料是原始的 {pull}10359[pull request].
+我们正在为这部分准备文档，但目前最好的资料是原始的 {pull}10359[pull request]。
 

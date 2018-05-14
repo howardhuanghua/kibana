@@ -10,7 +10,7 @@
 * 一组随机生成的日志文件。点击这里下载这个数据集：
   https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz[logs.jsonl.gz].
 
-有两个数据集是压缩文件。使用以下命令解压缩文件：
+其中有两个数据集是压缩文件，可使用以下命令解压缩文件：
 
 [source,shell]
 unzip accounts.zip

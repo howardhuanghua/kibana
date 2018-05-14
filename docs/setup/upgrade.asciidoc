@@ -35,7 +35,7 @@
 
 ===========================================
 
-NOTE: 由 Kibana 4.x 保存的查询、视图和仪表盘一般兼容 5.x。
+NOTE: 由 Kibana 4.x 保存的查询、视图和仪表板一般兼容 5.x。
 
 include::upgrade/upgrade-standard.asciidoc[]
 

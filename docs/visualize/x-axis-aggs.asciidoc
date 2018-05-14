@@ -11,7 +11,7 @@
 {es-ref}common-options.html#date-math[_日期数学_] 表达式来指定日期的范围。点击 *Add Range* 添加一组范围端点。
 点击红色的 *(x)* 符号删除一个范围。
 *IPv4 Range*:: {es-ref}search-aggregations-bucket-iprange-aggregation.html[_IPv4 范围_] 聚合使您能够指定 IPv4 地址的范围。点击 *Add Range* 添加一组范围端点。点击红色的 *(x)* 符号删除一个范围。
-*Terms*:: {es-ref}search-aggregations-bucket-terms-aggregation.html[_terms_] 聚合使您可以指定要显示的给定字段的顶部或底部 _n_ 个元素，按数量或自定义指标进行排序。
+*Terms*:: {es-ref}search-aggregations-bucket-terms-aggregation.html[_词条_] 聚合使您可以指定要显示的给定字段的顶部或底部 _n_ 个元素，按数量或自定义指标进行排序。
 *Filters*:: 您可以为数据指定一组 {es-ref}search-aggregations-bucket-filters-aggregation.html[_过滤器_] 。您可以将过滤器指定为查询字符串或采用 JSON 格式，就像在 Discover 搜索栏中一样。点击 *Add Filter* 添加另一个过滤器。点击 image:images/labelbutton.png[Label button icon] *label* 按钮打开标签字段，其中
 您可以键入一个名称以显示在可视化中。
 *Significant Terms*:: 显示实验性的

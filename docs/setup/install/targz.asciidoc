@@ -80,7 +80,7 @@ Kibana 默认情况下从 `$KIBANA_HOME/config/kibana.yml` 加载配置文件。
 [[targz-layout]]
 ==== `.tar.gz` 文件目录
 
-`.tar.gz` 整个包是独立的。默认情况下，所有的文件和目录都在 `$KIBANA_HOME` -- 解压包时创建的目录下。这样非常仿版，因为您不需要创建任何目录来使用 Kibana，卸载 Kibana 就是简单地删除 `$KIBANA_HOME` 目录。但还是建议修改一下配置文件和数据目录，这样就不会删除重要数据。
+`.tar.gz` 整个包是独立的。默认情况下，所有的文件和目录都在 `$KIBANA_HOME` -- 解压包时创建的目录下。这样非常方便，因为您不需要创建任何目录来使用 Kibana，卸载 Kibana 就是简单地删除 `$KIBANA_HOME` 目录。但还是建议修改一下配置文件和数据目录，这样就不会删除重要数据。
 
 
 [cols="<h,<,<m,<m",options="header",]

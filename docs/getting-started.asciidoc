@@ -10,9 +10,9 @@
 * 定义一个索引规范。
 * 利用<<discover, 探索页面>>查询示例数据。
 * 为示例数据设定 <<visualize, _可视化控件_>> 。
-* 在<<dashboard, 仪表盘>>中组装可视化控件。
+* 在<<dashboard, 仪表板>>中组装可视化控件。
 
-在开始之前，请确保您<<install, 已安装 Kibana>> 并已成功<<connect-to-elasticsearch, 连接 Elasticsearch>> 。
+在开始之前，请确保您<<install, 已安装 Kibana>> 并已成功<<connect-to-elasticsearch, 连接至 Elasticsearch>> 。
 
 更多您可能感兴趣的视频教程：
 

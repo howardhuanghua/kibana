@@ -8,7 +8,7 @@
 .控制台用户界面
 image::images/introduction_screen.png[Screenshot]
 
-控制台可以解析像 cURL 命令这样的语句。例如下面这条控制台命令
+控制台可以解析像 cURL 命令这样的语句。例如以下控制台命令
 
 [source,js]
 ----------------------------------
@@ -20,7 +20,7 @@ GET /_search
 }
 ----------------------------------
 
-就是一个简单的 Elasticsearch `_search API GET` 请求。下面是同样效果的 cURL 命令。
+是 Elasticsearch `_search API` 的简单 GET 请求。下面是同样效果的 cURL 命令。
 
 [source,bash]
 ----------------------------------

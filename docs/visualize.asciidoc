@@ -3,9 +3,9 @@
 
 [partintro]
 --
-_可视化 (Visualize)_ 功能可以为您的 Elasticsearch 数据创建可视化控件。之后，您就可以创建<<dashboard, 仪表盘>>将这些可视化控件整合到一起展示。
+_可视化 (Visualize)_ 功能可以为您的 Elasticsearch 数据创建可视化控件。之后，您就可以创建<<dashboard, 仪表板>>将这些可视化控件整合到一起展示。
 
-Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasticsearch {es-ref}search-aggregations.html[查询聚合]功能处理数据，然后利用一些图表来呈现您关心的数据趋势分布。
+Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasticsearch {es-ref}search-aggregations.html[查询聚合]功能处理数据，您可以通过创建图表来呈现您关心的数据分布和趋势。
 
 您可以基于在 <<discover, Discover>> 页面保存的查询或者新建一个查询来创建可视化控件。
 --
@@ -33,7 +33,7 @@ Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasti
 <<tilemap,Coordinate map>>:: 把一个聚合结果关联到地理位置。
 * *时间序列*
 [horizontal]
-<<timelion-getting-started,Timelion>>:: 计算且合并多个时间序列数据集。
+<<timelion-getting-started,Timelion>>:: 计算和合并来自多个时间序列数据集。
 <<time-series-visual-builder,Time Series Visual Builder>>:: 使用管道聚合显示时间序列数据。
 * *其他* 
 [horizontal]
@@ -43,7 +43,7 @@ Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasti
 ** 想要输入新的搜索条件，只需为包含想要可视化数据的索引库选择索引模式。这将打开一个可视化视图编辑器，并关联一个匹配所选索引库里所有文档的通配符查询。
 ** 想要从一个已有的搜索来构建一个可视化视图，只需点击想使用的已有查询名称即可。这将打开一个视图编辑器并加载所选的查询。
 +
-注意：当从一个已有的搜索来构建可视化视图时，随后对已有查询的任何修改都会自动反馈在视图中。想要禁止自动更新的话，需要把视图从已保存的搜索断开连接。
+NOTE: 当从一个已有的搜索来构建可视化视图时，随后对已有查询的任何修改都会自动反馈在视图中。想要禁止自动更新，您需要断开视图和已保存的搜索之间的连接。
 
 . 在视图编辑器中为视图的Y轴选择指标聚合：
 

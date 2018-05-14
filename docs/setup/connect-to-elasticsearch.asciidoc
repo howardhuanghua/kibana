@@ -29,14 +29,14 @@ NOTE: Kibana 可视化控件中的字段以及 `.kibana` 索引管理依赖动�
 
 * 在 <<discover, Discover>> 页搜索和浏览数据。
 * 在 <<visualize, Visualize>> 页做数据图表映射。
-* 在 <<dashboard, Dashboard>> 页创建并查看自定义仪表盘。
+* 在 <<dashboard, Dashboard>> 页创建并查看自定义仪表板。
 
 您可以通过查看 <<getting-started, 基础入门>>来获取 Kibana 的主要内容介绍。
 
 [float]
 [[kibana-dynamic-mapping]]
 === Kibana 和 Elasticsearch 动态映射
-默认情况下，Elasticsearch 启用了字段的 {es-ref}dynamic-mapping.html[动态映射]。Kibana 需要利用动态映射在可视化控件中正确使用字段，同时管理 `.kibana` 索引，这些索引存储了已保存的搜索、可视化图表和仪表盘。
+默认情况下，Elasticsearch 启用了字段的 {es-ref}dynamic-mapping.html[动态映射]。Kibana 需要利用动态映射在可视化控件中正确使用字段，同时管理 `.kibana` 索引，这些索引存储了已保存的搜索、可视化图表和仪表板。
 
 如果 Elasticsearch 使用场景需要禁止动态映射，这就需要手动提供创建可视化控件所需要字段的映射，并手动启用 `.kibana` 索引的动态映射。
 

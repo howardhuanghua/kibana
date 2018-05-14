@@ -59,4 +59,4 @@ image::images/timelion-conditional03.png[]
 image::images/timelion-conditional04.png[]
 {nbsp}
 
-保存您的 Timelion 工作表，继续学习下一章节将这些工作表添加到您的仪表盘上。
+保存您的 Timelion 工作表，继续学习下一章节将这些工作表添加到您的仪表板上。

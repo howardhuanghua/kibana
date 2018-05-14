@@ -18,7 +18,7 @@
     在 `src/ui/public/filters` 导入所有过滤器。
 
 - *`import 'ui/autoload/modules'`*
-    导入 Kibana 依赖却没有导入的 angular、一些 ui 服务和 “组件”。需要导入的全量列表被硬编码在模块中。希望这个列表会随着时间的推移而缩小，因为我们正确地映射出所需的模块并导入它们实际上是必要的。
+    导入 Kibana 依赖没有导入的 angular、一些 ui 服务和 “组件”。需要导入的全量列表被硬编码在模块中。随着我们正确地定位出所需模块并将其导入到需要它们的位置，这个列表可能会逐渐缩小。
 
 - *`import 'ui/autoload/all'`*
     导入所有上述模块
@@ -51,7 +51,7 @@ Kibana 用 Webpack 管理依赖。
   * 如果找到匹配
     ** 以匹配的全路径替换 requite 语句中的 `moduleName` 前缀，然后转到 *3*
 . 搜索文件
-  * 解析到下列路径中的第一个 **file** 是我们的匹配
+  * 下列路径中第一个解析为一个 **file** 的是我们的匹配
     ** path + '.js'
     ** path + '.json'
     ** path + '.jsx'

@@ -31,7 +31,7 @@ WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可
 `doc_table:highlight`:: ”发现“标签页和保存的搜索仪表板中会高亮显示搜索结果。但是如果遇到超大文档可能会导致请求响应变慢。将此属性设置为 `false` 可禁用高亮显示。
 `doc_table:highlight:all_fields`:: 通过在 `query_string` 查询上使用 `all_fields` 模式的单独 `highlight_query` 来改进高亮显示性能。如果您在索引中使用 `default_field` 字段，则设置为 `false` 。
 `courier:maxSegmentCount`:: Kibana 将”发现“功能中的请求拆分成多个段，以限制发送到 Elasticsearch 集群请求的大小。该设置限制了段列表的长度。太长的段列表会显著增加请求处理的时间。
-`courier:ignoreFilterIfFieldNotInIndex`:: 设置这个属性为 `true` 可以跳过那些可视化索引中不存在字段的过滤器。在组成仪表盘的可视化组件来自于多个索引模式时特别有用。
+`courier:ignoreFilterIfFieldNotInIndex`:: 设置这个属性为 `true` 可以跳过那些可视化索引中不存在字段的过滤器。在组成仪表板的可视化组件来自于多个索引模式时特别有用。
 `fields:popularLimit`:: 这个设置控制显示多少个热门字段。
 `histogram:barTarget`:: 当日期直方图使用 `auto` 间隔时，Kibana 试图产生条块的数量。
 `histogram:maxBars`:: 日期直方图不会生成超过此属性值的条块数量，并在需要时自动缩放。

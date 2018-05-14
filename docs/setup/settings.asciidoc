@@ -1,7 +1,7 @@
 [[settings]]
 == 配置 Kibana
 
-Kibana server 启动时从 `kibana.yml` 文件中读取配置属性。Kibana 默认配置 `localhost:5601` 。改变主机和端口号。或者连接其他机器上的 Elasticsearch，需要更新 `kibana.yml` 文件。也可以启用 SSL 和设置其他选项。
+Kibana server 启动时从 `kibana.yml` 文件中读取配置属性。Kibana 默认配置 `localhost:5601` 。改变主机和端口号，或者连接其他机器上的 Elasticsearch，需要更新 `kibana.yml` 文件。也可以启用 SSL 和设置其他选项。
 
 .Kibana 配置项
 `server.port:`:: *默认值: 5601* Kibana 由后端服务器提供服务，该配置指定使用的端口号。

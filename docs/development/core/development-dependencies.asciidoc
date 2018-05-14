@@ -1,7 +1,7 @@
 [[development-dependencies]]
 === 管理依赖
 
-在开发 Kibana 前端环境中使用的插件时，您可能想要包含一个或两个库（至少）。虽然这在90%的情况下都是很简单的，但总会有一些异常值，而其中一些异常值还是在非常受欢迎的项目中。
+在开发 Kibana 前端环境中使用的插件时，您可能想要包含（至少）一个或两个库。虽然这在90%的情况下都是很简单的，但总会有一些异常值，而其中一些异常值还是在非常受欢迎的项目中。
 
 在 Kibana 中使用外部库之前，您要先安装它。您可以通过如下方式安装：
 
@@ -22,7 +22,7 @@ npm install --save some-neat-library
 import someNeatLibrary from 'some-neat-library';
 -----------
 
-就像在 node.js 中一样，前端代码可以在不需要任何附件配置的情况下，使用 npm 安装节点模块。
+就像在 node.js 中一样，前端代码无需进行扩展配置就能请求 npm 节点模块安装。
 [float]
 ==== webpackShims
 
@@ -32,11 +32,11 @@ import someNeatLibrary from 'some-neat-library';
 -----------
 # 为新的库创建一个目录
 mkdir -p webpackShims/some-neat-library
-# 下载您想用的库导该目录
+# 将您想使用的库下载到该目录
 curl https://cdnjs.com/some-neat-library/library.js > webpackShims/some-neat-library/index.js
 -----------
 
-然后，像往常一样在您的 JavaScript 代码中包含包含该库：
+然后，像往常一样在您的 JavaScript 代码中包含该库：
 ["source","shell"]
 -----------
 import someNeatLibrary from 'some-neat-library';
@@ -45,11 +45,11 @@ import someNeatLibrary from 'some-neat-library';
 [float]
 ==== 桥接第三方代码
 
-一些 JavaScript 库声明它们依赖的方式，其他工具例如 webpack 并不理解。通常情况下，库不会导出它们提供的值，而只是将它们写入到全局变量里（或者某种意义上的变量）。
+一些 JavaScript 库声明它们依赖的方式并不会被诸如 webpack 的工具所理解。通常情况下，库不会导出它们提供的值，而只是将它们写入到全局变量里（或者某种意义上的变量）。
 
 当将这样的代码拉入到 Kibana 中时，我们要编写 “桥接代码（shims）” 来整合第三方代码，以便与我们的应用、其他库和模块系统一起工作。我们可以使用 `webpackShims` 目录来做到这一点。
 
-通过例子，是解释如何编写桥接代码的最简单方式。下面是我们用于 jQuery 的 webpack 桥接代码。
+示例是解释如何编写桥接代码的最简单方式。下面是我们用于 jQuery 的 webpack 桥接代码。
 
 ["source","shell"]
 -----------
@@ -59,10 +59,10 @@ module.exports = window.jQuery = window.$ = require('node_modules/jquery/dist/jq
 require('ui/jquery/findTestSubject')(window.$);
 -----------
 
-由于 `webpackShims` 的行为类似 `node_modules` ， 因此一旦 webpack 发现 `import 'jquery';` 语句，桥接代码会被加载。当它发生时，桥接代码会做两件事：
+由于 `webpackShims` 的行为类似于 `node_modules` ， 一旦 webpack 发现 `import 'jquery';` 语句，桥接代码会被加载。当它发生时，桥接代码会做两件事：
 
 . 将实际 jQuery 模块的导出值分配给 `$` 和 `jQuery` ，允许像 angular 这样的库检测 jQuery 是否可用，并将其作为模块的导出变量使用。
-. 最终，我们编写的 jQuery 插件被引入，因此每次在 jQuery 中导入文件，它会得到 jQuery 和 `$.findTestSubject` 帮助模块。
+. 最终，我们编写的 jQuery 插件会被引入，因此每次有文件引入 jQuery 时，该文件会同时得到 jQuery 和 `$.findTestSubject` 的帮助模块。
 
 下面是我们用于 angular 的 webpack 桥接代码：
 
@@ -79,9 +79,9 @@ module.exports = window.angular;
 
 如果您一行一行的看，会发现桥接代码做的很简单：
 
-. 确保 jQuery 在 angular（实际运行在 shim 之上） 之前加载。
+. 确保 jQuery 在 angular（实际运行上述的 shim） 之前加载。
 . 从 npm 安装中加载 angular.js 。
-. 加载 angular-elastic 插件，每当我们导入 angular 时，都会要包含它。
+. 加载 angular-elastic 插件，每次导入 angular 都需要包含 angular-elastic 插件。
 . 使用 `ui/modules` 模块添加被 angular-elastic 导入进来的模块作为 `kibana` angular 模块的依赖。
 . 最后，导出 window.angular 变量。这意味着当写下 `import angular from 'angular';` 时会恰当地设置 angular 库中的 angular 变量，而不是未定义的默认配置。
 
