@@ -3,7 +3,7 @@
 
 [partintro]
 --
-本节讨论当您的应用需从某个 kibana 版本迁移到另外一个版本时需要特别注意的一些更改。
+本节讨论在将应用程序从一个版本的 Kibana 迁移到另一个版本时需要注意的变化。
 --
 
 include::migration/migrate_6_0.asciidoc[]

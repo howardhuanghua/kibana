@@ -11,8 +11,8 @@ Ctrl/Cmd + I:: 当前请求自动缩进。
 Ctrl + Space:: 打开自动补全 （即使没有打字也可以）。
 Ctrl/Cmd + Enter:: 提交请求。
 Ctrl/Cmd + Up/Down:: 跳转到上一个/下一个请求的开始或结束。
-Ctrl/Cmd + Alt + L:: 折叠或打开当前代码块。
-Ctrl/Cmd + Option + 0:: 折叠除当前代码块之外的所有代码块，通过添加 shift 打开除当前代码块之外的所有代码块。
+Ctrl/Cmd + Alt + L:: 折叠或展开当前代码块。
+Ctrl/Cmd + Option + 0:: 折叠除当前代码块之外的所有代码块，通过添加 shift 来展开。
 
 [float]
 === 自动补全可见时

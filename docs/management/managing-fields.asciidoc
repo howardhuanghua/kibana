@@ -80,7 +80,7 @@ https://www.elastic.co/blog/using-painless-kibana-scripted-fields[Using Painless
 [float]
 [[create-scripted-field]]
 === 创建一个脚本化字段
-要创建校本化字段:
+要创建脚本化字段:
 
 . 进入 *设置 > 索引*
 . 选择您要添加脚本化字段的索引模式。
@@ -95,7 +95,7 @@ https://www.elastic.co/blog/using-painless-kibana-scripted-fields[Using Painless
 [float]
 [[update-scripted-field]]
 === 更新一个脚本化字段
-要编辑一个脚本化字段：
+要修改一个脚本化字段：
 
 . 进入 *设置 > 索引* 。
 . 点击您想要修改的脚本化字段的 *编辑* 按钮。

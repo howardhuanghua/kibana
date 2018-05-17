@@ -69,7 +69,7 @@ $ chown -R kibana:kibana /path/to/kibana/optimize
 [source,shell]
 $ bin/kibana-plugin remove x-pack
 
-您也可以通过手动删除 `plugins/` 目录下的对应的插件目录来删除插件。
+您也可以通过手动删除 `plugins/` 目录下的插件子目录来手动删除插件。
 
 NOTE: 删除插件之后将会在下一次 Kibana 启动的时候触发一次 “优化（optimize）” 动作，可能会使启动有点延迟。
 

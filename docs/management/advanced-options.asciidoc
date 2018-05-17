@@ -13,7 +13,7 @@
 [float]
 [[kibana-settings-reference]]
 
-WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可能导致难以诊断的问题。如果想恢复默认设置，将属性值设置为空字段即可。这可能会造成与其他配置不一致的情况。如果删除一个自定义的设置，则会将其从 Kibana 中永久删除。
+WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可能导致难以诊断的问题。如果想恢复默认设置，将属性值设置为空字段即可，这可能会造成与其他配置不兼容的情况。如果删除一个自定义的设置，则会将其从 Kibana 中永久删除。
 
 .Kibana 设置指引
 [horizontal]
@@ -21,7 +21,7 @@ WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可
 `sort:options`:: Elasticsearch 排序参数选项 {es-ref}search-request-sort.html[sort] 。
 `dateFormat`:: 指定日期的显示格式。
 `dateFormat:tz`:: Kibana 使用的时区。默认值 `Browser` 表示使用用户浏览器检测到的时区。
-`dateFormat:scaled`:: 此设置用于定义基于时间序列的数据按顺序呈现的情况下使用的时间戳格式，以及格式化后的时间戳应该适配的测量间隔。参考： http://en.wikipedia.org/wiki/ISO_8601#Time_intervals[ISO8601 intervals]。
+`dateFormat:scaled`:: 这些值定义用于呈现基于时间的有序数据的格式，格式化的时间戳必须适配测量间隔。参考： http://en.wikipedia.org/wiki/ISO_8601#Time_intervals[ISO8601 intervals]。
 `dateFormat:dow`:: 这个属性定义了一周应该从哪一天开始。
 `defaultIndex`:: 默认值是 `null` 。这个属性指定了默认索引。
 `defaultColumns`:: 默认值是 `_source` 。定义“发现”标签页上默认显示的列。
@@ -36,7 +36,7 @@ WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可
 `histogram:barTarget`:: 当日期直方图使用 `auto` 间隔时，Kibana 试图产生条块的数量。
 `histogram:maxBars`:: 日期直方图不会生成超过此属性值的条块数量，并在需要时自动缩放。
 `visualization:tileMap:maxPrecision`:: tile 地图上显示的最大 geoHash 精度：7表示高，10表示非常高，12是最大值。 {es-ref}search-aggregations-bucket-geohashgrid-aggregation.html#_cell_dimensions_at_the_equator[Explanation of cell dimensions].
-`visualization:tileMap:WMSdefaults`:: WMS 地图服务器在坐标图中的默认属性。
+`visualization:tileMap:WMSdefaults`:: 坐标图中 WMS MAP 服务器支持的默认属性。
 `visualization:colorMapping`:: 在可视化组件内映射值到指定颜色。
 `visualization:loadingDelay`:: 在载入可视化组件查询时的等待时长。
 `visualization:dimmingOpacity`:: 当一个可视化组件的一部分通过悬停其上而突出显示时，其他元素会产生不透明效果，数值越大意味着其他元素越不透明。
@@ -66,8 +66,8 @@ WARNING: 修改以下的设置会显著的影响 Kibana 的性能，并且有可
 `timelion:showTutorial`:: 设置这个属性为 `true` 以便在用户第一次使用 Timelion 时显示 Timelion 教程。
 `timelion:es.timefield`:: 当使用 `.es()` 查询时，默认字段包含时间戳。
 `timelion:es.default_index`:: 当使用 `.es()` 查询时，默认的索引。
-`timelion:target_buckets`:: 在可视化组件中使用自动间隔时，默认使用桶的数量。
-`timelion:max_buckets`:: 在可视化组件中使用自动间隔时，使用桶的最大数量。
+`timelion:target_buckets`:: 用于计算可视化中的自动间隔，这是试图表示的桶的数量
+`timelion:max_buckets`:: 用于计算可视化中的自动间隔，这是试图表示的桶的最大数量。
 `timelion:default_columns`:: 在 timelion 工作表上使用的默认列数。
 `timelion:default_rows`:: 在 timelion 工作表上使用的默认行数。
 `timelion:graphite.url`:: [试验的] 用于 graphite 查询，这里设置其主机的 URL

@@ -1,7 +1,7 @@
 [[multi-requests]]
 == 多请求支持
 
-控制台编辑器允许在彼此之下写多个请求，像在<<console-kibana>>章节展示中那样，您可以通过定位光标并使用<<action_menu,动作菜单>>向 Elasticsearch 提交请求。同样的您可以一次选择多个请求：
+控制台编辑器允许您编写相互层叠的多个请求，像在<<console-kibana>>章节展示中那样，您可以通过定位光标并使用<<action_menu,动作菜单>>向 Elasticsearch 提交请求。类似的，您可以一次选择多个请求：
 
 
 .选择多个请求

@@ -21,7 +21,7 @@
 *Moving Average*:: {es-ref}search-aggregations-pipeline-movavg-aggregation.html[_移动平均值_] 聚合将动态移动数据窗口，生成该窗口数据的平均值。
 *Serial Diff*:: {es-ref}search-aggregations-pipeline-serialdiff-aggregation.html[_串行差分_] 是一种时间序列中的值在不同时间滞后或周期内从自身减去的技术。
 
-同级管道聚合：
+兄弟管道聚合：
 
 就像使用父级管道聚合一样，您需要提供一个用于计算同级聚合的指标。除此之外，还需要提供一个桶聚合，它将定义同级聚合将在其中运行的桶。
 

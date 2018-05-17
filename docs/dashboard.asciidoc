@@ -10,7 +10,7 @@ Kibana _仪表板（Dashboard）_ 展示保存的可视化结果集合。
 .仪表板示例
 image:images/tutorial-dashboard.png[Example dashboard]
 
-在编辑模式下您可以根据需要安排和调整可视化结果集并保存仪表板，这样它们就会被重新加载且可以共享。
+在编辑模式下，您可以根据需要安排和调整可视化结果集，并保存仪表板，以便重新加载和共享。
 
 .编辑模式
 image:images/Dashboard-Tutorial-Edit-Mode.png[Example dashboard in edit mode]

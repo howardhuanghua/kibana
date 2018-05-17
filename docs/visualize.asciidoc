@@ -3,9 +3,9 @@
 
 [partintro]
 --
-_可视化 (Visualize)_ 功能可以为您的 Elasticsearch 数据创建可视化控件。之后，您就可以创建<<dashboard, 仪表板>>将这些可视化控件整合到一起展示。
+_可视化 (Visualize)_ 功能可以为您的 Elasticsearch 数据创建可视化控件。然后，您就可以创建<<dashboard, 仪表板>>将这些可视化控件整合到一起展示。
 
-Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasticsearch {es-ref}search-aggregations.html[查询聚合]功能处理数据，您可以通过创建图表来呈现您关心的数据分布和趋势。
+Kibana 可视化控件基于 Elasticsearch 的查询。利用一系列的 Elasticsearch {es-ref}search-aggregations.html[查询聚合]功能来提取和处理数据，您可以通过创建图表来呈现您关心的数据分布和趋势。
 
 您可以基于在 <<discover, Discover>> 页面保存的查询或者新建一个查询来创建可视化控件。
 --
@@ -47,7 +47,7 @@ NOTE: 当从一个已有的搜索来构建可视化视图时，随后对已有�
 
 . 在视图编辑器中为视图的Y轴选择指标聚合：
 
-* *指标聚合* ：
+* *指标聚合(Metrics Aggregations)* ：
 
 * {es-ref}search-aggregations-metrics-valuecount-aggregation.html[count]
 * {es-ref}search-aggregations-metrics-avg-aggregation.html[average]
@@ -63,7 +63,7 @@ NOTE: 当从一个已有的搜索来构建可视化视图时，随后对已有�
 * {es-ref}search-aggregations-metrics-geocentroid-aggregation.html[geo centroid]
 
 
-* *父类管道聚合* ：
+* *父类管道聚合(Parent Pipeline Aggregations)* ：
 
 * {es-ref}search-aggregations-pipeline-derivative-aggregation.html[derivative]
 * {es-ref}search-aggregations-pipeline-cumulative-sum-aggregation.html[cumulative sum]
@@ -71,7 +71,7 @@ NOTE: 当从一个已有的搜索来构建可视化视图时，随后对已有�
 * {es-ref}search-aggregations-pipeline-serialdiff-aggregation.html[serial diff]
 
 
-* *兄弟管道聚合* ：
+* *兄弟管道聚合(Sibling Pipeline Aggregations)* ：
 
 * {es-ref}search-aggregations-pipeline-avg-bucket-aggregation.html[average bucket]
 * {es-ref}search-aggregations-pipeline-sum-bucket-aggregation.html[sum bucket]
